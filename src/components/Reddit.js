@@ -73,6 +73,20 @@ class Reddit extends Component {
               Audio Link
             </a>
           </h2>
+          <h2>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={
+                'https://angry-hugle-804067.netlify.com/demo/?video=' +
+                this.state.redditVideo +
+                '&audio=' +
+                this.state.redditAudio
+              }
+            >
+              Download A+V
+            </a>
+          </h2>
           {/* <button onClick={this.handleRedditCombine}>Combine A+V</button> */}
         </div>
       </>
