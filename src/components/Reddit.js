@@ -10,6 +10,8 @@ class Reddit extends Component {
       redditAudio: '',
       redditURLinput: '',
       redditReady: false,
+      encodedVideo: '',
+      encodedAudio: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleReddit = this.handleReddit.bind(this);
@@ -46,6 +48,8 @@ class Reddit extends Component {
         that.setState({ redditVideo: jsonData['video'] });
         that.setState({ redditAudio: jsonData['audio'] });
         that.setState({ redditReady: true });
+        that.setState({ encodedVideo: btoa(jsonData['video']) });
+        that.setState({ encodedAudio: btoa(jsonData['audio']) });
       })
       .catch((error) => console.error('Error:', error));
   }
@@ -71,15 +75,14 @@ class Reddit extends Component {
             rel="noopener noreferrer"
             href={
               'https://angry-hugle-804067.netlify.com/demo/?video=' +
-              this.state.redditVideo +
+              this.state.encodedVideo +
               '&audio=' +
-              this.state.redditAudio
+              this.state.encodedAudio
             }
           >
             Download A+V
           </a>
         </h2>
-        {/* <button onClick={this.handleRedditCombine}>Combine A+V</button> */}
       </div>
     );
 
