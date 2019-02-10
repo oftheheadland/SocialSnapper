@@ -6,9 +6,10 @@ class Reddit extends Component {
   constructor() {
     super();
     this.state = {
-      redditVideo: 'reddit video placeholder',
-      redditAudio: 'reddit audio placeholder',
+      redditVideo: '',
+      redditAudio: '',
       redditURLinput: '',
+      redditReady: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleReddit = this.handleReddit.bind(this);
@@ -44,14 +45,44 @@ class Reddit extends Component {
         console.log(jsonData);
         that.setState({ redditVideo: jsonData['video'] });
         that.setState({ redditAudio: jsonData['audio'] });
+        that.setState({ redditReady: true });
       })
       .catch((error) => console.error('Error:', error));
-
-    this.setState({ redditVideo: 'loading...' });
-    this.setState({ redditAudio: 'loading...' });
   }
 
   render() {
+    const displayRedditResults = this.state.redditReady;
+
+    const redditDownloads = (
+      <div>
+        <h2 className="top">
+          <a target="_blank" rel="noopener noreferrer" href={this.state.redditVideo}>
+            Video Link
+          </a>
+        </h2>
+        <h2 className="bottom">
+          <a target="_blank" rel="noopener noreferrer" href={this.state.redditAudio}>
+            Audio Link
+          </a>
+        </h2>
+        <h2>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={
+              'https://angry-hugle-804067.netlify.com/demo/?video=' +
+              this.state.redditVideo +
+              '&audio=' +
+              this.state.redditAudio
+            }
+          >
+            Download A+V
+          </a>
+        </h2>
+        {/* <button onClick={this.handleRedditCombine}>Combine A+V</button> */}
+      </div>
+    );
+
     return (
       <>
         {/* TODO: https://reactcommunity.org/react-tabs/ style and color the tabs, generate them. only 3 so maybe no necessary to generate but at least style them 
@@ -62,33 +93,7 @@ class Reddit extends Component {
           <input type="text" name="redditURLinput" placeholder="Reddit Video URL" onChange={this.handleChange} />
           <button>Reddit</button>
         </form>
-        <div>
-          <h2 className="top">
-            <a target="_blank" rel="noopener noreferrer" href={this.state.redditVideo}>
-              Video Link
-            </a>
-          </h2>
-          <h2 className="bottom">
-            <a target="_blank" rel="noopener noreferrer" href={this.state.redditAudio}>
-              Audio Link
-            </a>
-          </h2>
-          <h2>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href={
-                'https://angry-hugle-804067.netlify.com/demo/?video=' +
-                this.state.redditVideo +
-                '&audio=' +
-                this.state.redditAudio
-              }
-            >
-              Download A+V
-            </a>
-          </h2>
-          {/* <button onClick={this.handleRedditCombine}>Combine A+V</button> */}
-        </div>
+        {displayRedditResults ? redditDownloads : ''}
       </>
     );
   }
