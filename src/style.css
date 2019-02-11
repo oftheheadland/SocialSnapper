@@ -12,11 +12,7 @@ header {
   display: flex;
   align-items: center;
   background: #6441a5; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #2a0845,
-    #6441a5
-  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, #2a0845, #6441a5); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to right,
     #2a0845,
@@ -59,9 +55,8 @@ header > p {
   text-transform: uppercase;
   color: white;
   letter-spacing: 1px;
-  text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000,
-    -2px 2px 0 #000, 0 2px 0 #000, 2px 0 0 #000, 0 -2px 0 #000, -2px 0 0 #000,
-    2px 2px 5px #000;
+  text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 0 2px 0 #000, 2px 0 0 #000,
+    0 -2px 0 #000, -2px 0 0 #000, 2px 2px 5px #000;
 }
 
 .meme > .bottom {
@@ -119,6 +114,6 @@ header > p {
 }
 
 .outer-container {
-  max-width: 50%;
+  max-width: 70%;
   margin: auto;
 }

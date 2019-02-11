@@ -49,27 +49,51 @@ class Instagram extends Component {
   render() {
     const { instagramLinks } = this.state;
 
+    // const instagramBlocks = instagramLinks.map((insta, i) => (
+    //   <div key={i}>
+    //     {insta.includes('.mp4') ? (
+    //       <div className="col-md-4 instagramCol">
+    //         <video key={insta} width="100%" controls>
+    //           <source src={insta} type="video/mp4" />
+    //           Your browser does not support the video tag.
+    //         </video>
+    //         <br />
+    //         <a className="btn btn-success instaVideoButton" target="_blank" rel="noopener noreferrer" href={insta}>
+    //           Download
+    //         </a>
+    //       </div>
+    //     ) : (
+    //       <div className="col-md-4 instagramCol">
+    //         <img alt="instagram pic" style={{ width: '100%' }} src={insta} />
+    //         <br />
+    //         <a className="btn btn-success" target="_blank" rel="noopener noreferrer" href={insta}>
+    //           Download
+    //         </a>
+    //       </div>
+    //     )}
+    //   </div>
+    // ));
+
     const instagramBlocks = instagramLinks.map((insta, i) => (
       <div key={i}>
-        {insta.includes('.mp4') ? (
-          <div>
-            <video key={insta} width="200px" controls>
-              <source src={insta} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            <a className="btn btn-success" target="_blank" rel="noopener noreferrer" href={insta}>
-              Download
-            </a>
-          </div>
-        ) : (
-          <div>
-            <img alt="instagram pic" style={{ width: '200px' }} src={insta} />
-            <br />
-            <a className="btn btn-success" target="_blank" rel="noopener noreferrer" href={insta}>
-              Download
-            </a>
-          </div>
-        )}
+        <div className="instagramCol">
+          {insta.includes('.mp4') ? (
+            <div style={{ height: '375px' }}>
+              <video key={insta} width="100%" controls>
+                <source src={insta} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          ) : (
+            <div>
+              <img alt="instagram pic" style={{ width: '100%' }} src={insta} />
+            </div>
+          )}
+
+          <a className="btn btn-success " target="_blank" rel="noopener noreferrer" href={insta}>
+            Download
+          </a>
+        </div>
       </div>
     ));
 
@@ -83,7 +107,7 @@ class Instagram extends Component {
           <button>Instagram</button>
         </form>
 
-        <div>{instagramBlocks}</div>
+        <div className="flex-container">{instagramBlocks}</div>
       </>
     );
   }
