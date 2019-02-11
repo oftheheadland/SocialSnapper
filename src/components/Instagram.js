@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
-import Reddit from './Reddit';
-
-class MediaFetcher extends Component {
+class Instagram extends Component {
   constructor() {
     super();
     this.state = {
       instagramLinks: [],
-      instagramURL: 'instagram url',
+      instagramURL: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleInstagram = this.handleInstagram.bind(this);

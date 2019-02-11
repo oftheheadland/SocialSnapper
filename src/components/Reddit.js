@@ -12,6 +12,7 @@ class Reddit extends Component {
       redditReady: false,
       encodedVideo: '',
       encodedAudio: '',
+      redditTitle: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleReddit = this.handleReddit.bind(this);
@@ -47,6 +48,7 @@ class Reddit extends Component {
         console.log(jsonData);
         that.setState({ redditVideo: jsonData['video'] });
         that.setState({ redditAudio: jsonData['audio'] });
+        that.setState({ redditTitle: jsonData['title'] });
         that.setState({ redditReady: true });
         that.setState({ encodedVideo: btoa(jsonData['video']) });
         that.setState({ encodedAudio: btoa(jsonData['audio']) });
@@ -59,6 +61,7 @@ class Reddit extends Component {
 
     const redditDownloads = (
       <div>
+        <h1>{this.state.redditTitle}</h1>
         <h2 className="top">
           <a target="_blank" rel="noopener noreferrer" href={this.state.redditVideo}>
             Video Link
