@@ -65,33 +65,18 @@ class Youtube extends Component {
 
     if (youtubeData !== undefined) {
       const audioData = youtubeData['audio'];
-      console.log(audioData);
-
       const bothData = youtubeData['both'];
-      //   console.log(bothData);
-
       const videoData = youtubeData['video'];
-      //   console.log(videoData);
 
       const generalData = youtubeData['general'];
       console.log(generalData);
 
-      const test = this.state.youtubeURLinput;
-
-      //   youtubeHeader = generalData.map((data, i) => (
-      //     <div key={i}>
-      //       <a href={data.url}>test</a>
-      //       test{console.log(data)}
-      //       <img alt="instagram pic" style={{ width: '200px' }} src="test" />
-      //       <br />
-      //       <a className="btn btn-success" target="_blank" rel="noopener noreferrer" href="test">
-      //         Download
-      //       </a>
-      //     </div>
-      //   ));
-
       youtubeHeader = (
         <div>
+          <p>
+            ***To download, right-click on the download button (or tap and hold if using mobile) and choose the
+            Save/Download option.***
+          </p>
           <p>Title: {generalData[0]['title']}</p>
           <p>Thumbnail: {generalData[0]['thumbnail']}</p>
           <p>
@@ -100,13 +85,11 @@ class Youtube extends Component {
               {generalData[0]['url']}
             </a>
           </p>
-
           <img
             alt="instagram pic"
             style={{ width: '400px' }}
             src={generalData[0]['thumbnail'].replace('default', 'hqdefault')}
           />
-
           {/* test{console.log(data)} */}
           {/* <img alt="instagram pic" style={{ width: '200px' }} src="test" />
           <br />
@@ -116,65 +99,58 @@ class Youtube extends Component {
         </div>
       );
 
-      videoHeader = <h2>video links</h2>;
-      videoBlocks = videoData.map((data, i) => (
-        <div key={i}>
-          {/* test{console.log(data)} */}
-          <a className="btn btn-success" target="_blank" rel="noopener noreferrer" href={data.url}>
-            Download
-          </a>
+      bothHeader = (
+        <div>
+          <hr />
+          <h2>Download Video</h2>
         </div>
-      ));
-
-      bothHeader = <h2>both links</h2>;
+      );
       bothBlocks = bothData.map((data, i) => (
         <div key={i}>
-          {/* test{console.log(data)} */}
+          <p>Quality: {data.resolution}</p>
+          <p>File type: {data.mime_type}</p>
+          <p>File size: {data.filesize}</p>
           <a className="btn btn-success" target="_blank" rel="noopener noreferrer" href={data.url}>
             Download
           </a>
         </div>
       ));
 
-      audioHeader = <h2>audio links</h2>;
+      audioHeader = (
+        <div>
+          <hr />
+          <h2>Download Audio Only</h2>
+        </div>
+      );
       audioBlocks = audioData.map((data, i) => (
         <div key={i}>
-          test{console.log(data)}
+          <p>Bit Rate: {data.abr}</p>
+          <p>Audio Codec: {data.audio_codec}</p>
+          <p>File type: {data.mime_type}</p>
+          <p>File size: {data.filesize}</p>
+          <a className="btn btn-success" target="_blank" rel="noopener noreferrer" href={data.url}>
+            Download
+          </a>
+        </div>
+      ));
+
+      videoHeader = (
+        <div>
+          <hr />
+          <h2>Download Video Only</h2>
+        </div>
+      );
+      videoBlocks = videoData.map((data, i) => (
+        <div key={i}>
+          <p>Quality: {data.resolution}</p>
+          <p>File type: {data.mime_type}</p>
+          <p>File size: {data.filesize}</p>
           <a className="btn btn-success" target="_blank" rel="noopener noreferrer" href={data.url}>
             Download
           </a>
         </div>
       ));
     }
-
-    // const youtubeBlocks = 'hello';
-
-    // console.log(youtubeData['youtube']['audio']);
-
-    // const youtubeBlocks = this.state.youtubeData.audio.map(
-    //   (youtubeData, i) => console.log(youtubeData),
-    //     <li key={i}>
-    //       {insta.includes('.mp4') ? (
-    //         <div>
-    //           <video key={insta} width="200px" controls>
-    //             <source src={insta} type="video/mp4" />
-    //             Your browser does not support the video tag.
-    //           </video>
-    //           <a className="btn btn-success" target="_blank" rel="noopener noreferrer" href={insta}>
-    //             Download
-    //           </a>
-    //         </div>
-    //       ) : (
-    //         <div>
-    //           <img alt="instagram pic" style={{ width: '200px' }} src={insta} />
-    //           <br />
-    //           <a className="btn btn-success" target="_blank" rel="noopener noreferrer" href={insta}>
-    //             Download
-    //           </a>
-    //         </div>
-    //       )}
-    //     </li>
-    // );
 
     return (
       <>
@@ -184,14 +160,14 @@ class Youtube extends Component {
           <button>Reddit</button>
         </form>
         {displayYoutubeResults ? youtubeHeader : ''}
+        {displayYoutubeResults ? bothHeader : ''}
+        {displayYoutubeResults ? bothBlocks : ''}
+
         {displayYoutubeResults ? audioHeader : ''}
         {displayYoutubeResults ? audioBlocks : ''}
 
         {displayYoutubeResults ? videoHeader : ''}
         {displayYoutubeResults ? videoBlocks : ''}
-
-        {displayYoutubeResults ? bothHeader : ''}
-        {displayYoutubeResults ? bothBlocks : ''}
       </>
     );
   }

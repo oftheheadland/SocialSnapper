@@ -66,6 +66,10 @@ class Reddit extends Component {
           <a target="_blank" rel="noopener noreferrer" href={this.state.redditVideo}>
             Video Link
           </a>
+          <video key={this.state.redditVideo} width="400px" controls>
+            <source src={this.state.redditVideo} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </h2>
         <h2 className="bottom">
           <a target="_blank" rel="noopener noreferrer" href={this.state.redditAudio}>
@@ -77,7 +81,7 @@ class Reddit extends Component {
             target="_blank"
             rel="noopener noreferrer"
             href={
-              'https://angry-hugle-804067.netlify.com/demo/?video=' +
+              'https://combinefiles.netlify.com/demo/?video=' +
               this.state.encodedVideo +
               '&audio=' +
               this.state.encodedAudio

@@ -50,7 +50,7 @@ class Instagram extends Component {
     const { instagramLinks } = this.state;
 
     const instagramBlocks = instagramLinks.map((insta, i) => (
-      <li key={i}>
+      <div key={i}>
         {insta.includes('.mp4') ? (
           <div>
             <video key={insta} width="200px" controls>
@@ -70,7 +70,7 @@ class Instagram extends Component {
             </a>
           </div>
         )}
-      </li>
+      </div>
     ));
 
     return (
@@ -83,18 +83,7 @@ class Instagram extends Component {
           <button>Instagram</button>
         </form>
 
-        <div>
-          <ul>
-            {instagramLinks.map((insta, i) => (
-              <li key={i}>
-                <a target="_blank" rel="noopener noreferrer" href={insta}>
-                  {insta}
-                </a>
-              </li>
-            ))}
-            {instagramBlocks}
-          </ul>
-        </div>
+        <div>{instagramBlocks}</div>
       </>
     );
   }
