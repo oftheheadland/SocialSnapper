@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import MediaFetcher from './components/MediaFetcher';
-import './App.css';
 import './style.css';
+import './index.css';
 
 class App extends Component {
   render() {
@@ -10,6 +11,7 @@ class App extends Component {
       <div>
         <Header />
         <MediaFetcher />
+        <Footer />
       </div>
     );
   }

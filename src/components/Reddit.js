@@ -30,8 +30,7 @@ class Reddit extends Component {
     let url = 'https://conversion-api-test.herokuapp.com/redditAPI';
     let redditURL = this.state.redditURLinput;
 
-    // Build formData object.
-    let formData = new FormData();
+    let formData = new FormData(); // Build formData object.
     formData.append('redditURL', redditURL);
 
     const that = this;
@@ -60,24 +59,24 @@ class Reddit extends Component {
     const displayRedditResults = this.state.redditReady;
 
     const redditDownloads = (
-      <div>
-        <h1>{this.state.redditTitle}</h1>
-        <h2 className="top">
-          <a target="_blank" rel="noopener noreferrer" href={this.state.redditVideo}>
-            Video Link
-          </a>
-          <video key={this.state.redditVideo} width="400px" controls>
+      <div className="download-container">
+        {/* <h1>{this.state.redditTitle}</h1> */}
+        <a style={{ fontSize: '24px' }} target="_blank" rel="noopener noreferrer" href={this.state.redditTitle}>
+          {this.state.redditTitle}
+        </a>
+        <hr />
+
+        <div>
+          <video style={{ display: 'none' }} key={this.state.redditVideo} width="300px" controls>
             <source src={this.state.redditVideo} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-        </h2>
-        <h2 className="bottom">
-          <a target="_blank" rel="noopener noreferrer" href={this.state.redditAudio}>
-            Audio Link
-          </a>
-        </h2>
-        <h2>
+        </div>
+
+        <p>
+          Download video and audio combined: <br />{' '}
           <a
+            className="reddit-button"
             target="_blank"
             rel="noopener noreferrer"
             href={
@@ -87,9 +86,35 @@ class Reddit extends Component {
               this.state.encodedAudio
             }
           >
-            Download A+V
+            Download
           </a>
-        </h2>
+        </p>
+
+        <p>
+          Download video only: <br />{' '}
+          <a className="reddit-button" target="_blank" rel="noopener noreferrer" href={this.state.redditVideo}>
+            Download
+          </a>
+        </p>
+        <div />
+
+        <p>
+          Download audio only: <br />
+          <a className="reddit-button" target="_blank" rel="noopener noreferrer" href={this.state.redditAudio}>
+            Download
+          </a>
+        </p>
+
+        {/* <h3>
+          <a target="_blank" rel="noopener noreferrer" href={this.state.redditAudio}>
+            Audio Only
+          </a>
+        </h3>
+        <h3>
+          <a target="_blank" rel="noopener noreferrer" href={this.state.redditVideo}>
+            Video Only
+          </a>
+        </h3> */}
       </div>
     );
 
@@ -110,31 +135,3 @@ class Reddit extends Component {
 }
 
 export default Reddit;
-
-// import React from 'react';
-
-// function Reddit() {
-//   return (
-//     <div>
-//       <p>Example reddit url: https://www.reddit.com/r/oddlysatisfying/comments/an4bc2/this_axe_getting_restored/</p>
-//       <form id="redditForm" className="meme-form" onSubmit={this.handleReddit}>
-//         <input type="text" name="redditURLinput" placeholder="Reddit Video URL" onChange={this.handleChange} />
-//         <button>Reddit</button>
-//       </form>
-//       <div>
-//         <h2 className="top">
-//           <a target="_blank" rel="noopener noreferrer" href={this.state.redditVideo}>
-//             Video Link
-//           </a>
-//         </h2>
-//         <h2 className="bottom">
-//           <a target="_blank" rel="noopener noreferrer" href={this.state.redditAudio}>
-//             Audio Link
-//           </a>
-//         </h2>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Reddit;

@@ -78,7 +78,7 @@ class Instagram extends Component {
       <div key={i}>
         <div className="instagramCol">
           {insta.includes('.mp4') ? (
-            <div style={{ height: '375px' }}>
+            <div className="video-spacer">
               <video key={insta} width="100%" controls>
                 <source src={insta} type="video/mp4" />
                 Your browser does not support the video tag.
@@ -90,7 +90,8 @@ class Instagram extends Component {
             </div>
           )}
 
-          <a className="btn btn-success " target="_blank" rel="noopener noreferrer" href={insta}>
+          <hr />
+          <a className="btn btn-success" target="_blank" rel="noopener noreferrer" href={insta}>
             Download
           </a>
         </div>

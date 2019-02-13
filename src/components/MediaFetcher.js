@@ -20,17 +20,14 @@ class MediaFetcher extends Component {
             <Tab>Youtube</Tab>
           </TabList>
 
-          {/* reddit tab */}
           <TabPanel>
             <Reddit />
           </TabPanel>
 
-          {/* instagram panel */}
           <TabPanel>
             <Instagram />
           </TabPanel>
 
-          {/* youtube panel */}
           <TabPanel>
             <Youtube />
           </TabPanel>
