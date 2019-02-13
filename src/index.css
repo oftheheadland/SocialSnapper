@@ -17,19 +17,19 @@ code {
   padding-bottom: 20px;
 }
 
-.flex-container {
+.insta-flex-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: rgb(55, 61, 66);
+  background-color: white;
 }
 
-.flex-container > div {
-  background-color: #f1f1f1;
+.insta-flex-container > div {
+  background-color: white;
   width: 300px;
   margin: 10px;
   text-align: center;
-  line-height: 75px;
+  /* line-height: 75px; */
   font-size: 30px;
 }
 
@@ -45,6 +45,7 @@ code {
 .download-container {
   background-color: white;
   box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+  /* box-shadow: 5px 10px rgba(0, 0, 0, 0.4); */
   text-align: center;
   margin: auto;
   margin-top: 50px;
@@ -52,10 +53,53 @@ code {
   width: 60%;
   padding: 10px;
 }
-
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .download-container {
     width: 90%;
+  }
+}
+
+.insta-download-container {
+  background-color: white;
+  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+  /* box-shadow: 5px 10px rgba(0, 0, 0, 0.4); */
+  text-align: center;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  width: 80%;
+}
+@media only screen and (max-width: 800px) {
+  .insta-download-container {
+    width: 90%;
+  }
+}
+
+.youtube-download-container {
+  background-color: white;
+  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+  /* box-shadow: 5px 10px rgba(0, 0, 0, 0.4); */
+  /* text-align: center; */
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  width: 80%;
+}
+@media only screen and (max-width: 800px) {
+  .youtube-download-container {
+    width: 90%;
+  }
+}
+
+.outer-container {
+  max-width: 70%;
+  margin: auto;
+  padding-top: 50px;
+}
+
+@media only screen and (max-width: 800px) {
+  .outer-container {
+    max-width: 95%;
   }
 }
 
@@ -108,6 +152,7 @@ header > p > img {
 header > p {
   color: whitesmoke;
   font-size: 40px;
+  margin-bottom: 0.5rem;
 }
 
 @media only screen and (max-width: 600px) {
@@ -116,10 +161,87 @@ header > p {
   }
 }
 
+.snapper-form {
+  text-align: center;
+  width: 100%;
+  padding-top: 60px;
+}
+
+.snapper-input {
+  width: 50%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 8px 20px 8px 10px;
+}
+
+.snapper-button {
+  display: inline-block;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none !important;
+  outline: none;
+  padding: 7px 16px;
+  border: none;
+  background-color: #e43725;
+  color: white;
+}
+
+.snapper-button:hover {
+  text-decoration: none !important;
+  background-color: #d41f0b;
+}
+
+.snapper-button:active {
+  background-color: #d41f0b;
+  text-decoration: none !important;
+  transform: translateY(2px);
+}
+
 .redditThumbnail {
-  width: 200px;
+  max-width: 300px;
+  width: 100%;
   height: auto;
 }
+
+.reddit-flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.reddit-flex-container > div {
+  /* background-color: #f1f1f1; */
+  width: 50%;
+  min-width: 200px;
+  /* margin: 10px; */
+  /* text-align: center; */
+}
+.reddit-download-flex {
+  margin: auto;
+}
+
+/* React Tabs styles */
+
+.react-tabs__tab--selected {
+  background-color: #e43725;
+}
+
+.react-tabs__tab-panel--selected {
+  /* background-color: #f8f8f8; */
+  /* border: 1px solid rgb(105, 105, 105);
+  height: 150%; */
+}
+
+.react-tabs__tab-list {
+  margin-bottom: 0;
+}
+
+/* Reddit Loading Animation */
 
 .lds-ellipsis {
   display: inline-block;

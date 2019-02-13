@@ -91,7 +91,7 @@ class Instagram extends Component {
           )}
 
           <hr />
-          <a className="btn btn-success" target="_blank" rel="noopener noreferrer" href={insta}>
+          <a className="snapper-button" target="_blank" rel="noopener noreferrer" href={insta}>
             Download
           </a>
         </div>
@@ -100,15 +100,23 @@ class Instagram extends Component {
 
     return (
       <>
-        {/* instagram panel */}
-
-        <p>Example instagram url: https://www.instagram.com/p/Bpno2Z5AUNe/</p>
-        <form id="instagramForm" className="meme-form" onSubmit={this.handleInstagram}>
-          <input type="text" name="instagramURLinput" placeholder="Instagram URL" onChange={this.handleChange} />
-          <button>Instagram</button>
+        <form id="instagramForm" className="snapper-form" onSubmit={this.handleInstagram}>
+          <input
+            className="snapper-input"
+            type="text"
+            name="instagramURLinput"
+            placeholder="Instagram Post URL"
+            onChange={this.handleChange}
+          />
+          <button className="snapper-button">Snap</button>
+          <p style={{ fontSize: '14px', color: '#525252', marginTop: '20px', wordBreak: 'break-all' }}>
+            Your URL should like this:{' '}
+            <span style={{ color: '#525252' }}>https://www.instagram.com/p/Bpno2Z5AUNe/</span>
+          </p>
         </form>
-
-        <div className="flex-container">{instagramBlocks}</div>
+        <div className="insta-download-container">
+          <div className="insta-flex-container">{instagramBlocks}</div>
+        </div>
       </>
     );
   }

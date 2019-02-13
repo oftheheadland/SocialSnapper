@@ -70,59 +70,60 @@ class Reddit extends Component {
 
     var redditDownloads = (
       <div className="download-container">
-        <h2>{this.state.redditTitle}</h2>
+        <div className="reddit-flex-container">
+          <div className="reddit-download-flex">
+            <h3>{this.state.redditTitle}</h3>
 
-        {this.state.redditThumbnail ? (
-          <div>
-            <br />
-            <img className="redditThumbnail" alt="reddit thumbnail" src={this.state.redditThumbnail} />
+            {this.state.redditThumbnail ? (
+              <div>
+                <br />
+                <img className="redditThumbnail" alt="reddit thumbnail" src={this.state.redditThumbnail} />
+              </div>
+            ) : (
+              ''
+            )}
           </div>
-        ) : (
-          ''
-        )}
 
-        <hr />
+          <>
+            <video style={{ display: 'none' }} key={this.state.redditVideo} width="300px" controls>
+              <source src={this.state.redditVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </>
 
-        <div>
-          <video style={{ display: 'none' }} key={this.state.redditVideo} width="300px" controls>
-            <source src={this.state.redditVideo} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          <div className="reddit-download-flex">
+            <p>
+              Download video with audio: <br />{' '}
+              <a
+                className="reddit-button"
+                target="_blank"
+                rel="noopener noreferrer"
+                href={
+                  'https://combinefiles.netlify.com/demo/?video=' +
+                  this.state.encodedVideo +
+                  '&audio=' +
+                  this.state.encodedAudio
+                }
+              >
+                Download
+              </a>
+            </p>
+            <hr />
+            <p>
+              Download video only: <br />{' '}
+              <a className="snapper-button" target="_blank" rel="noopener noreferrer" href={this.state.redditVideo}>
+                Download
+              </a>
+            </p>
+
+            <p style={{ display: 'none' }}>
+              Download audio only: <br />
+              <a className="snapper-button" target="_blank" rel="noopener noreferrer" href={this.state.redditAudio}>
+                Download
+              </a>
+            </p>
+          </div>
         </div>
-
-        <p>
-          <strong>
-            Download video with audio: <br />{' '}
-          </strong>
-          <a
-            className="reddit-button"
-            target="_blank"
-            rel="noopener noreferrer"
-            href={
-              'https://combinefiles.netlify.com/demo/?video=' +
-              this.state.encodedVideo +
-              '&audio=' +
-              this.state.encodedAudio
-            }
-          >
-            Download
-          </a>
-        </p>
-
-        <p>
-          Download video only: <br />{' '}
-          <a className="reddit-button" target="_blank" rel="noopener noreferrer" href={this.state.redditVideo}>
-            Download
-          </a>
-        </p>
-        <div />
-
-        <p style={{ display: 'none' }}>
-          Download audio only: <br />
-          <a className="reddit-button" target="_blank" rel="noopener noreferrer" href={this.state.redditAudio}>
-            Download
-          </a>
-        </p>
       </div>
     );
 
@@ -143,17 +144,35 @@ class Reddit extends Component {
       redditDownloads = <div className="download-container">Error. Make sure this is a v.reddit video.</div>;
     }
 
-    const redditWelcome = <div>Welcome this will only appear until they search! Explain how it works</div>;
+    const redditWelcome = (
+      <div className="download-container">
+        <p>Welcome! Explain how it works here.</p>
+        <p>
+          Click a tab above to switch to a different social media website search. Use the URL for the post containing
+          the content you would like to archive.
+        </p>
+      </div>
+    );
 
     return (
       <>
         {/* TODO: https://reactcommunity.org/react-tabs/ style and color the tabs, generate them. only 3 so maybe no necessary to generate but at least style them 
     and give them icons don't use trademarked icons */}
-
-        {/* <p>Example reddit url: https://www.reddit.com/r/oddlysatisfying/comments/an4bc2/this_axe_getting_restored/</p> */}
-        <form id="redditForm" className="meme-form" onSubmit={this.handleReddit}>
-          <input type="text" name="redditURLinput" placeholder="Reddit Video URL" onChange={this.handleChange} />
-          <button>Reddit</button>
+        <form className="snapper-form" onSubmit={this.handleReddit}>
+          <input
+            className="snapper-input"
+            type="text"
+            name="redditURLinput"
+            placeholder="Reddit Post URL"
+            onChange={this.handleChange}
+          />
+          <button className="snapper-button">Snap</button>
+          <p style={{ fontSize: '14px', color: '#525252', marginTop: '20px', wordBreak: 'break-all' }}>
+            Your URL should like this:{' '}
+            <span style={{ color: '#525252' }}>
+              https://www.reddit.com/r/oddlysatisfying/comments/an4bc2/this_axe_getting_restored/
+            </span>
+          </p>
         </form>
 
         {displayRedditResults ? redditDownloads : redditWelcome}

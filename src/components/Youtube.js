@@ -86,16 +86,10 @@ class Youtube extends Component {
             </a>
           </p>
           <img
-            alt="instagram pic"
+            alt="youtube thumbnail"
             style={{ width: '400px' }}
             src={generalData[0]['thumbnail'].replace('default', 'hqdefault')}
           />
-          {/* test{console.log(data)} */}
-          {/* <img alt="instagram pic" style={{ width: '200px' }} src="test" />
-          <br />
-          <a className="btn btn-success" target="_blank" rel="noopener noreferrer" href="test">
-            Download
-          </a> */}
         </div>
       );
 
@@ -154,20 +148,31 @@ class Youtube extends Component {
 
     return (
       <>
-        <p>Example youtube url: https://www.youtube.com/watch?v=pvrc0UenwKk&t=0s</p>
-        <form id="youtubeForm" className="meme-form" onSubmit={this.handleYoutube}>
-          <input type="text" name="youtubeURLinput" placeholder="Youtube Video URL" onChange={this.handleChange} />
-          <button>Reddit</button>
+        <form id="youtubeForm" className="snapper-form" onSubmit={this.handleYoutube}>
+          <input
+            className="snapper-input"
+            type="text"
+            name="youtubeURLinput"
+            placeholder="Youtube Video URL"
+            onChange={this.handleChange}
+          />
+          <button className="snapper-button">Snap</button>
+          <p style={{ fontSize: '14px', color: '#525252', marginTop: '20px', wordBreak: 'break-all' }}>
+            Your URL should like this:{' '}
+            <span style={{ color: '#525252' }}>Example youtube url: https://www.youtube.com/watch?v=pvrc0UenwKk</span>
+          </p>
         </form>
-        {displayYoutubeResults ? youtubeHeader : ''}
-        {displayYoutubeResults ? bothHeader : ''}
-        {displayYoutubeResults ? bothBlocks : ''}
+        <div className="youtube-download-container">
+          {displayYoutubeResults ? youtubeHeader : ''}
+          {displayYoutubeResults ? bothHeader : ''}
+          {displayYoutubeResults ? bothBlocks : ''}
 
-        {displayYoutubeResults ? audioHeader : ''}
-        {displayYoutubeResults ? audioBlocks : ''}
+          {displayYoutubeResults ? audioHeader : ''}
+          {displayYoutubeResults ? audioBlocks : ''}
 
-        {displayYoutubeResults ? videoHeader : ''}
-        {displayYoutubeResults ? videoBlocks : ''}
+          {displayYoutubeResults ? videoHeader : ''}
+          {displayYoutubeResults ? videoBlocks : ''}
+        </div>
       </>
     );
   }
