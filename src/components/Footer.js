@@ -5,7 +5,7 @@ function Footer() {
     <div className="footer">
       <p>
         &copy;{' '}
-        <a target="_blank" rel="noopener" href="https://github.com/oftheheadland">
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/oftheheadland">
           Oftheheadland
         </a>
       </p>

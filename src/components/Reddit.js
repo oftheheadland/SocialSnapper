@@ -13,6 +13,7 @@ class Reddit extends Component {
       encodedVideo: '',
       encodedAudio: '',
       redditTitle: '',
+      redditThumbnail: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleReddit = this.handleReddit.bind(this);
@@ -48,6 +49,7 @@ class Reddit extends Component {
         that.setState({ redditVideo: jsonData['video'] });
         that.setState({ redditAudio: jsonData['audio'] });
         that.setState({ redditTitle: jsonData['title'] });
+        that.setState({ redditThumbnail: jsonData['thumbnail'] });
         that.setState({ redditReady: true });
         that.setState({ encodedVideo: btoa(jsonData['video']) });
         that.setState({ encodedAudio: btoa(jsonData['audio']) });
@@ -61,9 +63,17 @@ class Reddit extends Component {
     const redditDownloads = (
       <div className="download-container">
         {/* <h1>{this.state.redditTitle}</h1> */}
-        <a style={{ fontSize: '24px' }} target="_blank" rel="noopener noreferrer" href={this.state.redditTitle}>
-          {this.state.redditTitle}
-        </a>
+        <h2>{this.state.redditTitle}</h2>
+
+        {this.state.redditThumbnail ? (
+          <div>
+            <br />
+            <img style={{ width: '200px', height: 'auto' }} alt="reddit thumbnail" src={this.state.redditThumbnail} />
+          </div>
+        ) : (
+          ''
+        )}
+
         <hr />
 
         <div>
@@ -74,7 +84,9 @@ class Reddit extends Component {
         </div>
 
         <p>
-          Download video and audio combined: <br />{' '}
+          <strong>
+            Download video and audio combined: <br />{' '}
+          </strong>
           <a
             className="reddit-button"
             target="_blank"
