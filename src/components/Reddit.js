@@ -69,7 +69,7 @@ class Reddit extends Component {
     const displayRedditLoading = this.state.redditLoading;
 
     var redditDownloads = (
-      <div className="download-container">
+      <div className="reddit-download-container">
         <div className="reddit-flex-container">
           <div className="reddit-download-flex">
             <h3>{this.state.redditTitle}</h3>
@@ -130,7 +130,7 @@ class Reddit extends Component {
     if (displayRedditLoading) {
       // display loading animation
       redditDownloads = (
-        <div className="download-container">
+        <div className="reddit-download-container">
           <div className="lds-ellipsis">
             <div />
             <div />
@@ -141,23 +141,20 @@ class Reddit extends Component {
       );
     } else if (!this.state.redditTitle) {
       // display error message
-      redditDownloads = <div className="download-container">Error. Make sure this is a v.reddit video.</div>;
+      redditDownloads = <div className="reddit-download-container">Error. Make sure this is a v.reddit video.</div>;
     }
 
-    const redditWelcome = (
-      <div className="download-container">
-        <p>Welcome! Explain how it works here.</p>
-        <p>
-          Click a tab above to switch to a different social media website search. Use the URL for the post containing
-          the content you would like to archive.
-        </p>
-      </div>
-    );
+    const redditWelcome = '';
+    //   <div className="reddit-download-container">
+    //     <p>Welcome! Explain how it works here.</p>
+    //     <p>
+    //       Click a tab above to switch to a different social media website search. Use the URL for the post containing
+    //       the content you would like to archive.
+    //     </p>
+    //   </div>
 
     return (
       <>
-        {/* TODO: https://reactcommunity.org/react-tabs/ style and color the tabs, generate them. only 3 so maybe no necessary to generate but at least style them 
-    and give them icons don't use trademarked icons */}
         <form className="snapper-form" onSubmit={this.handleReddit}>
           <input
             className="snapper-input"

@@ -42,7 +42,7 @@ code {
   }
 }
 
-.download-container {
+.reddit-download-container {
   background-color: white;
   box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
   /* box-shadow: 5px 10px rgba(0, 0, 0, 0.4); */
@@ -50,7 +50,7 @@ code {
   margin: auto;
   margin-top: 50px;
   margin-bottom: 100px;
-  width: 60%;
+  width: 70%;
   padding: 10px;
 }
 @media only screen and (max-width: 800px) {
@@ -212,6 +212,8 @@ header > p {
 .reddit-flex-container {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .reddit-flex-container > div {
@@ -235,6 +237,10 @@ header > p {
   /* background-color: #f8f8f8; */
   /* border: 1px solid rgb(105, 105, 105);
   height: 150%; */
+}
+.react-tabs__tab {
+  width: 150px;
+  text-align: center;
 }
 
 .react-tabs__tab-list {
