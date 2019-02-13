@@ -10,6 +10,7 @@ class Reddit extends Component {
       redditAudio: '',
       redditURLinput: '',
       redditReady: false,
+      redditLoading: false,
       encodedVideo: '',
       encodedAudio: '',
       redditTitle: '',
@@ -27,48 +28,54 @@ class Reddit extends Component {
   // REDDIT
   handleReddit(event) {
     event.preventDefault(); //prevent from reloading the page on submit
+    if (this.state.redditURLinput && !this.state.redditLoading) {
+      console.log('searching...');
+      this.setState({ redditLoading: true });
+      this.setState({ redditReady: true });
 
-    let url = 'https://conversion-api-test.herokuapp.com/redditAPI';
-    let redditURL = this.state.redditURLinput;
+      let url = 'https://conversion-api-test.herokuapp.com/redditAPI';
+      let redditURL = this.state.redditURLinput;
 
-    let formData = new FormData(); // Build formData object.
-    formData.append('redditURL', redditURL);
+      let formData = new FormData(); // Build formData object.
+      formData.append('redditURL', redditURL);
 
-    const that = this;
+      const that = this;
 
-    // fetch from api
-    fetch(url, {
-      method: 'POST',
-      body: formData,
-    })
-      .then(function(response) {
-        return response.json();
+      // fetch from api
+      fetch(url, {
+        method: 'POST',
+        body: formData,
       })
-      .then(function(jsonData) {
-        console.log(jsonData);
-        that.setState({ redditVideo: jsonData['video'] });
-        that.setState({ redditAudio: jsonData['audio'] });
-        that.setState({ redditTitle: jsonData['title'] });
-        that.setState({ redditThumbnail: jsonData['thumbnail'] });
-        that.setState({ redditReady: true });
-        that.setState({ encodedVideo: btoa(jsonData['video']) });
-        that.setState({ encodedAudio: btoa(jsonData['audio']) });
-      })
-      .catch((error) => console.error('Error:', error));
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(jsonData) {
+          console.log(jsonData);
+          that.setState({ redditVideo: jsonData['video'] });
+          that.setState({ redditAudio: jsonData['audio'] });
+          that.setState({ redditTitle: jsonData['title'] });
+          that.setState({ redditThumbnail: jsonData['thumbnail'] });
+          that.setState({ redditReady: true });
+          that.setState({ redditLoading: false });
+          that.setState({ encodedVideo: btoa(jsonData['video']) });
+          that.setState({ encodedAudio: btoa(jsonData['audio']) });
+        })
+        .catch((error) => console.error('Error:', error));
+    }
   }
 
   render() {
     const displayRedditResults = this.state.redditReady;
+    const displayRedditLoading = this.state.redditLoading;
 
-    const redditDownloads = (
+    var redditDownloads = (
       <div className="download-container">
-        {/* <h1>{this.state.redditTitle}</h1> */}
         <h2>{this.state.redditTitle}</h2>
 
         {this.state.redditThumbnail ? (
           <div>
             <br />
-            <img style={{ width: '200px', height: 'auto' }} alt="reddit thumbnail" src={this.state.redditThumbnail} />
+            <img className="redditThumbnail" alt="reddit thumbnail" src={this.state.redditThumbnail} />
           </div>
         ) : (
           ''
@@ -85,7 +92,7 @@ class Reddit extends Component {
 
         <p>
           <strong>
-            Download video and audio combined: <br />{' '}
+            Download video with audio: <br />{' '}
           </strong>
           <a
             className="reddit-button"
@@ -110,25 +117,31 @@ class Reddit extends Component {
         </p>
         <div />
 
-        <p>
+        <p style={{ display: 'none' }}>
           Download audio only: <br />
           <a className="reddit-button" target="_blank" rel="noopener noreferrer" href={this.state.redditAudio}>
             Download
           </a>
         </p>
-
-        {/* <h3>
-          <a target="_blank" rel="noopener noreferrer" href={this.state.redditAudio}>
-            Audio Only
-          </a>
-        </h3>
-        <h3>
-          <a target="_blank" rel="noopener noreferrer" href={this.state.redditVideo}>
-            Video Only
-          </a>
-        </h3> */}
       </div>
     );
+
+    if (displayRedditLoading) {
+      // display loading animation
+      redditDownloads = (
+        <div className="download-container">
+          <div className="lds-ellipsis">
+            <div />
+            <div />
+            <div />
+            <div />
+          </div>
+        </div>
+      );
+    } else if (!this.state.redditTitle) {
+      // display error message
+      redditDownloads = <div className="download-container">Error. Make sure this is a v.reddit video.</div>;
+    }
 
     const redditWelcome = <div>Welcome this will only appear until they search! Explain how it works</div>;
 
@@ -142,6 +155,7 @@ class Reddit extends Component {
           <input type="text" name="redditURLinput" placeholder="Reddit Video URL" onChange={this.handleChange} />
           <button>Reddit</button>
         </form>
+
         {displayRedditResults ? redditDownloads : redditWelcome}
       </>
     );
