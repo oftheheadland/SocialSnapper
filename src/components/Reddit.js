@@ -130,17 +130,19 @@ class Reddit extends Component {
       </div>
     );
 
+    const redditWelcome = <div>Welcome this will only appear until they search! Explain how it works</div>;
+
     return (
       <>
         {/* TODO: https://reactcommunity.org/react-tabs/ style and color the tabs, generate them. only 3 so maybe no necessary to generate but at least style them 
     and give them icons don't use trademarked icons */}
 
-        <p>Example reddit url: https://www.reddit.com/r/oddlysatisfying/comments/an4bc2/this_axe_getting_restored/</p>
+        {/* <p>Example reddit url: https://www.reddit.com/r/oddlysatisfying/comments/an4bc2/this_axe_getting_restored/</p> */}
         <form id="redditForm" className="meme-form" onSubmit={this.handleReddit}>
           <input type="text" name="redditURLinput" placeholder="Reddit Video URL" onChange={this.handleChange} />
           <button>Reddit</button>
         </form>
-        {displayRedditResults ? redditDownloads : ''}
+        {displayRedditResults ? redditDownloads : redditWelcome}
       </>
     );
   }

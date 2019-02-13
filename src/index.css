@@ -93,3 +93,31 @@ code {
 .footer p a {
   color: white;
 }
+
+header {
+  height: 75px;
+  width: 100%;
+  /* display: flex;
+  align-items: center; */
+  background-color: rgb(48, 45, 45);
+  text-align: center;
+}
+
+header > p > img {
+  /* height: 80%; */
+  width: 50px;
+  /* margin-left: 10%; */
+}
+
+header > p {
+  /* font-family: VT323, monospace; */
+  color: whitesmoke;
+  font-size: 40px;
+  /* margin-left: 60px; */
+}
+
+@media only screen and (max-width: 600px) {
+  header {
+    text-align: center;
+  }
+}
