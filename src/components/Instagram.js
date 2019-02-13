@@ -20,32 +20,33 @@ class Instagram extends Component {
   // INSTAGRAM
   handleInstagram(event) {
     event.preventDefault(); //prevent from reloading the page on submit
-    console.log('in instagram event');
+    if (this.state.instagramURLinput) {
+      console.log('in instagram event');
 
-    let url = 'https://conversion-api-test.herokuapp.com/instagramAPI';
-    let instagramURL = this.state.instagramURLinput;
+      let url = 'https://conversion-api-test.herokuapp.com/instagramAPI';
+      let instagramURL = this.state.instagramURLinput;
 
-    // Build formData object.
-    let formData = new FormData();
-    formData.append('instagramURL', instagramURL);
+      // Build formData object.
+      let formData = new FormData();
+      formData.append('instagramURL', instagramURL);
 
-    const that = this;
+      const that = this;
 
-    // fetch from api
-    fetch(url, {
-      method: 'POST',
-      body: formData,
-    })
-      .then(function(response) {
-        return response.json();
+      // fetch from api
+      fetch(url, {
+        method: 'POST',
+        body: formData,
       })
-      .then(function(jsonData) {
-        console.log(jsonData);
-        that.setState({ instagramLinks: jsonData['links'] });
-      })
-      .catch((error) => console.error('Error:', error));
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(jsonData) {
+          console.log(jsonData);
+          that.setState({ instagramLinks: jsonData['links'] });
+        })
+        .catch((error) => console.error('Error:', error));
+    }
   }
-
   render() {
     const { instagramLinks } = this.state;
 
@@ -111,7 +112,7 @@ class Instagram extends Component {
           <button className="snapper-button">Snap</button>
           <p style={{ fontSize: '14px', color: '#525252', marginTop: '20px', wordBreak: 'break-all' }}>
             Your URL should like this:{' '}
-            <span style={{ color: '#525252' }}>https://www.instagram.com/p/Bpno2Z5AUNe/</span>
+            <span style={{ color: '#525252' }}>https://www.instagram.com/p/Bs8qUvrhYBj/</span>
           </p>
         </form>
         <div className="insta-download-container">

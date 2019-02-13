@@ -8,6 +8,10 @@ class Youtube extends Component {
     this.state = {
       youtubeData: {},
       youtubeReady: false,
+      youtubeWarning: false,
+      youtubeError: false,
+      attemptedSearch: false,
+      youtubeLoading: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleYoutube = this.handleYoutube.bind(this);
@@ -21,33 +25,73 @@ class Youtube extends Component {
   // REDDIT
   handleYoutube(event) {
     event.preventDefault(); //prevent from reloading the page on submit
+    if (this.state.youtubeURLinput) {
+      this.setState({ youtubeError: false });
+      if (this.state.youtubeURLinput.includes('playlist')) {
+        this.setState({ youtubeWarning: true });
+        console.log('playlist');
+      } else {
+        this.setState({ youtubeWarning: false });
+        this.setState({ youtubeLoading: true });
+        this.setState({ attemptedSearch: true });
+        let url = 'https://conversion-api-test.herokuapp.com/youtubeAPI';
+        let youtubeVideoURL = this.state.youtubeURLinput;
 
-    let url = 'https://conversion-api-test.herokuapp.com/youtubeAPI';
-    let youtubeVideoURL = this.state.youtubeURLinput;
+        // Build formData object.
+        let formData = new FormData();
+        formData.append('youtubeURL', youtubeVideoURL);
 
-    // Build formData object.
-    let formData = new FormData();
-    formData.append('youtubeURL', youtubeVideoURL);
+        const that = this;
 
-    const that = this;
-
-    // fetch from api
-    fetch(url, {
-      method: 'POST',
-      body: formData,
-    })
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(jsonData) {
-        that.setState({ youtubeData: jsonData });
-        that.setState({ youtubeReady: true });
-      })
-      .catch((error) => console.error('Error:', error));
+        // fetch from api
+        fetch(url, {
+          method: 'POST',
+          body: formData,
+        })
+          .then(function(response) {
+            return response.json();
+          })
+          .then(function(jsonData) {
+            that.setState({ attemptedSearch: true });
+            that.setState({ youtubeData: jsonData });
+            that.setState({ youtubeReady: true });
+            that.setState({ youtubeLoading: false });
+            console.log('done');
+            console.log(jsonData);
+            if (jsonData['message']) {
+              console.log('there was an error');
+              that.setState({ youtubeError: true });
+            }
+          })
+          .catch((error) => console.error('Error:', error));
+      }
+    }
   }
-
   render() {
     const displayYoutubeResults = this.state.youtubeReady;
+    const youtubeWarningMessage = <div style={{ textAlign: 'center' }}>Playlists are not currently supported.</div>;
+
+    const youtubeErrorState = this.state.youtubeError;
+    const youtubeErrorMessage = (
+      <div style={{ textAlign: 'center' }}>
+        There was an error with your request. Try again or use a different video.
+      </div>
+    );
+
+    const displayYoutubeLoading = this.state.youtubeLoading;
+
+    const youtubeLoader = (
+      <div className="reddit-download-container">
+        <div className="lds-ellipsis">
+          <div />
+          <div />
+          <div />
+          <div />
+        </div>
+      </div>
+    );
+
+    let youtubeWarning = this.state.youtubeWarning;
 
     const youtubeData = this.state.youtubeData['youtube'];
     console.log(youtubeData);
@@ -162,6 +206,13 @@ class Youtube extends Component {
             <span style={{ color: '#525252' }}>Example youtube url: https://www.youtube.com/watch?v=pvrc0UenwKk</span>
           </p>
         </form>
+        <div>
+          {youtubeWarning ? youtubeWarningMessage : ''}
+          {displayYoutubeLoading ? youtubeLoader : ''}
+
+          {youtubeErrorState ? youtubeErrorMessage : ''}
+          {/* {this.state.attemptedSearch && !youtubeData ? youtubeErrorMessage : ''} */}
+        </div>
         <div className="youtube-download-container">
           {displayYoutubeResults ? youtubeHeader : ''}
           {displayYoutubeResults ? bothHeader : ''}

@@ -93,7 +93,7 @@ class Reddit extends Component {
 
           <div className="reddit-download-flex">
             <p>
-              Download video with audio: <br />{' '}
+              Download video with audio <br />{' '}
               <a
                 className="reddit-button"
                 target="_blank"
@@ -110,14 +110,14 @@ class Reddit extends Component {
             </p>
             <hr />
             <p>
-              Download video only: <br />{' '}
+              Download video only <br />{' '}
               <a className="snapper-button" target="_blank" rel="noopener noreferrer" href={this.state.redditVideo}>
                 Download
               </a>
             </p>
 
             <p style={{ display: 'none' }}>
-              Download audio only: <br />
+              Download audio only <br />
               <a className="snapper-button" target="_blank" rel="noopener noreferrer" href={this.state.redditAudio}>
                 Download
               </a>
@@ -167,7 +167,7 @@ class Reddit extends Component {
           <p style={{ fontSize: '14px', color: '#525252', marginTop: '20px', wordBreak: 'break-all' }}>
             Your URL should like this:{' '}
             <span style={{ color: '#525252' }}>
-              https://www.reddit.com/r/oddlysatisfying/comments/an4bc2/this_axe_getting_restored/
+              https://www.reddit.com/r/dogswithjobs/comments/aq1gyn/this_pup_greets_the_mailman_every_day_to_get_the/
             </span>
           </p>
         </form>

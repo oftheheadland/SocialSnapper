@@ -205,7 +205,7 @@ header > p {
 
 .redditThumbnail {
   max-width: 300px;
-  width: 100%;
+  width: 70%;
   height: auto;
 }
 
@@ -217,11 +217,8 @@ header > p {
 }
 
 .reddit-flex-container > div {
-  /* background-color: #f1f1f1; */
   width: 50%;
   min-width: 200px;
-  /* margin: 10px; */
-  /* text-align: center; */
 }
 .reddit-download-flex {
   margin: auto;
@@ -229,22 +226,24 @@ header > p {
 
 /* React Tabs styles */
 
+.react-tabs__tab {
+  width: 150px;
+  text-align: center;
+  background-color: #e88d83;
+  margin-right: 3px;
+}
 .react-tabs__tab--selected {
   background-color: #e43725;
 }
 
-.react-tabs__tab-panel--selected {
-  /* background-color: #f8f8f8; */
-  /* border: 1px solid rgb(105, 105, 105);
-  height: 150%; */
-}
-.react-tabs__tab {
-  width: 150px;
-  text-align: center;
-}
-
 .react-tabs__tab-list {
   margin-bottom: 0;
+  /* width: 100%;
+  margin: auto; */
+}
+
+.react-tabs__tab :nth-child(1) {
+  display: none;
 }
 
 /* Reddit Loading Animation */
