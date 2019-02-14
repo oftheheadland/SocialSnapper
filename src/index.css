@@ -54,8 +54,8 @@ code {
   padding: 10px;
 }
 @media only screen and (max-width: 800px) {
-  .download-container {
-    width: 90%;
+  .reddit-download-container {
+    width: 100%;
   }
 }
 
@@ -69,9 +69,15 @@ code {
   margin-bottom: 100px;
   width: 80%;
 }
+@media only screen and (max-width: 1400px) {
+  .insta-download-container {
+    width: 100%;
+  }
+}
+
 @media only screen and (max-width: 800px) {
   .insta-download-container {
-    width: 90%;
+    width: 100%;
   }
 }
 
@@ -179,6 +185,18 @@ header > p {
   padding: 8px 20px 8px 10px;
 }
 
+@media only screen and (max-width: 1000px) {
+  .snapper-input {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .snapper-input {
+    width: 90%;
+  }
+}
+
 .snapper-button {
   display: inline-block;
   font-size: 18px;
@@ -190,6 +208,7 @@ header > p {
   border: none;
   background-color: #e43725;
   color: white;
+  border-radius: 5px;
 }
 
 .snapper-button:hover {
@@ -226,6 +245,10 @@ header > p {
 
 /* React Tabs styles */
 
+.react-tabs__tab::after {
+  display: none;
+}
+
 .react-tabs__tab {
   width: 150px;
   text-align: center;
@@ -238,6 +261,7 @@ header > p {
 
 .react-tabs__tab-list {
   margin-bottom: 0;
+  text-align: center;
   /* width: 100%;
   margin: auto; */
 }

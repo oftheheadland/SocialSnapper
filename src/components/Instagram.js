@@ -7,6 +7,8 @@ class Instagram extends Component {
     this.state = {
       instagramLinks: [],
       instagramURL: '',
+      instagramLoading: false,
+      instagramError: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleInstagram = this.handleInstagram.bind(this);
@@ -20,7 +22,9 @@ class Instagram extends Component {
   // INSTAGRAM
   handleInstagram(event) {
     event.preventDefault(); //prevent from reloading the page on submit
-    if (this.state.instagramURLinput) {
+    if (this.state.instagramURLinput && !this.state.instagramLoading) {
+      this.setState({ instagramLoading: true });
+      this.setState({ instagramError: false });
       console.log('in instagram event');
 
       let url = 'https://conversion-api-test.herokuapp.com/instagramAPI';
@@ -31,18 +35,29 @@ class Instagram extends Component {
       formData.append('instagramURL', instagramURL);
 
       const that = this;
-
+      let apiFailed = false;
       // fetch from api
       fetch(url, {
         method: 'POST',
         body: formData,
       })
         .then(function(response) {
-          return response.json();
+          console.log(response.status);
+          if (response.status !== 200) {
+            that.setState({ instagramError: true });
+            console.log('ran into an error with instagram');
+            that.setState({ instagramLoading: false });
+            apiFailed = true;
+          } else {
+            return response.json();
+          }
         })
         .then(function(jsonData) {
-          console.log(jsonData);
-          that.setState({ instagramLinks: jsonData['links'] });
+          if (!apiFailed) {
+            console.log(jsonData);
+            that.setState({ instagramLinks: jsonData['links'] });
+            that.setState({ instagramLoading: false });
+          }
         })
         .catch((error) => console.error('Error:', error));
     }
@@ -115,7 +130,9 @@ class Instagram extends Component {
             <span style={{ color: '#525252' }}>https://www.instagram.com/p/Bs8qUvrhYBj/</span>
           </p>
         </form>
+
         <div className="insta-download-container">
+          {this.state.instagramError ? 'Servers experiencing heavy traffic. Please try again.' : ''}
           <div className="insta-flex-container">{instagramBlocks}</div>
         </div>
       </>
