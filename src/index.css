@@ -243,6 +243,12 @@ header > p {
   margin: auto;
 }
 
+.footer > p {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin: 0 auto;
+}
+
 /* React Tabs styles */
 
 .react-tabs__tab::after {
