@@ -93,7 +93,7 @@ class Reddit extends Component {
 
           <div className="reddit-download-flex">
             <div>
-              <p>Download video with audio</p>
+              <p style={{ fontSize: '22px' }}>Download video with audio</p>
               <a
                 className="snapper-button"
                 target="_blank"
@@ -110,7 +110,7 @@ class Reddit extends Component {
             </div>
             <hr />
             <div>
-              <p>Download video only </p>
+              <p style={{ fontSize: '22px' }}>Download video only </p>
               <a className="snapper-button" target="_blank" rel="noopener noreferrer" href={this.state.redditVideo}>
                 Download
               </a>

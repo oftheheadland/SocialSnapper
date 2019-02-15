@@ -91,16 +91,47 @@ code {
 .youtube-download-container {
   background-color: white;
   box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
-  /* box-shadow: 5px 10px rgba(0, 0, 0, 0.4); */
-  /* text-align: center; */
+  text-align: center;
   margin: auto;
   margin-top: 50px;
   margin-bottom: 100px;
   width: 80%;
 }
-@media only screen and (max-width: 800px) {
+
+@media only screen and (max-width: 1400px) {
   .youtube-download-container {
     width: 90%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .youtube-download-container {
+    width: 95%;
+  }
+}
+
+.youtube-header {
+  padding: 30px;
+  padding-bottom: 10px;
+}
+@media only screen and (max-width: 800px) {
+  .youtube-header {
+    padding: 5px;
+  }
+}
+
+.youtube-thumbnail {
+  padding-top: 30px;
+  width: 50%;
+}
+@media only screen and (max-width: 1200px) {
+  .youtube-thumbnail {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .youtube-thumbnail {
+    width: 95%;
   }
 }
 

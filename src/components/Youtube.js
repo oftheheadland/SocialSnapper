@@ -81,13 +81,11 @@ class Youtube extends Component {
     const displayYoutubeLoading = this.state.youtubeLoading;
 
     const youtubeLoader = (
-      <div className="reddit-download-container">
-        <div className="lds-ellipsis">
-          <div />
-          <div />
-          <div />
-          <div />
-        </div>
+      <div className="lds-ellipsis">
+        <div />
+        <div />
+        <div />
+        <div />
       </div>
     );
 
@@ -116,30 +114,25 @@ class Youtube extends Component {
       console.log(generalData);
 
       youtubeHeader = (
-        <div>
-          <p>
+        <div class="youtube-header">
+          {/* <p>
             ***To download, right-click on the download button (or tap and hold if using mobile) and choose the
             Save/Download option.***
-          </p>
-          <p>Title: {generalData[0]['title']}</p>
-          <p>Thumbnail: {generalData[0]['thumbnail']}</p>
-          <p>
-            Link:{' '}
-            <a href={generalData[0]['url']} target="_blank" rel="noopener noreferrer">
-              {generalData[0]['url']}
-            </a>
-          </p>
-          <img
-            alt="youtube thumbnail"
-            style={{ width: '400px' }}
-            src={generalData[0]['thumbnail'].replace('default', 'hqdefault')}
-          />
+          </p> */}
+          <h3>{generalData[0]['title']}</h3>
+          <a href={generalData[0]['url']} target="_blank" rel="noopener noreferrer">
+            <img
+              alt="youtube thumbnail"
+              class="youtube-thumbnail"
+              src={generalData[0]['thumbnail'].replace('default', 'hqdefault')}
+            />
+          </a>
         </div>
       );
 
       bothHeader = (
         <div>
-          <hr />
+          {/* <hr /> */}
           <h3 className="youtube-header">Download Video with Audio</h3>
         </div>
       );
@@ -160,7 +153,7 @@ class Youtube extends Component {
 
       audioHeader = (
         <div>
-          <hr />
+          {/* <hr /> */}
           <h3 className="youtube-header">Download Audio Only</h3>
         </div>
       );
@@ -182,7 +175,7 @@ class Youtube extends Component {
 
       videoHeader = (
         <div>
-          <hr />
+          {/* <hr /> */}
           <h3 className="youtube-header">Download Video Only</h3>
         </div>
       );
@@ -218,14 +211,13 @@ class Youtube extends Component {
             <span style={{ color: '#525252' }}>https://www.youtube.com/watch?v=pvrc0UenwKk</span>
           </p>
         </form>
-        <div>
+
+        <div className="youtube-download-container">
           {youtubeWarning ? youtubeWarningMessage : ''}
           {displayYoutubeLoading ? youtubeLoader : ''}
 
           {youtubeErrorState ? youtubeErrorMessage : ''}
-          {/* {this.state.attemptedSearch && !youtubeData ? youtubeErrorMessage : ''} */}
-        </div>
-        <div className="youtube-download-container">
+
           {displayYoutubeResults ? youtubeHeader : ''}
           {displayYoutubeResults ? bothHeader : ''}
           {displayYoutubeResults ? (
