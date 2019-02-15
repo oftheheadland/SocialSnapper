@@ -235,8 +235,16 @@ class Youtube extends Component {
             onChange={this.handleChange}
           />
           <button className="snapper-button">Snap</button>
-          <p style={{ fontSize: '14px', color: '#525252', marginTop: '20px', wordBreak: 'break-all' }}>
-            Your URL should like this: <span>https://www.youtube.com/watch?v=a3lcGnMhvsA</span>
+          <p style={{ fontSize: '14px', color: 'black', marginTop: '20px', wordBreak: 'break-all' }}>
+            Your URL should look like this:{' '}
+            <a
+              href="https://www.youtube.com/watch?v=a3lcGnMhvsA"
+              style={{ color: '#777777' }}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://www.youtube.com/watch?v=a3lcGnMhvsA
+            </a>
           </p>
         </form>
 

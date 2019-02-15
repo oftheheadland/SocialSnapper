@@ -116,10 +116,18 @@ class Instagram extends Component {
             onChange={this.handleChange}
           />
           <button className="snapper-button">Snap</button>
-          <p style={{ fontSize: '14px', color: '#525252', marginTop: '20px', wordBreak: 'break-all' }}>
-            Your URL should like this:{' '}
-            <span>https://www.instagram.com/p/Bs8qUvrhYBj/</span>
+          <p style={{ fontSize: '14px', color: 'black', marginTop: '20px', wordBreak: 'break-all' }}>
+            Your URL should look like this:{' '}
+            <a
+              href="https://www.instagram.com/p/Bs8qUvrhYBj/"
+              style={{ color: '#777777' }}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://www.instagram.com/p/Bs8qUvrhYBj/
+            </a>
           </p>
+          <p>Instagram videos and albums work too!</p>
         </form>
 
         <div className="insta-download-container">
