@@ -25,11 +25,11 @@ code {
 }
 
 .insta-flex-container > div {
+  padding-top: 20px;
   background-color: white;
   width: 300px;
   margin: 10px;
   text-align: center;
-  /* line-height: 75px; */
   font-size: 30px;
 }
 
@@ -45,17 +45,24 @@ code {
 .reddit-download-container {
   background-color: white;
   box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
-  /* box-shadow: 5px 10px rgba(0, 0, 0, 0.4); */
   text-align: center;
   margin: auto;
   margin-top: 50px;
   margin-bottom: 100px;
-  width: 70%;
-  padding: 10px;
+  width: 80%;
+  padding: 30px;
 }
+@media only screen and (max-width: 1400px) {
+  .reddit-download-container {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
 @media only screen and (max-width: 800px) {
   .reddit-download-container {
     width: 100%;
+    padding: 10px;
   }
 }
 
@@ -101,6 +108,11 @@ code {
   max-width: 70%;
   margin: auto;
   padding-top: 50px;
+}
+@media only screen and (max-width: 1300px) {
+  .outer-container {
+    max-width: 85%;
+  }
 }
 
 @media only screen and (max-width: 800px) {
@@ -239,6 +251,19 @@ header > p {
   width: 50%;
   min-width: 200px;
 }
+
+@media only screen and (max-width: 1200px) {
+  .reddit-flex-container > div {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .reddit-flex-container > div {
+    width: 90%;
+  }
+}
+
 .reddit-download-flex {
   margin: auto;
 }

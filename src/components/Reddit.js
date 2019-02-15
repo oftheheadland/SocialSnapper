@@ -74,28 +74,28 @@ class Reddit extends Component {
           <div className="reddit-download-flex">
             <h3>{this.state.redditTitle}</h3>
 
-            {this.state.redditThumbnail ? (
+            {/* {this.state.redditThumbnail ? (
               <div>
                 <br />
                 <img className="redditThumbnail" alt="reddit thumbnail" src={this.state.redditThumbnail} />
               </div>
             ) : (
               ''
-            )}
-          </div>
+            )} */}
 
-          <>
-            <video style={{ display: 'none' }} key={this.state.redditVideo} width="300px" controls>
-              <source src={this.state.redditVideo} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </>
+            <>
+              <video style={{ width: '100%', maxHeight: '400px' }} key={this.state.redditVideo} controls>
+                <source src={this.state.redditVideo} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </>
+          </div>
 
           <div className="reddit-download-flex">
             <div>
               <p>Download video with audio</p>
               <a
-                className="reddit-button"
+                className="snapper-button"
                 target="_blank"
                 rel="noopener noreferrer"
                 href={

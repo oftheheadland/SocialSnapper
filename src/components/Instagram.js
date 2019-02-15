@@ -30,9 +30,12 @@ class Instagram extends Component {
       let url = 'https://conversion-api-test.herokuapp.com/instagramAPI';
       let instagramURL = this.state.instagramURLinput;
 
+      // sanitize user input; remove empty spaces
+      let cleanInstagramURL = instagramURL.split(' ').join('');
+
       // Build formData object.
       let formData = new FormData();
-      formData.append('instagramURL', instagramURL);
+      formData.append('instagramURL', cleanInstagramURL);
 
       const that = this;
       let apiFailed = false;
@@ -65,30 +68,16 @@ class Instagram extends Component {
   render() {
     const { instagramLinks } = this.state;
 
-    // const instagramBlocks = instagramLinks.map((insta, i) => (
-    //   <div key={i}>
-    //     {insta.includes('.mp4') ? (
-    //       <div className="col-md-4 instagramCol">
-    //         <video key={insta} width="100%" controls>
-    //           <source src={insta} type="video/mp4" />
-    //           Your browser does not support the video tag.
-    //         </video>
-    //         <br />
-    //         <a className="btn btn-success instaVideoButton" target="_blank" rel="noopener noreferrer" href={insta}>
-    //           Download
-    //         </a>
-    //       </div>
-    //     ) : (
-    //       <div className="col-md-4 instagramCol">
-    //         <img alt="instagram pic" style={{ width: '100%' }} src={insta} />
-    //         <br />
-    //         <a className="btn btn-success" target="_blank" rel="noopener noreferrer" href={insta}>
-    //           Download
-    //         </a>
-    //       </div>
-    //     )}
-    //   </div>
-    // ));
+    const instagramLoader = (
+      <div>
+        <div className="lds-ellipsis">
+          <div />
+          <div />
+          <div />
+          <div />
+        </div>
+      </div>
+    );
 
     const instagramBlocks = instagramLinks.map((insta, i) => (
       <div key={i}>
@@ -133,6 +122,7 @@ class Instagram extends Component {
 
         <div className="insta-download-container">
           {this.state.instagramError ? 'Servers experiencing heavy traffic. Please try again.' : ''}
+          {this.state.instagramLoading ? instagramLoader : ''}
           <div className="insta-flex-container">{instagramBlocks}</div>
         </div>
       </>
