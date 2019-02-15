@@ -166,7 +166,7 @@ class Reddit extends Component {
           <button className="snapper-button">Snap</button>
           <p style={{ fontSize: '14px', color: '#525252', marginTop: '20px', wordBreak: 'break-all' }}>
             Your URL should like this:{' '}
-            <span style={{ color: '#525252' }}>
+            <span>
               https://www.reddit.com/r/dogswithjobs/comments/aq1gyn/this_pup_greets_the_mailman_every_day_to_get_the/
             </span>
           </p>

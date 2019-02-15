@@ -118,7 +118,7 @@ class Instagram extends Component {
           <button className="snapper-button">Snap</button>
           <p style={{ fontSize: '14px', color: '#525252', marginTop: '20px', wordBreak: 'break-all' }}>
             Your URL should like this:{' '}
-            <span style={{ color: '#525252' }}>https://www.instagram.com/p/Bs8qUvrhYBj/</span>
+            <span>https://www.instagram.com/p/Bs8qUvrhYBj/</span>
           </p>
         </form>
 
