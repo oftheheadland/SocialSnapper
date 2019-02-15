@@ -358,3 +358,36 @@ header > p {
     transform: translate(19px, 0);
   }
 }
+
+.youtube-table {
+  border-collapse: collapse;
+  width: 95%;
+  margin: auto;
+  text-align: center;
+}
+
+.youtube-table td,
+.youtube-table th {
+  border: 1px solid rgb(236, 236, 236);
+  padding: 5px;
+}
+
+.youtube-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.youtube-table tr:hover {
+  background-color: rgb(233, 233, 233);
+}
+
+.youtube-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(211, 169, 78);
+  color: white;
+}
+
+.youtube-header {
+  text-align: center;
+}

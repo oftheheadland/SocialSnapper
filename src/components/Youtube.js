@@ -140,53 +140,65 @@ class Youtube extends Component {
       bothHeader = (
         <div>
           <hr />
-          <h2>Download Video</h2>
+          <h3 className="youtube-header">Download Video with Audio</h3>
         </div>
       );
+
       bothBlocks = bothData.map((data, i) => (
-        <div key={i}>
-          <p>Quality: {data.resolution}</p>
-          <p>File type: {data.mime_type}</p>
-          <p>File size: {data.filesize}</p>
-          <a className="btn btn-success" target="_blank" rel="noopener noreferrer" href={data.url}>
-            Download
-          </a>
-        </div>
+        <tr key={i}>
+          <td>Quality: {data.resolution}</td>
+          <td>Type: .{data.mime_type.replace('video/', '')}</td>
+          <td>Size: {data.filesize}</td>
+          <td>
+            {' '}
+            <a className="snapper-button" target="_blank" rel="noopener noreferrer" href={data.url}>
+              Download
+            </a>
+          </td>
+        </tr>
       ));
 
       audioHeader = (
         <div>
           <hr />
-          <h2>Download Audio Only</h2>
+          <h3 className="youtube-header">Download Audio Only</h3>
         </div>
       );
+
       audioBlocks = audioData.map((data, i) => (
-        <div key={i}>
-          <p>Bit Rate: {data.abr}</p>
-          <p>Audio Codec: {data.audio_codec}</p>
-          <p>File type: {data.mime_type}</p>
-          <p>File size: {data.filesize}</p>
-          <a className="btn btn-success" target="_blank" rel="noopener noreferrer" href={data.url}>
-            Download
-          </a>
-        </div>
+        <tr key={i}>
+          <td>Bit Rate: {data.abr}</td>
+          <td>Audio Codec: {data.audio_codec}</td>
+          {/* <td>Type: {data.mime_type}</td> */}
+          <td>Size: {data.filesize}</td>
+          <td>
+            {' '}
+            <a className="snapper-button" target="_blank" rel="noopener noreferrer" href={data.url}>
+              Download
+            </a>
+          </td>
+        </tr>
       ));
 
       videoHeader = (
         <div>
           <hr />
-          <h2>Download Video Only</h2>
+          <h3 className="youtube-header">Download Video Only</h3>
         </div>
       );
+
       videoBlocks = videoData.map((data, i) => (
-        <div key={i}>
-          <p>Quality: {data.resolution}</p>
-          <p>File type: {data.mime_type}</p>
-          <p>File size: {data.filesize}</p>
-          <a className="btn btn-success" target="_blank" rel="noopener noreferrer" href={data.url}>
-            Download
-          </a>
-        </div>
+        <tr key={i}>
+          <td>Quality: {data.resolution}</td>
+          <td>Type: .{data.mime_type.replace('video/', '')}</td>
+          <td>Size: {data.filesize}</td>
+          <td>
+            {' '}
+            <a className="snapper-button" target="_blank" rel="noopener noreferrer" href={data.url}>
+              Download
+            </a>
+          </td>
+        </tr>
       ));
     }
 
@@ -216,13 +228,37 @@ class Youtube extends Component {
         <div className="youtube-download-container">
           {displayYoutubeResults ? youtubeHeader : ''}
           {displayYoutubeResults ? bothHeader : ''}
-          {displayYoutubeResults ? bothBlocks : ''}
+          {displayYoutubeResults ? (
+            <div style={{ overflowX: 'auto' }}>
+              <table className="youtube-table">
+                <tbody>{bothBlocks}</tbody>
+              </table>
+            </div>
+          ) : (
+            ''
+          )}
 
           {displayYoutubeResults ? audioHeader : ''}
-          {displayYoutubeResults ? audioBlocks : ''}
+          {displayYoutubeResults ? (
+            <div style={{ overflowX: 'auto' }}>
+              <table className="youtube-table">
+                <tbody>{audioBlocks}</tbody>
+              </table>
+            </div>
+          ) : (
+            ''
+          )}
 
           {displayYoutubeResults ? videoHeader : ''}
-          {displayYoutubeResults ? videoBlocks : ''}
+          {displayYoutubeResults ? (
+            <div style={{ overflowX: 'auto' }}>
+              <table className="youtube-table">
+                <tbody>{videoBlocks}</tbody>
+              </table>
+            </div>
+          ) : (
+            ''
+          )}
         </div>
       </>
     );
