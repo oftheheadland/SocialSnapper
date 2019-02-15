@@ -31,6 +31,7 @@ class Youtube extends Component {
         this.setState({ youtubeWarning: true });
         console.log('playlist');
       } else {
+        this.setState({ youtubeData: '' });
         this.setState({ youtubeWarning: false });
         this.setState({ youtubeLoading: true });
         this.setState({ attemptedSearch: true });
@@ -69,11 +70,13 @@ class Youtube extends Component {
   }
   render() {
     const displayYoutubeResults = this.state.youtubeReady;
-    const youtubeWarningMessage = <div style={{ textAlign: 'center' }}>Playlists are not currently supported.</div>;
+    const youtubeWarningMessage = (
+      <div style={{ textAlign: 'center', padding: '20px' }}>Playlists are not currently supported.</div>
+    );
 
     const youtubeErrorState = this.state.youtubeError;
     const youtubeErrorMessage = (
-      <div style={{ textAlign: 'center' }}>
+      <div style={{ textAlign: 'center', padding: '20px' }}>
         There was an error with your request. Try again or use a different video.
       </div>
     );
@@ -97,13 +100,16 @@ class Youtube extends Component {
     let youtubeHeader;
 
     let audioHeader;
+    let audioTopRow;
     let audioBlocks;
 
     let videoHeader;
+    let videoTopRow;
     let videoBlocks;
 
     let bothHeader;
-    let bothBlocks;
+    let bothTopRow;
+    let bothRows;
 
     if (youtubeData !== undefined) {
       const audioData = youtubeData['audio'];
@@ -114,7 +120,7 @@ class Youtube extends Component {
       console.log(generalData);
 
       youtubeHeader = (
-        <div class="youtube-header">
+        <div className="youtube-header">
           {/* <p>
             ***To download, right-click on the download button (or tap and hold if using mobile) and choose the
             Save/Download option.***
@@ -123,7 +129,7 @@ class Youtube extends Component {
           <a href={generalData[0]['url']} target="_blank" rel="noopener noreferrer">
             <img
               alt="youtube thumbnail"
-              class="youtube-thumbnail"
+              className="youtube-thumbnail"
               src={generalData[0]['thumbnail'].replace('default', 'hqdefault')}
             />
           </a>
@@ -132,16 +138,24 @@ class Youtube extends Component {
 
       bothHeader = (
         <div>
-          {/* <hr /> */}
           <h3 className="youtube-header">Download Video with Audio</h3>
         </div>
       );
 
-      bothBlocks = bothData.map((data, i) => (
+      bothTopRow = (
+        <tr>
+          <th>Quality</th>
+          <th>Type</th>
+          <th>Size</th>
+          <th>Download</th>
+        </tr>
+      );
+
+      bothRows = bothData.map((data, i) => (
         <tr key={i}>
-          <td>Quality: {data.resolution}</td>
-          <td>Type: .{data.mime_type.replace('video/', '')}</td>
-          <td>Size: {data.filesize}</td>
+          <td>{data.resolution}</td>
+          <td>.{data.mime_type.replace('video/', '')}</td>
+          <td>{data.filesize}</td>
           <td>
             {' '}
             <a className="snapper-button" target="_blank" rel="noopener noreferrer" href={data.url}>
@@ -153,17 +167,24 @@ class Youtube extends Component {
 
       audioHeader = (
         <div>
-          {/* <hr /> */}
           <h3 className="youtube-header">Download Audio Only</h3>
         </div>
       );
 
+      audioTopRow = (
+        <tr>
+          <th>Bit Rate</th>
+          <th>Audio Codec</th>
+          <th>Size</th>
+          <th>Download</th>
+        </tr>
+      );
+
       audioBlocks = audioData.map((data, i) => (
         <tr key={i}>
-          <td>Bit Rate: {data.abr}</td>
-          <td>Audio Codec: {data.audio_codec}</td>
-          {/* <td>Type: {data.mime_type}</td> */}
-          <td>Size: {data.filesize}</td>
+          <td>{data.abr}</td>
+          <td>{data.audio_codec}</td>
+          <td>{data.filesize}</td>
           <td>
             {' '}
             <a className="snapper-button" target="_blank" rel="noopener noreferrer" href={data.url}>
@@ -175,16 +196,24 @@ class Youtube extends Component {
 
       videoHeader = (
         <div>
-          {/* <hr /> */}
           <h3 className="youtube-header">Download Video Only</h3>
         </div>
       );
 
+      videoTopRow = (
+        <tr>
+          <th>Quality</th>
+          <th>Type</th>
+          <th>Size</th>
+          <th>Download</th>
+        </tr>
+      );
+
       videoBlocks = videoData.map((data, i) => (
         <tr key={i}>
-          <td>Quality: {data.resolution}</td>
-          <td>Type: .{data.mime_type.replace('video/', '')}</td>
-          <td>Size: {data.filesize}</td>
+          <td>{data.resolution}</td>
+          <td>.{data.mime_type.replace('video/', '')}</td>
+          <td>{data.filesize}</td>
           <td>
             {' '}
             <a className="snapper-button" target="_blank" rel="noopener noreferrer" href={data.url}>
@@ -223,7 +252,8 @@ class Youtube extends Component {
           {displayYoutubeResults ? (
             <div style={{ overflowX: 'auto' }}>
               <table className="youtube-table">
-                <tbody>{bothBlocks}</tbody>
+                <thead>{bothTopRow}</thead>
+                <tbody>{bothRows}</tbody>
               </table>
             </div>
           ) : (
@@ -234,6 +264,7 @@ class Youtube extends Component {
           {displayYoutubeResults ? (
             <div style={{ overflowX: 'auto' }}>
               <table className="youtube-table">
+                <thead>{audioTopRow}</thead>
                 <tbody>{audioBlocks}</tbody>
               </table>
             </div>
@@ -245,6 +276,7 @@ class Youtube extends Component {
           {displayYoutubeResults ? (
             <div style={{ overflowX: 'auto' }}>
               <table className="youtube-table">
+                <thead>{videoTopRow}</thead>
                 <tbody>{videoBlocks}</tbody>
               </table>
             </div>

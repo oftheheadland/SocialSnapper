@@ -25,6 +25,8 @@ class Instagram extends Component {
     if (this.state.instagramURLinput && !this.state.instagramLoading) {
       this.setState({ instagramLoading: true });
       this.setState({ instagramError: false });
+      this.setState({ instagramLinks: [] });
+
       console.log('in instagram event');
 
       let url = 'https://conversion-api-test.herokuapp.com/instagramAPI';
@@ -121,7 +123,11 @@ class Instagram extends Component {
         </form>
 
         <div className="insta-download-container">
-          {this.state.instagramError ? 'Servers experiencing heavy traffic. Please try again.' : ''}
+          {this.state.instagramError ? (
+            <div style={{ padding: '20px' }}>Error with your search. Please use an instagram post URL.</div>
+          ) : (
+            ''
+          )}
           {this.state.instagramLoading ? instagramLoader : ''}
           <div className="insta-flex-container">{instagramBlocks}</div>
         </div>

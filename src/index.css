@@ -111,7 +111,7 @@ code {
 }
 
 .youtube-header {
-  padding: 30px;
+  padding: 15px;
   padding-bottom: 10px;
 }
 @media only screen and (max-width: 800px) {
@@ -395,6 +395,7 @@ header > p {
   width: 95%;
   margin: auto;
   text-align: center;
+  margin-bottom: 15px;
 }
 
 .youtube-table td,
@@ -404,19 +405,20 @@ header > p {
 }
 
 .youtube-table tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: #e6e6e6;
 }
 
 .youtube-table tr:hover {
-  background-color: rgb(233, 233, 233);
+  background-color: #e88d8365;
 }
 
 .youtube-table th {
   padding-top: 12px;
   padding-bottom: 12px;
-  text-align: left;
-  background-color: rgb(211, 169, 78);
-  color: white;
+  text-align: center;
+  background-color: #e88d83;
+  color: rgb(0, 0, 0);
+  font-weight: normal;
 }
 
 .youtube-header {
