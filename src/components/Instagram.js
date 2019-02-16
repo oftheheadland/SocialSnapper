@@ -129,7 +129,7 @@ class Instagram extends Component {
           </p>
           <p>More links for testing:</p>
           <p>
-            https://www.instagram.com/p/BthojqhFq8u/ <br /> https://www.instagram.com/p/BthojqhFq8u/ <br />{' '}
+            https://www.instagram.com/p/BtO8jMKlHLh/ <br /> https://www.instagram.com/p/BthojqhFq8u/ <br />{' '}
             https://www.instagram.com/p/BtTUDcGAQY3/
           </p>
         </form>
