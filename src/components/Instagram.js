@@ -127,6 +127,11 @@ class Instagram extends Component {
               https://www.instagram.com/p/Bs8qUvrhYBj/
             </a>
           </p>
+          <p>More links for testing:</p>
+          <p>
+            https://www.instagram.com/p/BthojqhFq8u/ <br /> https://www.instagram.com/p/BthojqhFq8u/ <br />{' '}
+            https://www.instagram.com/p/BtTUDcGAQY3/
+          </p>
         </form>
 
         <div className="insta-download-container">

@@ -62,6 +62,7 @@ class Youtube extends Component {
             if (jsonData['message']) {
               console.log('there was an error');
               that.setState({ youtubeError: true });
+              that.setState({ youtubeData: '' });
             }
           })
           .catch((error) => console.error('Error:', error));
@@ -77,7 +78,8 @@ class Youtube extends Component {
     const youtubeErrorState = this.state.youtubeError;
     const youtubeErrorMessage = (
       <div style={{ textAlign: 'center', padding: '20px' }}>
-        There was an error with your request. Try again or use a different video.
+        There was an error with your request. Try again or use a different video. (Currently an issue with{' '}
+        <a href="https://github.com/nficano/pytube">Pytube</a> Waiting for a fix)
       </div>
     );
 
@@ -178,6 +180,7 @@ class Youtube extends Component {
         <tr>
           <th>Quality</th>
           <th>Type</th>
+          <th>audio_codec</th>
           <th>Size</th>
           <th>Download</th>
         </tr>
@@ -187,6 +190,7 @@ class Youtube extends Component {
         <tr key={i}>
           <td>{data.resolution}</td>
           <td>.{data.mime_type.replace('video/', '')}</td>
+          <td>{data.audio_codec}</td>
           <td>{data.filesize}</td>
           <td>
             {' '}
@@ -261,7 +265,7 @@ class Youtube extends Component {
 
       videoRows = videoData.map((data, i) => (
         <tr key={i}>
-          <td>{data.resolution}</td>
+          <td>{data.resolution || 'Unknown'}</td>
           <td>.{data.mime_type.replace('video/', '')}</td>
           <td>{data.filesize}</td>
           <td>
@@ -304,6 +308,13 @@ class Youtube extends Component {
             >
               https://www.youtube.com/watch?v=a3lcGnMhvsA
             </a>
+          </p>
+          <p>More links for testing:</p>
+          <p>
+            https://www.youtube.com/watch?v=52Gg9CqhbP8 <br />
+            https://www.youtube.com/watch?v=7uLzaKlZSQQ& <br />
+            https://www.youtube.com/watch?v=KmC1pwslFJc <br />
+            https://www.youtube.com/watch?v=EzKImzjwGyM
           </p>
         </form>
 

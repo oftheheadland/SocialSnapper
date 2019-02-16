@@ -5,6 +5,7 @@ import 'react-tabs/style/react-tabs.css';
 import Reddit from './Reddit';
 import Instagram from './Instagram';
 import Youtube from './Youtube';
+import Welcome from './Welcome';
 
 class MediaFetcher extends Component {
   render() {
@@ -19,19 +20,7 @@ class MediaFetcher extends Component {
           </TabList>
 
           <TabPanel>
-            <div style={{ padding: '30px', paddingTop: '100px' }}>
-              <p style={{ textAlign: 'center' }}>
-                Enter a URL from one of the above social media websites to download the contents. An example URL is
-                provided in each tab.
-                <br />
-                <br />
-                <strong>Reddit</strong> - Used for downloading video posts - specifically v.reddit posts.
-                <br />
-                <strong>Instagram</strong> - Any Instagram post will work - including albums and videos.
-                <br />
-                <strong>Youtube</strong> - Download any Youtube video in a multitude of formats.
-              </p>
-            </div>
+            <Welcome />
           </TabPanel>
 
           <TabPanel>
