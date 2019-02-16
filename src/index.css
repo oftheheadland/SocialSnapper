@@ -34,7 +34,8 @@ code {
 }
 
 .video-spacer {
-  height: 375px;
+  /* height: 375px; */
+  height: 100%;
 }
 @media only screen and (max-width: 600px) {
   .video-spacer {
@@ -264,12 +265,14 @@ header > p {
 .snapper-button:hover {
   text-decoration: none !important;
   background-color: #d41f0b;
+  color: white;
 }
 
 .snapper-button:active {
   background-color: #d41f0b;
   text-decoration: none !important;
   transform: translateY(2px);
+  color: white;
 }
 
 .redditThumbnail {

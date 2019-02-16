@@ -29,7 +29,7 @@ class Youtube extends Component {
       this.setState({ youtubeError: false });
       if (this.state.youtubeURLinput.includes('playlist')) {
         this.setState({ youtubeWarning: true });
-        console.log('playlist');
+        this.setState({ youtubeData: '' });
       } else {
         this.setState({ youtubeData: '' });
         this.setState({ youtubeWarning: false });
@@ -103,15 +103,18 @@ class Youtube extends Component {
 
     let audioHeader;
     let audioTopRow;
-    let audioBlocks;
+    let audioRows;
+    let audioTable;
 
     let videoHeader;
     let videoTopRow;
-    let videoBlocks;
+    let videoRows;
+    let videoTable;
 
     let bothHeader;
     let bothTopRow;
     let bothRows;
+    let bothTable;
 
     if (youtubeData !== undefined) {
       const audioData = youtubeData['audio'];
@@ -123,26 +126,30 @@ class Youtube extends Component {
       const generalData = youtubeData['general'];
       console.log(generalData);
 
-      youtubeHighest = (
-        <div>
-          <p style={{ fontSize: '22px' }}>
-            Download Highest Quality <br /> ({highestData[0]['resolution']} {highestData[0]['bitrate']})
-          </p>
-          <a
-            className="snapper-button"
-            target="_blank"
-            rel="noopener noreferrer"
-            href={
-              'https://combinefiles.netlify.com/demo/?video=' +
-              btoa(highestData[0]['videoURL']) +
-              '&audio=' +
-              btoa(highestData[0]['audioURL'])
-            }
-          >
-            Download
-          </a>
-        </div>
-      );
+      if (!youtubeData['highest'][0]['tooLarge']) {
+        youtubeHighest = (
+          <div style={{ padding: '30px' }}>
+            <p style={{ fontSize: '22px' }}>
+              Download Highest Quality <br /> ({highestData[0]['resolution']} {highestData[0]['bitrate']})
+            </p>
+            <a
+              className="snapper-button"
+              target="_blank"
+              rel="noopener noreferrer"
+              href={
+                'https://combinefiles.netlify.com/demo/?video=' +
+                btoa(highestData[0]['videoURL']) +
+                '&audio=' +
+                btoa(highestData[0]['audioURL'])
+              }
+            >
+              Download
+            </a>
+          </div>
+        );
+      } else {
+        youtubeHighest = '';
+      }
 
       youtubeHeader = (
         <div className="youtube-header">
@@ -190,6 +197,15 @@ class Youtube extends Component {
         </tr>
       ));
 
+      bothTable = (
+        <div style={{ overflowX: 'auto' }}>
+          <table className="youtube-table">
+            <thead>{bothTopRow}</thead>
+            <tbody>{bothRows}</tbody>
+          </table>
+        </div>
+      );
+
       audioHeader = (
         <div>
           <h3 className="youtube-title">Download Audio Only</h3>
@@ -205,7 +221,7 @@ class Youtube extends Component {
         </tr>
       );
 
-      audioBlocks = audioData.map((data, i) => (
+      audioRows = audioData.map((data, i) => (
         <tr key={i}>
           <td>{data.abr}</td>
           <td>{data.audio_codec}</td>
@@ -218,6 +234,15 @@ class Youtube extends Component {
           </td>
         </tr>
       ));
+
+      audioTable = (
+        <div style={{ overflowX: 'auto' }}>
+          <table className="youtube-table">
+            <thead>{audioTopRow}</thead>
+            <tbody>{audioRows}</tbody>
+          </table>
+        </div>
+      );
 
       videoHeader = (
         <div>
@@ -234,7 +259,7 @@ class Youtube extends Component {
         </tr>
       );
 
-      videoBlocks = videoData.map((data, i) => (
+      videoRows = videoData.map((data, i) => (
         <tr key={i}>
           <td>{data.resolution}</td>
           <td>.{data.mime_type.replace('video/', '')}</td>
@@ -247,6 +272,15 @@ class Youtube extends Component {
           </td>
         </tr>
       ));
+
+      videoTable = (
+        <div style={{ overflowX: 'auto' }}>
+          <table className="youtube-table">
+            <thead>{videoTopRow}</thead>
+            <tbody>{videoRows}</tbody>
+          </table>
+        </div>
+      );
     }
 
     return (
@@ -283,40 +317,13 @@ class Youtube extends Component {
           {displayYoutubeResults ? youtubeHighest : ''}
 
           {displayYoutubeResults ? bothHeader : ''}
-          {displayYoutubeResults ? (
-            <div style={{ overflowX: 'auto' }}>
-              <table className="youtube-table">
-                <thead>{bothTopRow}</thead>
-                <tbody>{bothRows}</tbody>
-              </table>
-            </div>
-          ) : (
-            ''
-          )}
+          {displayYoutubeResults ? bothTable : ''}
 
           {displayYoutubeResults ? audioHeader : ''}
-          {displayYoutubeResults ? (
-            <div style={{ overflowX: 'auto' }}>
-              <table className="youtube-table">
-                <thead>{audioTopRow}</thead>
-                <tbody>{audioBlocks}</tbody>
-              </table>
-            </div>
-          ) : (
-            ''
-          )}
+          {displayYoutubeResults ? audioTable : ''}
 
           {displayYoutubeResults ? videoHeader : ''}
-          {displayYoutubeResults ? (
-            <div style={{ overflowX: 'auto' }}>
-              <table className="youtube-table">
-                <thead>{videoTopRow}</thead>
-                <tbody>{videoBlocks}</tbody>
-              </table>
-            </div>
-          ) : (
-            ''
-          )}
+          {displayYoutubeResults ? videoTable : ''}
         </div>
       </>
     );
