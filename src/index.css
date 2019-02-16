@@ -334,7 +334,14 @@ header > p {
   margin-right: 3px;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 650px) {
+  .react-tabs__tab {
+    width: 60%;
+    margin-bottom: 5px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
   .react-tabs__tab {
     width: 90%;
     margin-bottom: 5px;
@@ -348,8 +355,6 @@ header > p {
 .react-tabs__tab-list {
   margin-bottom: 0;
   text-align: center;
-  /* width: 100%;
-  margin: auto; */
 }
 
 .react-tabs__tab :nth-child(1) {

@@ -99,6 +99,8 @@ class Youtube extends Component {
 
     let youtubeHeader;
 
+    let youtubeHighest;
+
     let audioHeader;
     let audioTopRow;
     let audioBlocks;
@@ -115,9 +117,32 @@ class Youtube extends Component {
       const audioData = youtubeData['audio'];
       const bothData = youtubeData['both'];
       const videoData = youtubeData['video'];
+      const highestData = youtubeData['highest'];
+      console.log(highestData);
 
       const generalData = youtubeData['general'];
       console.log(generalData);
+
+      youtubeHighest = (
+        <div>
+          <p style={{ fontSize: '22px' }}>
+            Download Highest Quality <br /> ({highestData[0]['resolution']} {highestData[0]['bitrate']})
+          </p>
+          <a
+            className="snapper-button"
+            target="_blank"
+            rel="noopener noreferrer"
+            href={
+              'https://combinefiles.netlify.com/demo/?video=' +
+              btoa(highestData[0]['videoURL']) +
+              '&audio=' +
+              btoa(highestData[0]['audioURL'])
+            }
+          >
+            Download
+          </a>
+        </div>
+      );
 
       youtubeHeader = (
         <div className="youtube-header">
@@ -255,6 +280,8 @@ class Youtube extends Component {
           {youtubeErrorState ? youtubeErrorMessage : ''}
 
           {displayYoutubeResults ? youtubeHeader : ''}
+          {displayYoutubeResults ? youtubeHighest : ''}
+
           {displayYoutubeResults ? bothHeader : ''}
           {displayYoutubeResults ? (
             <div style={{ overflowX: 'auto' }}>

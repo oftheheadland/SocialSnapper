@@ -19,7 +19,7 @@ class MediaFetcher extends Component {
           </TabList>
 
           <TabPanel>
-            <div style={{ paddingTop: '100px' }}>
+            <div style={{ padding: '30px', paddingTop: '100px' }}>
               <p style={{ textAlign: 'center' }}>
                 Enter a URL from one of the above social media websites to download the contents. An example URL is
                 provided in each tab.
