@@ -180,7 +180,7 @@ class Youtube extends Component {
         <tr>
           <th>Quality</th>
           <th>Type</th>
-          <th>audio_codec</th>
+          <th>Audio Codec</th>
           <th>Size</th>
           <th>Download</th>
         </tr>
