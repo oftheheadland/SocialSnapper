@@ -12,10 +12,27 @@ class MediaFetcher extends Component {
       <div className="outer-container">
         <Tabs>
           <TabList>
+            <Tab>Welcome</Tab>
             <Tab>Reddit</Tab>
             <Tab>Instagram</Tab>
             <Tab>Youtube</Tab>
           </TabList>
+
+          <TabPanel>
+            <div style={{ paddingTop: '100px' }}>
+              <p style={{ textAlign: 'center' }}>
+                Enter a URL from one of the above social media websites to download the contents. An example URL is
+                provided in each tab.
+                <br />
+                <br />
+                <strong>Reddit</strong> - Used for downloading video posts - specifically v.reddit posts.
+                <br />
+                <strong>Instagram</strong> - Any Instagram post will work - including albums and videos.
+                <br />
+                <strong>Youtube</strong> - Download any Youtube video in a multitude of formats.
+              </p>
+            </div>
+          </TabPanel>
 
           <TabPanel>
             <Reddit />

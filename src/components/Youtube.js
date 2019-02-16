@@ -138,7 +138,7 @@ class Youtube extends Component {
 
       bothHeader = (
         <div>
-          <h3 className="youtube-header">Download Video with Audio</h3>
+          <h3 className="youtube-title">Download Video with Audio</h3>
         </div>
       );
 
@@ -167,7 +167,7 @@ class Youtube extends Component {
 
       audioHeader = (
         <div>
-          <h3 className="youtube-header">Download Audio Only</h3>
+          <h3 className="youtube-title">Download Audio Only</h3>
         </div>
       );
 
@@ -196,7 +196,7 @@ class Youtube extends Component {
 
       videoHeader = (
         <div>
-          <h3 className="youtube-header">Download Video Only</h3>
+          <h3 className="youtube-title">Download Video Only</h3>
         </div>
       );
 

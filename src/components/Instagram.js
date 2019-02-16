@@ -127,7 +127,6 @@ class Instagram extends Component {
               https://www.instagram.com/p/Bs8qUvrhYBj/
             </a>
           </p>
-          <p>Instagram videos and albums work too!</p>
         </form>
 
         <div className="insta-download-container">

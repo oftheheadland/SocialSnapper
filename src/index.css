@@ -111,8 +111,9 @@ code {
 }
 
 .youtube-header {
-  padding: 15px;
   padding-bottom: 10px;
+  padding: 25px;
+  text-align: center;
 }
 @media only screen and (max-width: 800px) {
   .youtube-header {
@@ -418,7 +419,7 @@ header > p {
   width: 95%;
   margin: auto;
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 .youtube-table td,
@@ -444,6 +445,7 @@ header > p {
   font-weight: normal;
 }
 
-.youtube-header {
+.youtube-title {
   text-align: center;
+  padding: 15px;
 }
