@@ -25,7 +25,7 @@ code {
 }
 
 .insta-flex-container > div {
-  padding-top: 20px;
+  padding-top: 35px;
   background-color: white;
   width: 300px;
   margin: 10px;
@@ -50,19 +50,19 @@ code {
   margin-top: 50px;
   margin-bottom: 100px;
   width: 80%;
-  padding: 30px;
+  /* padding: 30px; */
 }
 @media only screen and (max-width: 1400px) {
   .reddit-download-container {
     width: 100%;
-    padding: 20px;
+    /* padding: 20px; */
   }
 }
 
 @media only screen and (max-width: 800px) {
   .reddit-download-container {
     width: 100%;
-    padding: 10px;
+    /* padding: 10px; */
   }
 }
 
@@ -236,7 +236,13 @@ header > p {
 
 @media only screen and (max-width: 800px) {
   .snapper-input {
-    width: 90%;
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 405px) {
+  .snapper-input {
+    width: 60%;
   }
 }
 
@@ -276,6 +282,7 @@ header > p {
   flex-wrap: wrap;
   margin-top: 30px;
   margin-bottom: 30px;
+  padding: 20px;
 }
 
 .reddit-flex-container > div {
@@ -296,7 +303,15 @@ header > p {
 }
 
 .reddit-download-flex {
+  padding: 20px;
+  padding-top: 10px;
   margin: auto;
+}
+
+@media only screen and (max-width: 800px) {
+  .reddit-download-flex {
+    padding: 0px;
+  }
 }
 
 .footer > p {
@@ -317,6 +332,14 @@ header > p {
   background-color: #e88d83;
   margin-right: 3px;
 }
+
+@media only screen and (max-width: 500px) {
+  .react-tabs__tab {
+    width: 90%;
+    margin-bottom: 5px;
+  }
+}
+
 .react-tabs__tab--selected {
   background-color: #e43725;
 }

@@ -54,6 +54,10 @@ class Reddit extends Component {
           that.setState({ redditVideo: jsonData['video'] });
           that.setState({ redditAudio: jsonData['audio'] });
           that.setState({ redditTitle: jsonData['title'] });
+
+          that.setState({ isVREDDIT: jsonData['isVREDDIT'] });
+          that.setState({ jsonURL: jsonData['jsonURL'] });
+
           that.setState({ redditThumbnail: jsonData['thumbnail'] });
           that.setState({ redditReady: true });
           that.setState({ redditLoading: false });
@@ -69,10 +73,10 @@ class Reddit extends Component {
     const displayRedditLoading = this.state.redditLoading;
 
     var redditDownloads = (
-      <div className="reddit-download-container">
+      <div>
         <div className="reddit-flex-container">
           <div className="reddit-download-flex">
-            <h3>{this.state.redditTitle}</h3>
+            <h3 style={{ marginBottom: '1.5rem' }}>{this.state.redditTitle}</h3>
 
             {/* {this.state.redditThumbnail ? (
               <div>
@@ -130,7 +134,7 @@ class Reddit extends Component {
     if (displayRedditLoading) {
       // display loading animation
       redditDownloads = (
-        <div className="reddit-download-container">
+        <div>
           <div className="lds-ellipsis">
             <div />
             <div />
@@ -141,7 +145,7 @@ class Reddit extends Component {
       );
     } else if (!this.state.redditTitle) {
       // display error message
-      redditDownloads = <div className="reddit-download-container">Error. Make sure this is a v.reddit video.</div>;
+      redditDownloads = <div>Error. Make sure this is a v.reddit video.</div>;
     }
 
     const redditWelcome = '';
@@ -176,8 +180,7 @@ class Reddit extends Component {
             </a>
           </p>
         </form>
-
-        {displayRedditResults ? redditDownloads : redditWelcome}
+        <div className="reddit-download-container">{displayRedditResults ? redditDownloads : redditWelcome}</div>
       </>
     );
   }
