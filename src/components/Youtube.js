@@ -194,7 +194,7 @@ class Youtube extends Component {
           <td>{data.filesize}</td>
           <td>
             {' '}
-            <a className="snapper-button" target="_blank" rel="noopener noreferrer" href={data.url}>
+            <a className="snapper-button youtube-button" target="_blank" rel="noopener noreferrer" href={data.url}>
               Download
             </a>
           </td>
@@ -232,7 +232,7 @@ class Youtube extends Component {
           <td>{data.filesize}</td>
           <td>
             {' '}
-            <a className="snapper-button" target="_blank" rel="noopener noreferrer" href={data.url}>
+            <a className="snapper-button youtube-button" target="_blank" rel="noopener noreferrer" href={data.url}>
               Download
             </a>
           </td>
@@ -270,7 +270,7 @@ class Youtube extends Component {
           <td>{data.filesize}</td>
           <td>
             {' '}
-            <a className="snapper-button" target="_blank" rel="noopener noreferrer" href={data.url}>
+            <a className="snapper-button youtube-button" target="_blank" rel="noopener noreferrer" href={data.url}>
               Download
             </a>
           </td>
@@ -310,7 +310,7 @@ class Youtube extends Component {
             </a>
           </p>
           <p>More links for testing:</p>
-          <p>
+          <p style={{ wordBreak: 'break-all' }}>
             https://www.youtube.com/watch?v=52Gg9CqhbP8 <br />
             https://www.youtube.com/watch?v=7uLzaKlZSQQ& <br />
             https://www.youtube.com/watch?v=KmC1pwslFJc <br />

@@ -128,7 +128,7 @@ class Instagram extends Component {
             </a>
           </p>
           <p>More links for testing:</p>
-          <p>
+          <p style={{ wordBreak: 'break-all' }}>
             https://www.instagram.com/p/BtO8jMKlHLh/ <br /> https://www.instagram.com/p/BthojqhFq8u/ <br />{' '}
             https://www.instagram.com/p/BtTUDcGAQY3/
           </p>

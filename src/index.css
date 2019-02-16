@@ -262,6 +262,19 @@ header > p {
   border-radius: 5px;
 }
 
+@media only screen and (max-width: 450px) {
+  .youtube-button {
+    font-size: 14px;
+    padding: 7px 3px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .youtube-table {
+    font-size: 14px;
+  }
+}
+
 .snapper-button:hover {
   text-decoration: none !important;
   background-color: #d41f0b;
@@ -303,6 +316,7 @@ header > p {
 @media only screen and (max-width: 800px) {
   .reddit-flex-container > div {
     width: 90%;
+    padding-top: 25px;
   }
 }
 
