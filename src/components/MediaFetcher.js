@@ -11,17 +11,18 @@ class MediaFetcher extends Component {
   render() {
     return (
       <div className="outer-container">
+        <Welcome />
         <Tabs>
           <TabList>
-            <Tab>Welcome</Tab>
+            {/* <Tab>Welcome</Tab> */}
             <Tab>Reddit</Tab>
             <Tab>Instagram</Tab>
             <Tab>Youtube</Tab>
           </TabList>
-
+          {/* 
           <TabPanel>
             <Welcome />
-          </TabPanel>
+          </TabPanel> */}
 
           <TabPanel>
             <Reddit />
