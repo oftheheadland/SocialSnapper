@@ -347,7 +347,7 @@ header > p {
 .react-tabs__tab {
   width: 150px;
   text-align: center;
-  background-color: #e88d83;
+  background-color: #ff9b90;
   margin-right: 3px;
 }
 
@@ -372,6 +372,7 @@ header > p {
 .react-tabs__tab-list {
   margin-bottom: 0;
   text-align: center;
+  border-bottom: 1px solid #e43725;
 }
 
 .react-tabs__tab :nth-child(1) {
@@ -438,10 +439,16 @@ header > p {
 
 .youtube-table {
   border-collapse: collapse;
-  width: 95%;
+  width: 70%;
   margin: auto;
   text-align: center;
   margin-bottom: 25px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .youtube-table {
+    width: 90%;
+  }
 }
 
 .youtube-table td,
@@ -470,4 +477,28 @@ header > p {
 .youtube-title {
   text-align: center;
   padding: 15px;
+}
+
+.welcome-div {
+  width: 50%;
+  margin: auto;
+  text-align: left;
+}
+
+@media only screen and (max-width: 1200px) {
+  .welcome-div {
+    width: 90%;
+  }
+}
+
+.welcome-container {
+  padding: 30px;
+  padding-top: 100px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 800px) {
+  .welcome-container {
+    padding: 10px;
+  }
 }

@@ -11,7 +11,7 @@ class App extends Component {
       <div>
         <Header />
         <MediaFetcher />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }
