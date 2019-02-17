@@ -139,7 +139,7 @@ class Youtube extends Component {
               target="_blank"
               rel="noopener noreferrer"
               href={
-                'https://combinefiles.netlify.com/demo/?video=' +
+                'https://combinefiles.netlify.com/?video=' +
                 btoa(highestData[0]['videoURL']) +
                 '&audio=' +
                 btoa(highestData[0]['audioURL'])

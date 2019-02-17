@@ -14,16 +14,10 @@ class MediaFetcher extends Component {
         <Welcome />
         <Tabs>
           <TabList>
-            {/* <Tab>Welcome</Tab> */}
             <Tab>Reddit</Tab>
             <Tab>Instagram</Tab>
             <Tab>Youtube</Tab>
           </TabList>
-          {/* 
-          <TabPanel>
-            <Welcome />
-          </TabPanel> */}
-
           <TabPanel>
             <Reddit />
           </TabPanel>

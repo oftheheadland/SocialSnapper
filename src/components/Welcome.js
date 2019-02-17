@@ -3,14 +3,16 @@ import React from 'react';
 function Welcome() {
   return (
     <div className="welcome-container">
-      <p>
-        Social media websites don't make it easy to download and save their content. This website allows you to view and
-        save media from some of the most popular platforms.
-      </p>
-      <p>
-        Select the tab relevant to your interests and enter the URL (link) of a post to download the contents. An
-        example URL is provided in each tab.
-      </p>
+      <div className="welcome-div ">
+        <p>
+          Social media websites don't make it easy to download and save their content. This website allows you to view
+          and save media from some of the most popular platforms.
+        </p>
+        <p>
+          Select the tab relevant to your interests and enter the URL (link) of a post to download the contents. An
+          example URL is provided in each tab.
+        </p>
+      </div>
       <div className="welcome-div">
         <ul>
           <li>

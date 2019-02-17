@@ -97,13 +97,25 @@ class Reddit extends Component {
 
           <div className="reddit-download-flex">
             <div>
+              {/* <iframe
+                src={
+                  'https://combinefiles.netlify.com/?video=' +
+                  this.state.encodedVideo +
+                  '&audio=' +
+                  this.state.encodedAudio
+                }
+                height="100%"
+                width="300px"
+                style={{ border: '0' }}
+              /> */}
+
               <p style={{ fontSize: '22px' }}>Download video with audio</p>
               <a
                 className="snapper-button"
                 target="_blank"
                 rel="noopener noreferrer"
                 href={
-                  'https://combinefiles.netlify.com/demo/?video=' +
+                  'https://combinefiles.netlify.com/?video=' +
                   this.state.encodedVideo +
                   '&audio=' +
                   this.state.encodedAudio
@@ -148,15 +160,6 @@ class Reddit extends Component {
       redditDownloads = <div>Error. Make sure this is a v.reddit video.</div>;
     }
 
-    const redditWelcome = '';
-    //   <div className="reddit-download-container">
-    //     <p>Welcome! Explain how it works here.</p>
-    //     <p>
-    //       Click a tab above to switch to a different social media website search. Use the URL for the post containing
-    //       the content you would like to archive.
-    //     </p>
-    //   </div>
-
     return (
       <>
         <form className="snapper-form" onSubmit={this.handleReddit}>
@@ -187,7 +190,7 @@ class Reddit extends Component {
             https://www.reddit.com/r/gifs/comments/anijmn/cat_gets_it_tongue_stuck_on_blanket/
           </p>
         </form>
-        <div className="reddit-download-container">{displayRedditResults ? redditDownloads : redditWelcome}</div>
+        <div className="reddit-download-container">{displayRedditResults ? redditDownloads : ''}</div>
       </>
     );
   }
