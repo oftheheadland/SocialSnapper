@@ -502,3 +502,16 @@ header > p {
     padding: 10px;
   }
 }
+
+.url-tip {
+  font-size: 14px;
+  color: black;
+  margin-top: 20px;
+  word-break: break-all;
+}
+
+.error-message {
+  text-align: center;
+  padding: 20px;
+  color: #e61818;
+}

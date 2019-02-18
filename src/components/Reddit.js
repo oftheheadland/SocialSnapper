@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import 'react-tabs/style/react-tabs.css';
+import Loading from './Loading';
 
 class Reddit extends Component {
   constructor() {
@@ -25,7 +26,6 @@ class Reddit extends Component {
     this.setState({ [name]: value });
   }
 
-  // REDDIT
   handleReddit(event) {
     event.preventDefault(); //prevent from reloading the page on submit
     if (this.state.redditURLinput && !this.state.redditLoading) {
@@ -41,7 +41,6 @@ class Reddit extends Component {
 
       const that = this;
 
-      // fetch from api
       fetch(url, {
         method: 'POST',
         body: formData,
@@ -77,38 +76,16 @@ class Reddit extends Component {
         <div className="reddit-flex-container">
           <div className="reddit-download-flex">
             <h3 style={{ marginBottom: '1.5rem' }}>{this.state.redditTitle}</h3>
-
-            {/* {this.state.redditThumbnail ? (
-              <div>
-                <br />
-                <img className="redditThumbnail" alt="reddit thumbnail" src={this.state.redditThumbnail} />
-              </div>
-            ) : (
-              ''
-            )} */}
-
-            <>
+            <div>
               <video style={{ width: '100%', maxHeight: '400px' }} key={this.state.redditVideo} controls>
                 <source src={this.state.redditVideo} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-            </>
+            </div>
           </div>
 
           <div className="reddit-download-flex">
             <div>
-              {/* <iframe
-                src={
-                  'https://combinefiles.netlify.com/?video=' +
-                  this.state.encodedVideo +
-                  '&audio=' +
-                  this.state.encodedAudio
-                }
-                height="100%"
-                width="300px"
-                style={{ border: '0' }}
-              /> */}
-
               <p style={{ fontSize: '22px' }}>Download video with audio</p>
               <a
                 className="snapper-button"
@@ -144,22 +121,9 @@ class Reddit extends Component {
     );
 
     if (displayRedditLoading) {
-      // display loading animation
-      redditDownloads = (
-        <div>
-          <div className="lds-ellipsis">
-            <div />
-            <div />
-            <div />
-            <div />
-          </div>
-        </div>
-      );
+      redditDownloads = <Loading />;
     } else if (!this.state.redditTitle) {
-      // display error message
-      redditDownloads = (
-        <p style={{ color: '#e61818', padding: '20px' }}>Error. Make sure this is a v.redd.it video.</p>
-      );
+      redditDownloads = <p className="error-message">Error. Make sure this is a v.redd.it video.</p>;
     }
 
     return (
@@ -173,7 +137,7 @@ class Reddit extends Component {
             onChange={this.handleChange}
           />
           <button className="snapper-button">Snap</button>
-          <p style={{ fontSize: '14px', color: 'black', marginTop: '20px', wordBreak: 'break-all' }}>
+          <p className="url-tip">
             Your URL should look like this:{' '}
             <a
               href="https://www.reddit.com/r/dogswithjobs/comments/aq1gyn/this_pup_greets_the_mailman_every_day_to_get_the/"
@@ -184,13 +148,6 @@ class Reddit extends Component {
               https://www.reddit.com/r/dogswithjobs/comments/aq1gyn/this_pup_greets_the_mailman_every_day_to_get_the/
             </a>
           </p>
-          {/* <p>More links for testing:</p>
-          <p style={{ wordBreak: 'break-all' }}>
-            https://www.reddit.com/r/WhatsWrongWithYourDog/comments/ar96lt/a_very_scary_pit_bull_versus_an_even_scarier_hair/{' '}
-            <br /> https://www.reddit.com/r/aww/comments/arae4s/dont_make_me_do_this_human/
-            <br />
-            https://www.reddit.com/r/gifs/comments/anijmn/cat_gets_it_tongue_stuck_on_blanket/
-          </p> */}
         </form>
         <div className="reddit-download-container">{displayRedditResults ? redditDownloads : ''}</div>
       </>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import 'react-tabs/style/react-tabs.css';
 
+import Loading from './Loading';
+
 class Instagram extends Component {
   constructor() {
     super();
@@ -19,7 +21,6 @@ class Instagram extends Component {
     this.setState({ [name]: value });
   }
 
-  // INSTAGRAM
   handleInstagram(event) {
     event.preventDefault(); //prevent from reloading the page on submit
     if (this.state.instagramURLinput && !this.state.instagramLoading) {
@@ -68,18 +69,9 @@ class Instagram extends Component {
     }
   }
   render() {
-    const { instagramLinks } = this.state;
+    const instagramLinks = this.state.instagramLinks;
 
-    const instagramLoader = (
-      <div>
-        <div className="lds-ellipsis">
-          <div />
-          <div />
-          <div />
-          <div />
-        </div>
-      </div>
-    );
+    const instagramLoader = <Loading />;
 
     const instagramBlocks = instagramLinks.map((insta, i) => (
       <div key={i}>
@@ -116,7 +108,7 @@ class Instagram extends Component {
             onChange={this.handleChange}
           />
           <button className="snapper-button">Snap</button>
-          <p style={{ fontSize: '14px', color: 'black', marginTop: '20px', wordBreak: 'break-all' }}>
+          <p className="url-tip">
             Your URL should look like this:{' '}
             <a
               href="https://www.instagram.com/p/Bs8qUvrhYBj/"
@@ -127,18 +119,11 @@ class Instagram extends Component {
               https://www.instagram.com/p/Bs8qUvrhYBj/
             </a>
           </p>
-          {/* <p>More links for testing:</p>
-          <p style={{ wordBreak: 'break-all' }}>
-            https://www.instagram.com/p/BtO8jMKlHLh/ <br /> https://www.instagram.com/p/BthojqhFq8u/ <br />{' '}
-            https://www.instagram.com/p/BtTUDcGAQY3/
-          </p> */}
         </form>
 
         <div className="insta-download-container">
           {this.state.instagramError ? (
-            <div style={{ padding: '20px', color: '#e61818' }}>
-              Error with your search. Please use an instagram post URL.
-            </div>
+            <div className="error-message">Error with your search. Please use an instagram post URL.</div>
           ) : (
             ''
           )}

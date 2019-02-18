@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-
 import 'react-tabs/style/react-tabs.css';
+
+import Loading from './Loading';
 
 class Youtube extends Component {
   constructor() {
@@ -22,7 +23,6 @@ class Youtube extends Component {
     this.setState({ [name]: value });
   }
 
-  // REDDIT
   handleYoutube(event) {
     event.preventDefault(); //prevent from reloading the page on submit
     if (this.state.youtubeURLinput) {
@@ -44,7 +44,6 @@ class Youtube extends Component {
 
         const that = this;
 
-        // fetch from api
         fetch(url, {
           method: 'POST',
           body: formData,
@@ -77,27 +76,19 @@ class Youtube extends Component {
 
     const youtubeErrorState = this.state.youtubeError;
     const youtubeErrorMessage = (
-      <div style={{ textAlign: 'center', padding: '20px', color: '#e61818' }}>
+      <p className="error-message">
         There was an error with your request. Try again or use a different video. (Currently an issue with{' '}
         <a href="https://github.com/nficano/pytube">Pytube</a> Waiting for a fix)
-      </div>
+      </p>
     );
 
     const displayYoutubeLoading = this.state.youtubeLoading;
 
-    const youtubeLoader = (
-      <div className="lds-ellipsis">
-        <div />
-        <div />
-        <div />
-        <div />
-      </div>
-    );
+    const youtubeLoader = <Loading />;
 
     let youtubeWarning = this.state.youtubeWarning;
 
     const youtubeData = this.state.youtubeData['youtube'];
-    console.log(youtubeData);
 
     let youtubeHeader;
 
@@ -123,10 +114,7 @@ class Youtube extends Component {
       const bothData = youtubeData['both'];
       const videoData = youtubeData['video'];
       const highestData = youtubeData['highest'];
-      console.log(highestData);
-
       const generalData = youtubeData['general'];
-      console.log(generalData);
 
       if (!youtubeData['highest'][0]['tooLarge']) {
         youtubeHighest = (
@@ -155,10 +143,6 @@ class Youtube extends Component {
 
       youtubeHeader = (
         <div className="youtube-header">
-          {/* <p>
-            ***To download, right-click on the download button (or tap and hold if using mobile) and choose the
-            Save/Download option.***
-          </p> */}
           <h3>{generalData[0]['title']}</h3>
           <a href={generalData[0]['url']} target="_blank" rel="noopener noreferrer">
             <img
@@ -298,7 +282,7 @@ class Youtube extends Component {
             onChange={this.handleChange}
           />
           <button className="snapper-button">Snap</button>
-          <p style={{ fontSize: '14px', color: 'black', marginTop: '20px', wordBreak: 'break-all' }}>
+          <p className="url-tip">
             Your URL should look like this:{' '}
             <a
               href="https://www.youtube.com/watch?v=a3lcGnMhvsA"
@@ -309,13 +293,6 @@ class Youtube extends Component {
               https://www.youtube.com/watch?v=a3lcGnMhvsA
             </a>
           </p>
-          {/* <p>More links for testing:</p>
-          <p style={{ wordBreak: 'break-all' }}>
-            https://www.youtube.com/watch?v=52Gg9CqhbP8 <br />
-            https://www.youtube.com/watch?v=7uLzaKlZSQQ& <br />
-            https://www.youtube.com/watch?v=KmC1pwslFJc <br />
-            https://www.youtube.com/watch?v=EzKImzjwGyM
-          </p> */}
         </form>
 
         <div className="youtube-download-container">

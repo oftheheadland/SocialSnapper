@@ -8,10 +8,10 @@ function Welcome() {
           Social media websites don't make it easy to download and save their content. This website allows you to view
           and save media from some of the most popular platforms.
         </p>
-        <p>
+        {/* <p>
           Select a tab and enter the URL of a post to download the contents. An
           example URL is provided in each tab.
-        </p>
+        </p> */}
       </div>
       <div className="welcome-div">
         <ul>
