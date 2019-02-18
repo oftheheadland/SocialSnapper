@@ -157,7 +157,9 @@ class Reddit extends Component {
       );
     } else if (!this.state.redditTitle) {
       // display error message
-      redditDownloads = <p style={{ color: '#e61818' }}>Error. Make sure this is a v.redd.it video.</p>;
+      redditDownloads = (
+        <p style={{ color: '#e61818', padding: '20px' }}>Error. Make sure this is a v.redd.it video.</p>
+      );
     }
 
     return (
