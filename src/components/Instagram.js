@@ -92,7 +92,7 @@ class Instagram extends Component {
               </video>
             </div>
           ) : (
-            <div className="video-spacer">
+            <div>
               <img alt="instagram pic" style={{ width: '100%' }} src={insta} />
             </div>
           )}
