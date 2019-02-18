@@ -9,7 +9,7 @@ function Welcome() {
           and save media from some of the most popular platforms.
         </p>
         <p>
-          Select the tab relevant to your interests and enter the URL (link) of a post to download the contents. An
+          Select a tab and enter the URL of a post to download the contents. An
           example URL is provided in each tab.
         </p>
       </div>
