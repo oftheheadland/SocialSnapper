@@ -3,7 +3,7 @@ import React from 'react';
 function Welcome() {
   return (
     <div className="welcome-container">
-      <div className="welcome-div ">
+      <div className="welcome-div">
         <p>
           Social media websites don't make it easy to download and save their content. This website allows you to view
           and save media from some of the most popular platforms.

@@ -6,7 +6,7 @@ function Header() {
       <p>
         Social
         <span style={{ color: '#e43725' }}>Snapper </span>
-        <img src="./redsnapper.png" alt="icon" />
+        {/* <img src="./redsnapper.png" alt="icon" /> */}
       </p>
     </header>
   );

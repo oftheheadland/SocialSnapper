@@ -34,8 +34,8 @@ code {
 }
 
 .video-spacer {
-  /* height: 375px; */
-  height: 100%;
+  height: 375px;
+  /* height: 100%; */
 }
 @media only screen and (max-width: 600px) {
   .video-spacer {
@@ -138,7 +138,7 @@ code {
 }
 
 .outer-container {
-  max-width: 70%;
+  max-width: 75%;
   margin: auto;
 }
 @media only screen and (max-width: 1300px) {
@@ -348,6 +348,7 @@ header > p {
   text-align: center;
   background-color: #ff9b90;
   margin-right: 3px;
+  font-size: 19px;
 }
 
 @media only screen and (max-width: 650px) {
@@ -366,6 +367,7 @@ header > p {
 
 .react-tabs__tab--selected {
   background-color: #e43725;
+  color: white;
 }
 
 .react-tabs__tab-list {
@@ -461,14 +463,14 @@ header > p {
 }
 
 .youtube-table tr:hover {
-  background-color: #e88d8365;
+  background-color: #ff9b9083;
 }
 
 .youtube-table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  background-color: #e88d83;
+  background-color: #ff9b90;
   color: rgb(0, 0, 0);
   font-weight: normal;
 }

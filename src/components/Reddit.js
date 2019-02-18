@@ -182,13 +182,13 @@ class Reddit extends Component {
               https://www.reddit.com/r/dogswithjobs/comments/aq1gyn/this_pup_greets_the_mailman_every_day_to_get_the/
             </a>
           </p>
-          <p>More links for testing:</p>
+          {/* <p>More links for testing:</p>
           <p style={{ wordBreak: 'break-all' }}>
             https://www.reddit.com/r/WhatsWrongWithYourDog/comments/ar96lt/a_very_scary_pit_bull_versus_an_even_scarier_hair/{' '}
             <br /> https://www.reddit.com/r/aww/comments/arae4s/dont_make_me_do_this_human/
             <br />
             https://www.reddit.com/r/gifs/comments/anijmn/cat_gets_it_tongue_stuck_on_blanket/
-          </p>
+          </p> */}
         </form>
         <div className="reddit-download-container">{displayRedditResults ? redditDownloads : ''}</div>
       </>
