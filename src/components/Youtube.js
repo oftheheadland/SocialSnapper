@@ -77,7 +77,7 @@ class Youtube extends Component {
 
     const youtubeErrorState = this.state.youtubeError;
     const youtubeErrorMessage = (
-      <div style={{ textAlign: 'center', padding: '20px' }}>
+      <div style={{ textAlign: 'center', padding: '20px', color: '#e61818' }}>
         There was an error with your request. Try again or use a different video. (Currently an issue with{' '}
         <a href="https://github.com/nficano/pytube">Pytube</a> Waiting for a fix)
       </div>

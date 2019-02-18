@@ -136,7 +136,9 @@ class Instagram extends Component {
 
         <div className="insta-download-container">
           {this.state.instagramError ? (
-            <div style={{ padding: '20px' }}>Error with your search. Please use an instagram post URL.</div>
+            <div style={{ padding: '20px', color: '#e61818' }}>
+              Error with your search. Please use an instagram post URL.
+            </div>
           ) : (
             ''
           )}
