@@ -7,23 +7,63 @@ class Reddit extends Component {
   constructor() {
     super();
     this.state = {
-      redditVideo: '',
-      redditAudio: '',
-      redditURLinput: '',
-      redditReady: false,
-      redditLoading: false,
-      encodedVideo: '',
-      encodedAudio: '',
-      redditTitle: '',
-      redditThumbnail: '',
+      redditVideo: '', //holds reddit video url
+      redditAudio: '',//holds reddit audio url
+      redditURLinput: '', //holds value of reddit search bar
+      redditReady: false, // if value is true, the reddit search results are displayed
+      redditLoading: false, // when true the loading animation is shown
+      encodedVideo: '', // holds value of bse64 encoded reddit video url
+      encodedAudio: '', // holds value of bse64 encoded reddit audio url
+      redditTitle: '', // holds value of Reddit post title
+      redditThumbnail: '', // holds url of reddit post thumbnail. not currently used
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleReddit = this.handleReddit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   handleChange(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
+  }
+
+  // handles the "Try it out" button
+  handleDemo(event) {
+    event.preventDefault();
+    console.log('hello');
+    if (!this.state.redditLoading) {
+      console.log('searching...');
+      this.setState({ redditLoading: true });
+      this.setState({ redditReady: true });
+
+      let url = 'https://conversion-api-test.herokuapp.com/redditAPI';
+      let redditURL = 'https://www.reddit.com/r/aww/comments/arz9u2/happy_baby_donkey/';
+
+      let formData = new FormData(); // Build formData object.
+      formData.append('redditURL', redditURL);
+
+      const that = this;
+
+      fetch(url, {
+        method: 'POST',
+        body: formData,
+      })
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(jsonData) {
+          console.log(jsonData);
+          that.setState({ redditVideo: jsonData['video'] });
+          that.setState({ redditAudio: jsonData['audio'] });
+          that.setState({ redditTitle: jsonData['title'] });
+          that.setState({ redditThumbnail: jsonData['thumbnail'] });
+          that.setState({ redditReady: true });
+          that.setState({ redditLoading: false });
+          that.setState({ encodedVideo: btoa(jsonData['video']) });
+          that.setState({ encodedAudio: btoa(jsonData['audio']) });
+        })
+        .catch((error) => console.error('Error:', error));
+    }
   }
 
   handleReddit(event) {
@@ -53,10 +93,6 @@ class Reddit extends Component {
           that.setState({ redditVideo: jsonData['video'] });
           that.setState({ redditAudio: jsonData['audio'] });
           that.setState({ redditTitle: jsonData['title'] });
-
-          that.setState({ isVREDDIT: jsonData['isVREDDIT'] });
-          that.setState({ jsonURL: jsonData['jsonURL'] });
-
           that.setState({ redditThumbnail: jsonData['thumbnail'] });
           that.setState({ redditReady: true });
           that.setState({ redditLoading: false });
@@ -125,6 +161,28 @@ class Reddit extends Component {
     } else if (!this.state.redditTitle) {
       redditDownloads = <p className="error-message">Error. Make sure this is a v.redd.it video.</p>;
     }
+    let redditDemo = (
+      <div>
+        <p className="url-tip">
+          Your URL should look like this:{' '}
+          <a
+            href="https://www.reddit.com/r/aww/comments/arz9u2/happy_baby_donkey/"
+            style={{ color: 'rgb(228, 55, 37)' }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://www.reddit.com/r/aww/comments/arz9u2/happy_baby_donkey/
+          </a>
+        </p>
+        <p className="url-tip">
+          This tab is for downloading video posts - specifically v.reddit posts - which are normally not available for
+          download.
+        </p>
+        <button onClick={this.handleDemo} className="snapper-button">
+          Try it out!
+        </button>
+      </div>
+    );
 
     return (
       <>
@@ -133,21 +191,12 @@ class Reddit extends Component {
             className="snapper-input"
             type="text"
             name="redditURLinput"
-            placeholder="Reddit Post URL"
+            placeholder="Reddit Video Post URL"
             onChange={this.handleChange}
           />
           <button className="snapper-button">Snap</button>
-          <p className="url-tip">
-            Your URL should look like this:{' '}
-            <a
-              href="https://www.reddit.com/r/dogswithjobs/comments/aq1gyn/this_pup_greets_the_mailman_every_day_to_get_the/"
-              style={{ color: '#777777' }}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              https://www.reddit.com/r/dogswithjobs/comments/aq1gyn/this_pup_greets_the_mailman_every_day_to_get_the/
-            </a>
-          </p>
+
+          <div>{displayRedditResults ? '' : redditDemo}</div>
         </form>
         <div className="reddit-download-container">{displayRedditResults ? redditDownloads : ''}</div>
       </>

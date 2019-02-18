@@ -7,15 +7,16 @@ class Youtube extends Component {
   constructor() {
     super();
     this.state = {
-      youtubeData: {},
-      youtubeReady: false,
-      youtubeWarning: false,
-      youtubeError: false,
-      attemptedSearch: false,
-      youtubeLoading: false,
+      youtubeData: {}, // holds object obtained from flask server api. holds all links/formats/info
+      youtubeReady: false, // when ready the results are displayed
+      youtubeWarning: false, // shows message stating 'Playlists are not supported' when user searches playlists
+      youtubeError: false, // shows error message for invalid searches
+      youtubeLoading: false, // shows loading animation
+      youtubeDemo: true, // shows 'Try it out' button
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleYoutube = this.handleYoutube.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   handleChange(event) {
@@ -23,10 +24,56 @@ class Youtube extends Component {
     this.setState({ [name]: value });
   }
 
+  handleDemo(event) {
+    event.preventDefault(); //prevent from reloading the page on submit
+
+    this.setState({ youtubeError: false });
+    this.setState({ youtubeDemo: false });
+    this.setState({ youtubeData: '' });
+    this.setState({ youtubeWarning: false });
+    this.setState({ youtubeLoading: true });
+    let url = 'https://conversion-api-test.herokuapp.com/youtubeAPI';
+    let youtubeVideoURL = 'https://www.youtube.com/watch?v=a3lcGnMhvsA';
+
+    // Build formData object.
+    let formData = new FormData();
+    formData.append('youtubeURL', youtubeVideoURL);
+
+    const that = this;
+
+    fetch(url, {
+      method: 'POST',
+      body: formData,
+    })
+      .then(function(response) {
+        if (response.status !== 200) {
+          console.log(response.status);
+          console.log('there was an error');
+          that.setState({ youtubeError: true });
+          that.setState({ youtubeData: '' });
+          that.setState({ youtubeLoading: false });
+          return false;
+        } else {
+          return response.json();
+        }
+      })
+      .then(function(jsonData) {
+        if (jsonData !== false) {
+          that.setState({ youtubeData: jsonData });
+          that.setState({ youtubeReady: true });
+          that.setState({ youtubeLoading: false });
+          console.log('done');
+          console.log(jsonData);
+        }
+      })
+      .catch((error) => console.error('Error:', error));
+  }
+
   handleYoutube(event) {
     event.preventDefault(); //prevent from reloading the page on submit
     if (this.state.youtubeURLinput) {
       this.setState({ youtubeError: false });
+      this.setState({ youtubeDemo: false });
       if (this.state.youtubeURLinput.includes('playlist')) {
         this.setState({ youtubeWarning: true });
         this.setState({ youtubeData: '' });
@@ -34,7 +81,6 @@ class Youtube extends Component {
         this.setState({ youtubeData: '' });
         this.setState({ youtubeWarning: false });
         this.setState({ youtubeLoading: true });
-        this.setState({ attemptedSearch: true });
         let url = 'https://conversion-api-test.herokuapp.com/youtubeAPI';
         let youtubeVideoURL = this.state.youtubeURLinput;
 
@@ -49,19 +95,24 @@ class Youtube extends Component {
           body: formData,
         })
           .then(function(response) {
-            return response.json();
-          })
-          .then(function(jsonData) {
-            that.setState({ attemptedSearch: true });
-            that.setState({ youtubeData: jsonData });
-            that.setState({ youtubeReady: true });
-            that.setState({ youtubeLoading: false });
-            console.log('done');
-            console.log(jsonData);
-            if (jsonData['message']) {
+            if (response.status !== 200) {
+              console.log(response.status);
               console.log('there was an error');
               that.setState({ youtubeError: true });
               that.setState({ youtubeData: '' });
+              that.setState({ youtubeLoading: false });
+              return false;
+            } else {
+              return response.json();
+            }
+          })
+          .then(function(jsonData) {
+            if (jsonData !== false) {
+              that.setState({ youtubeData: jsonData });
+              that.setState({ youtubeReady: true });
+              that.setState({ youtubeLoading: false });
+              console.log('done');
+              console.log(jsonData);
             }
           })
           .catch((error) => console.error('Error:', error));
@@ -77,8 +128,8 @@ class Youtube extends Component {
     const youtubeErrorState = this.state.youtubeError;
     const youtubeErrorMessage = (
       <p className="error-message">
-        There was an error with your request. Try again or use a different video. (Currently an issue with{' '}
-        <a href="https://github.com/nficano/pytube">Pytube</a> Waiting for a fix)
+        There was an error with your request. Try again or use a different video. Could be related to an issue with{' '}
+        <a href="https://github.com/nficano/pytube">Pytube</a>. Waiting for a fix.
       </p>
     );
 
@@ -271,6 +322,26 @@ class Youtube extends Component {
       );
     }
 
+    let youtubeDemo = (
+      <div>
+        <p className="url-tip">
+          Your URL should look like this:{' '}
+          <a
+            href="https://www.youtube.com/watch?v=a3lcGnMhvsA"
+            style={{ color: 'rgb(228, 55, 37)' }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://www.youtube.com/watch?v=a3lcGnMhvsA
+          </a>
+        </p>
+        <p className="url-tip">This tab is for downloading Youtube videos and shows all available formats.</p>
+        <button onClick={this.handleDemo} className="snapper-button">
+          Try it out!
+        </button>
+      </div>
+    );
+
     return (
       <>
         <form id="youtubeForm" className="snapper-form" onSubmit={this.handleYoutube}>
@@ -282,17 +353,8 @@ class Youtube extends Component {
             onChange={this.handleChange}
           />
           <button className="snapper-button">Snap</button>
-          <p className="url-tip">
-            Your URL should look like this:{' '}
-            <a
-              href="https://www.youtube.com/watch?v=a3lcGnMhvsA"
-              style={{ color: '#777777' }}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              https://www.youtube.com/watch?v=a3lcGnMhvsA
-            </a>
-          </p>
+
+          <div>{this.state.youtubeDemo ? youtubeDemo : ''}</div>
         </form>
 
         <div className="youtube-download-container">

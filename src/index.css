@@ -214,7 +214,7 @@ header > p {
 .snapper-form {
   text-align: center;
   width: 100%;
-  padding-top: 30px;
+  padding-top: 50px;
 }
 
 .snapper-input {
@@ -321,8 +321,8 @@ header > p {
 
 .reddit-download-flex {
   padding: 20px;
-  padding-top: 10px;
   margin: auto;
+  /* border: 1px solid #ff3636; */
 }
 
 @media only screen and (max-width: 800px) {
@@ -483,7 +483,8 @@ header > p {
 .welcome-div {
   width: 70%;
   margin: auto;
-  text-align: left;
+  text-align: center;
+  font-size: 18px;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -493,7 +494,7 @@ header > p {
 }
 
 .welcome-container {
-  padding: 30px;
+  padding: 20px;
   text-align: center;
 }
 
@@ -503,15 +504,26 @@ header > p {
   }
 }
 
-.url-tip {
+.url-link {
   font-size: 14px;
   color: black;
   margin-top: 20px;
-  word-break: break-all;
+  word-break: break-word;
+}
+
+.url-tip {
+  /* font-size: 14px; */
+  color: black;
+  margin-top: 20px;
+  word-break: break-word;
 }
 
 .error-message {
   text-align: center;
   padding: 20px;
   color: #e61818;
+}
+
+hr {
+  border-top: 1px solid #ff9b90;
 }
