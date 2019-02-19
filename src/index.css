@@ -349,6 +349,7 @@ header > p {
   background-color: #ff9b90;
   margin-right: 3px;
   font-size: 19px;
+  border-radius: 5px 5px 0 0;
 }
 
 @media only screen and (max-width: 650px) {
@@ -368,6 +369,9 @@ header > p {
 .react-tabs__tab--selected {
   background-color: #e43725;
   color: white;
+
+  border-color: #f0f8ff00;
+  border-radius: 5px 5px 0 0;
 }
 
 .react-tabs__tab-list {
