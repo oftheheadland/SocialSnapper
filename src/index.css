@@ -526,6 +526,7 @@ header > p {
   text-align: center;
   padding: 20px;
   color: #e61818;
+  font-weight: bold;
 }
 
 hr {
