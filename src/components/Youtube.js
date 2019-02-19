@@ -71,7 +71,7 @@ class Youtube extends Component {
 
   handleYoutube(event) {
     event.preventDefault(); //prevent from reloading the page on submit
-    if (this.state.youtubeURLinput) {
+    if (this.state.youtubeURLinput && !this.state.youtubeLoading) {
       this.setState({ youtubeError: false });
       this.setState({ youtubeDemo: false });
       if (this.state.youtubeURLinput.includes('playlist')) {
