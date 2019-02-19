@@ -25,15 +25,12 @@ class Instagram extends Component {
 
   handleDemo(event) {
     event.preventDefault();
-    console.log('hello');
 
     if (!this.state.instagramLoading) {
       this.setState({ instagramDemo: false });
       this.setState({ instagramLoading: true });
       this.setState({ instagramError: false });
       this.setState({ instagramLinks: [] });
-
-      console.log('in instagram event');
 
       let url = 'https://conversion-api-test.herokuapp.com/instagramAPI';
       let instagramURL = 'https://www.instagram.com/p/Bs8qUvrhYBj/';
@@ -53,10 +50,8 @@ class Instagram extends Component {
         body: formData,
       })
         .then(function(response) {
-          console.log(response.status);
           if (response.status !== 200) {
             that.setState({ instagramError: true });
-            console.log('ran into an error with instagram');
             that.setState({ instagramLoading: false });
             apiFailed = true;
           } else {
@@ -65,7 +60,6 @@ class Instagram extends Component {
         })
         .then(function(jsonData) {
           if (!apiFailed) {
-            console.log(jsonData);
             that.setState({ instagramLinks: jsonData['links'] });
             that.setState({ instagramLoading: false });
           }
@@ -82,8 +76,6 @@ class Instagram extends Component {
       this.setState({ instagramLoading: true });
       this.setState({ instagramError: false });
       this.setState({ instagramLinks: [] });
-
-      console.log('in instagram event');
 
       let url = 'https://conversion-api-test.herokuapp.com/instagramAPI';
       let instagramURL = this.state.instagramURLinput;
@@ -103,10 +95,8 @@ class Instagram extends Component {
         body: formData,
       })
         .then(function(response) {
-          console.log(response.status);
           if (response.status !== 200) {
             that.setState({ instagramError: true });
-            console.log('ran into an error with instagram');
             that.setState({ instagramLoading: false });
             apiFailed = true;
           } else {
@@ -115,7 +105,6 @@ class Instagram extends Component {
         })
         .then(function(jsonData) {
           if (!apiFailed) {
-            console.log(jsonData);
             that.setState({ instagramLinks: jsonData['links'] });
             that.setState({ instagramLoading: false });
           }

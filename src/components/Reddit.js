@@ -30,9 +30,7 @@ class Reddit extends Component {
   // handles the "Try it out" button
   handleDemo(event) {
     event.preventDefault();
-    console.log('hello');
     if (!this.state.redditLoading) {
-      console.log('searching...');
       this.setState({ redditLoading: true });
       this.setState({ redditReady: true });
 
@@ -52,7 +50,6 @@ class Reddit extends Component {
           return response.json();
         })
         .then(function(jsonData) {
-          console.log(jsonData);
           that.setState({ redditVideo: jsonData['video'] });
           that.setState({ redditAudio: jsonData['audio'] });
           that.setState({ redditTitle: jsonData['title'] });
@@ -69,7 +66,6 @@ class Reddit extends Component {
   handleReddit(event) {
     event.preventDefault(); //prevent from reloading the page on submit
     if (this.state.redditURLinput && !this.state.redditLoading) {
-      console.log('searching...');
       this.setState({ redditLoading: true });
       this.setState({ redditReady: true });
 
@@ -89,7 +85,6 @@ class Reddit extends Component {
           return response.json();
         })
         .then(function(jsonData) {
-          console.log(jsonData);
           that.setState({ redditVideo: jsonData['video'] });
           that.setState({ redditAudio: jsonData['audio'] });
           that.setState({ redditTitle: jsonData['title'] });

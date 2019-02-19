@@ -47,8 +47,6 @@ class Youtube extends Component {
     })
       .then(function(response) {
         if (response.status !== 200) {
-          console.log(response.status);
-          console.log('there was an error');
           that.setState({ youtubeError: true });
           that.setState({ youtubeData: '' });
           that.setState({ youtubeLoading: false });
@@ -62,8 +60,6 @@ class Youtube extends Component {
           that.setState({ youtubeData: jsonData });
           that.setState({ youtubeReady: true });
           that.setState({ youtubeLoading: false });
-          console.log('done');
-          console.log(jsonData);
         }
       })
       .catch((error) => console.error('Error:', error));
@@ -96,8 +92,6 @@ class Youtube extends Component {
         })
           .then(function(response) {
             if (response.status !== 200) {
-              console.log(response.status);
-              console.log('there was an error');
               that.setState({ youtubeError: true });
               that.setState({ youtubeData: '' });
               that.setState({ youtubeLoading: false });
@@ -111,8 +105,6 @@ class Youtube extends Component {
               that.setState({ youtubeData: jsonData });
               that.setState({ youtubeReady: true });
               that.setState({ youtubeLoading: false });
-              console.log('done');
-              console.log(jsonData);
             }
           })
           .catch((error) => console.error('Error:', error));
