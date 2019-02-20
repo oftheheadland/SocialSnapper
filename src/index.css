@@ -3,13 +3,14 @@ body {
   padding: 0;
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
     'Droid Sans', 'Helvetica Neue', sans-serif; */
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 .instagramCol {
@@ -111,6 +112,12 @@ code {
   }
 }
 
+@media only screen and (max-width: 500px) {
+  .youtube-download-container {
+    width: 100%;
+  }
+}
+
 .youtube-header {
   padding-bottom: 10px;
   padding: 25px;
@@ -150,6 +157,12 @@ code {
 @media only screen and (max-width: 800px) {
   .outer-container {
     max-width: 95%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .outer-container {
+    max-width: 100%;
   }
 }
 

@@ -4,7 +4,7 @@ import 'react-tabs/style/react-tabs.css';
 import Loading from './Loading';
 
 class Reddit extends Component {
-  constructor() {
+  constructor() {   
     super();
     this.state = {
       redditVideo: '', //holds reddit video url
