@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import 'react-tabs/style/react-tabs.css';
+import React, { Component } from "react";
+import "react-tabs/style/react-tabs.css";
 
-import Loading from './Loading';
+import Loading from "./Loading";
 
 class Instagram extends Component {
   constructor() {
     super();
     this.state = {
       instagramLinks: [], // holds array of instagram image and video links
-      instagramURL: '', // holds value of instagram search input
+      instagramURL: "", // holds value of instagram search input
       instagramLoading: false, // when true displays loading animation
       instagramError: false, // when true displays error message
-      instagramDemo: true, // when true, shows the "Try it out" button
+      instagramDemo: true // when true, shows the "Try it out" button
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleInstagram = this.handleInstagram.bind(this);
@@ -32,22 +32,22 @@ class Instagram extends Component {
       this.setState({ instagramError: false });
       this.setState({ instagramLinks: [] });
 
-      let url = 'https://conversion-api-test.herokuapp.com/instagramAPI';
-      let instagramURL = 'https://www.instagram.com/p/Bs8qUvrhYBj/';
+      let url = "https://snapperapi.herokuapp.com/instagramAPI";
+      let instagramURL = "https://www.instagram.com/p/Bs8qUvrhYBj/";
 
       // sanitize user input; remove empty spaces
-      let cleanInstagramURL = instagramURL.split(' ').join('');
+      let cleanInstagramURL = instagramURL.split(" ").join("");
 
       // Build formData object.
       let formData = new FormData();
-      formData.append('instagramURL', cleanInstagramURL);
+      formData.append("instagramURL", cleanInstagramURL);
 
       const that = this;
       let apiFailed = false;
       // fetch from api
       fetch(url, {
-        method: 'POST',
-        body: formData,
+        method: "POST",
+        body: formData
       })
         .then(function(response) {
           if (response.status !== 200) {
@@ -60,11 +60,11 @@ class Instagram extends Component {
         })
         .then(function(jsonData) {
           if (!apiFailed) {
-            that.setState({ instagramLinks: jsonData['links'] });
+            that.setState({ instagramLinks: jsonData["links"] });
             that.setState({ instagramLoading: false });
           }
         })
-        .catch((error) => console.error('Error:', error));
+        .catch(error => console.error("Error:", error));
     }
   }
 
@@ -77,22 +77,22 @@ class Instagram extends Component {
       this.setState({ instagramError: false });
       this.setState({ instagramLinks: [] });
 
-      let url = 'https://conversion-api-test.herokuapp.com/instagramAPI';
+      let url = "https://snapperapi.herokuapp.com/instagramAPI";
       let instagramURL = this.state.instagramURLinput;
 
       // sanitize user input; remove empty spaces
-      let cleanInstagramURL = instagramURL.split(' ').join('');
+      let cleanInstagramURL = instagramURL.split(" ").join("");
 
       // Build formData object.
       let formData = new FormData();
-      formData.append('instagramURL', cleanInstagramURL);
+      formData.append("instagramURL", cleanInstagramURL);
 
       const that = this;
       let apiFailed = false;
       // fetch from api
       fetch(url, {
-        method: 'POST',
-        body: formData,
+        method: "POST",
+        body: formData
       })
         .then(function(response) {
           if (response.status !== 200) {
@@ -105,11 +105,11 @@ class Instagram extends Component {
         })
         .then(function(jsonData) {
           if (!apiFailed) {
-            that.setState({ instagramLinks: jsonData['links'] });
+            that.setState({ instagramLinks: jsonData["links"] });
             that.setState({ instagramLoading: false });
           }
         })
-        .catch((error) => console.error('Error:', error));
+        .catch(error => console.error("Error:", error));
     }
   }
   render() {
@@ -120,7 +120,7 @@ class Instagram extends Component {
     const instagramBlocks = instagramLinks.map((insta, i) => (
       <div key={i}>
         <div className="instagramCol">
-          {insta.includes('.mp4') ? (
+          {insta.includes(".mp4") ? (
             <div className="video-spacer">
               <video key={insta} width="100%" controls>
                 <source src={insta} type="video/mp4" />
@@ -129,12 +129,17 @@ class Instagram extends Component {
             </div>
           ) : (
             <div>
-              <img alt="instagram pic" style={{ width: '100%' }} src={insta} />
+              <img alt="instagram pic" style={{ width: "100%" }} src={insta} />
             </div>
           )}
 
           <hr />
-          <a className="snapper-button" target="_blank" rel="noopener noreferrer" href={insta}>
+          <a
+            className="snapper-button"
+            target="_blank"
+            rel="noopener noreferrer"
+            href={insta}
+          >
             Download
           </a>
         </div>
@@ -143,10 +148,10 @@ class Instagram extends Component {
     let instaDemo = (
       <div>
         <p className="url-tip">
-          Your URL should look like this:{' '}
+          Your URL should look like this:{" "}
           <a
             href="https://www.instagram.com/p/Bs8qUvrhYBj/"
-            style={{ color: 'rgb(228, 55, 37)' }}
+            style={{ color: "rgb(228, 55, 37)" }}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -154,7 +159,8 @@ class Instagram extends Component {
           </a>
         </p>
         <p className="url-tip">
-          This tab is for downloading Instagram posts. Works on any type of post including photos, videos, and albums.
+          This tab is for downloading Instagram posts. Works on any type of post
+          including photos, videos, and albums.
         </p>
         <button onClick={this.handleDemo} className="snapper-button">
           Try it out!
@@ -164,7 +170,11 @@ class Instagram extends Component {
 
     return (
       <>
-        <form id="instagramForm" className="snapper-form" onSubmit={this.handleInstagram}>
+        <form
+          id="instagramForm"
+          className="snapper-form"
+          onSubmit={this.handleInstagram}
+        >
           <input
             className="snapper-input"
             type="text"
@@ -174,16 +184,18 @@ class Instagram extends Component {
           />
           <button className="snapper-button">Snap</button>
 
-          <div>{this.state.instagramDemo ? instaDemo : ''}</div>
+          <div>{this.state.instagramDemo ? instaDemo : ""}</div>
         </form>
 
         <div className="insta-download-container">
           {this.state.instagramError ? (
-            <div className="error-message">Error with your search. Please use an instagram post URL.</div>
+            <div className="error-message">
+              Error with your search. Please use an instagram post URL.
+            </div>
           ) : (
-            ''
+            ""
           )}
-          {this.state.instagramLoading ? instagramLoader : ''}
+          {this.state.instagramLoading ? instagramLoader : ""}
           <div className="insta-flex-container">{instagramBlocks}</div>
         </div>
       </>

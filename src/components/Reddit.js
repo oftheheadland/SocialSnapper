@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import 'react-tabs/style/react-tabs.css';
-import Loading from './Loading';
+import "react-tabs/style/react-tabs.css";
+import Loading from "./Loading";
 
 class Reddit extends Component {
-  constructor() {   
+  constructor() {
     super();
     this.state = {
-      redditVideo: '', //holds reddit video url
-      redditAudio: '',//holds reddit audio url
-      redditURLinput: '', //holds value of reddit search bar
+      redditVideo: "", //holds reddit video url
+      redditAudio: "", //holds reddit audio url
+      redditURLinput: "", //holds value of reddit search bar
       redditReady: false, // if value is true, the reddit search results are displayed
       redditLoading: false, // when true the loading animation is shown
-      encodedVideo: '', // holds value of bse64 encoded reddit video url
-      encodedAudio: '', // holds value of bse64 encoded reddit audio url
-      redditTitle: '', // holds value of Reddit post title
-      redditThumbnail: '', // holds url of reddit post thumbnail. not currently used
+      encodedVideo: "", // holds value of bse64 encoded reddit video url
+      encodedAudio: "", // holds value of bse64 encoded reddit audio url
+      redditTitle: "", // holds value of Reddit post title
+      redditThumbnail: "" // holds url of reddit post thumbnail. not currently used
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleReddit = this.handleReddit.bind(this);
@@ -34,32 +34,33 @@ class Reddit extends Component {
       this.setState({ redditLoading: true });
       this.setState({ redditReady: true });
 
-      let url = 'https://conversion-api-test.herokuapp.com/redditAPI';
-      let redditURL = 'https://www.reddit.com/r/aww/comments/arz9u2/happy_baby_donkey/';
+      let url = "https://snapperapi.herokuapp.com/redditAPI";
+      let redditURL =
+        "https://www.reddit.com/r/aww/comments/arz9u2/happy_baby_donkey/";
 
       let formData = new FormData(); // Build formData object.
-      formData.append('redditURL', redditURL);
+      formData.append("redditURL", redditURL);
 
       const that = this;
 
       fetch(url, {
-        method: 'POST',
-        body: formData,
+        method: "POST",
+        body: formData
       })
         .then(function(response) {
           return response.json();
         })
         .then(function(jsonData) {
-          that.setState({ redditVideo: jsonData['video'] });
-          that.setState({ redditAudio: jsonData['audio'] });
-          that.setState({ redditTitle: jsonData['title'] });
-          that.setState({ redditThumbnail: jsonData['thumbnail'] });
+          that.setState({ redditVideo: jsonData["video"] });
+          that.setState({ redditAudio: jsonData["audio"] });
+          that.setState({ redditTitle: jsonData["title"] });
+          that.setState({ redditThumbnail: jsonData["thumbnail"] });
           that.setState({ redditReady: true });
           that.setState({ redditLoading: false });
-          that.setState({ encodedVideo: btoa(jsonData['video']) });
-          that.setState({ encodedAudio: btoa(jsonData['audio']) });
+          that.setState({ encodedVideo: btoa(jsonData["video"]) });
+          that.setState({ encodedAudio: btoa(jsonData["audio"]) });
         })
-        .catch((error) => console.error('Error:', error));
+        .catch(error => console.error("Error:", error));
     }
   }
 
@@ -69,32 +70,32 @@ class Reddit extends Component {
       this.setState({ redditLoading: true });
       this.setState({ redditReady: true });
 
-      let url = 'https://conversion-api-test.herokuapp.com/redditAPI';
+      let url = "https://snapperapi.herokuapp.com/redditAPI";
       let redditURL = this.state.redditURLinput;
 
       let formData = new FormData(); // Build formData object.
-      formData.append('redditURL', redditURL);
+      formData.append("redditURL", redditURL);
 
       const that = this;
 
       fetch(url, {
-        method: 'POST',
-        body: formData,
+        method: "POST",
+        body: formData
       })
         .then(function(response) {
           return response.json();
         })
         .then(function(jsonData) {
-          that.setState({ redditVideo: jsonData['video'] });
-          that.setState({ redditAudio: jsonData['audio'] });
-          that.setState({ redditTitle: jsonData['title'] });
-          that.setState({ redditThumbnail: jsonData['thumbnail'] });
+          that.setState({ redditVideo: jsonData["video"] });
+          that.setState({ redditAudio: jsonData["audio"] });
+          that.setState({ redditTitle: jsonData["title"] });
+          that.setState({ redditThumbnail: jsonData["thumbnail"] });
           that.setState({ redditReady: true });
           that.setState({ redditLoading: false });
-          that.setState({ encodedVideo: btoa(jsonData['video']) });
-          that.setState({ encodedAudio: btoa(jsonData['audio']) });
+          that.setState({ encodedVideo: btoa(jsonData["video"]) });
+          that.setState({ encodedAudio: btoa(jsonData["audio"]) });
         })
-        .catch((error) => console.error('Error:', error));
+        .catch(error => console.error("Error:", error));
     }
   }
 
@@ -106,9 +107,13 @@ class Reddit extends Component {
       <div>
         <div className="reddit-flex-container">
           <div className="reddit-download-flex">
-            <h3 style={{ marginBottom: '1.5rem' }}>{this.state.redditTitle}</h3>
+            <h3 style={{ marginBottom: "1.5rem" }}>{this.state.redditTitle}</h3>
             <div>
-              <video style={{ width: '100%', maxHeight: '400px' }} key={this.state.redditVideo} controls>
+              <video
+                style={{ width: "100%", maxHeight: "400px" }}
+                key={this.state.redditVideo}
+                controls
+              >
                 <source src={this.state.redditVideo} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
@@ -117,15 +122,15 @@ class Reddit extends Component {
 
           <div className="reddit-download-flex">
             <div>
-              <p style={{ fontSize: '22px' }}>Download video with audio</p>
+              <p style={{ fontSize: "22px" }}>Download video with audio</p>
               <a
                 className="snapper-button"
                 target="_blank"
                 rel="noopener noreferrer"
                 href={
-                  'https://combinefiles.netlify.com/?video=' +
+                  "https://combinefiles.netlify.com/?video=" +
                   this.state.encodedVideo +
-                  '&audio=' +
+                  "&audio=" +
                   this.state.encodedAudio
                 }
               >
@@ -134,15 +139,25 @@ class Reddit extends Component {
             </div>
             <hr />
             <div>
-              <p style={{ fontSize: '22px' }}>Download video only </p>
-              <a className="snapper-button" target="_blank" rel="noopener noreferrer" href={this.state.redditVideo}>
+              <p style={{ fontSize: "22px" }}>Download video only </p>
+              <a
+                className="snapper-button"
+                target="_blank"
+                rel="noopener noreferrer"
+                href={this.state.redditVideo}
+              >
                 Download
               </a>
             </div>
 
-            <p style={{ display: 'none' }}>
+            <p style={{ display: "none" }}>
               Download audio only <br />
-              <a className="snapper-button" target="_blank" rel="noopener noreferrer" href={this.state.redditAudio}>
+              <a
+                className="snapper-button"
+                target="_blank"
+                rel="noopener noreferrer"
+                href={this.state.redditAudio}
+              >
                 Download
               </a>
             </p>
@@ -154,15 +169,19 @@ class Reddit extends Component {
     if (displayRedditLoading) {
       redditDownloads = <Loading />;
     } else if (!this.state.redditTitle) {
-      redditDownloads = <p className="error-message">Error. Make sure this is a v.redd.it video.</p>;
+      redditDownloads = (
+        <p className="error-message">
+          Error. Make sure this is a v.redd.it video.
+        </p>
+      );
     }
     let redditDemo = (
       <div>
         <p className="url-tip">
-          Your URL should look like this:{' '}
+          Your URL should look like this:{" "}
           <a
             href="https://www.reddit.com/r/aww/comments/arz9u2/happy_baby_donkey/"
-            style={{ color: 'rgb(228, 55, 37)' }}
+            style={{ color: "rgb(228, 55, 37)" }}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -170,8 +189,8 @@ class Reddit extends Component {
           </a>
         </p>
         <p className="url-tip">
-          This tab is for downloading video posts - specifically v.reddit posts - which are normally not available for
-          download.
+          This tab is for downloading video posts - specifically v.reddit posts
+          - which are normally not available for download.
         </p>
         <button onClick={this.handleDemo} className="snapper-button">
           Try it out!
@@ -191,9 +210,11 @@ class Reddit extends Component {
           />
           <button className="snapper-button">Snap</button>
 
-          <div>{displayRedditResults ? '' : redditDemo}</div>
+          <div>{displayRedditResults ? "" : redditDemo}</div>
         </form>
-        <div className="reddit-download-container">{displayRedditResults ? redditDownloads : ''}</div>
+        <div className="reddit-download-container">
+          {displayRedditResults ? redditDownloads : ""}
+        </div>
       </>
     );
   }
