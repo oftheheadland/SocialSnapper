@@ -547,28 +547,15 @@ hr {
   border-top: 1px solid #ff9b90;
 }
 
-.donate-button {
-  font-size: 16px;
-  padding: 6px 10px;
-  margin-left: 15px;
-  background-color: #730c8d;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
-.donate-button:hover {
-  text-decoration: none !important;
-  background-color: #48025a;
-  color: white;
-}
-
-.donate-button:active {
-  background-color: #48025a;
-  text-decoration: none !important;
-  transform: translateY(2px);
-  color: white;
-}
-
 .footer-text {
   display: inline;
+}
+
+.kofi-button {
+  border: 0px;
+  height: 36px;
+  margin: auto;
+  margin-left: 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
