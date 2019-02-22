@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
-import Header from './components/Header';
-import MediaFetcher from './components/MediaFetcher';
-import './style.css';
-import './index.css';
+import React, { Component } from "react";
+import Header from "./components/Header";
+import MediaFetcher from "./components/MediaFetcher";
+
+import Footer from "./components/Footer";
+import "./style.css";
+import "./index.css";
 
 class App extends Component {
   render() {
@@ -10,6 +12,7 @@ class App extends Component {
       <div>
         <Header />
         <MediaFetcher />
+        <Footer />
       </div>
     );
   }

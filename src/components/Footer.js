@@ -1,14 +1,26 @@
-import React from 'react';
+import React from "react";
 
 function Footer() {
   return (
     <div className="footer">
-      <p>
-        &copy;{' '}
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/oftheheadland">
+      <p className="footer-text">
+        &copy;{" "}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/oftheheadland"
+        >
           Oftheheadland
         </a>
       </p>
+      <a
+        href="https://ko-fi.com/lunith"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="snapper-button donate-button"
+      >
+        Donate
+      </a>
     </div>
   );
 }
