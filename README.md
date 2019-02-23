@@ -1,8 +1,10 @@
 # SocialSnapper
 
-React app for scraping download links from Social Media websites like Reddit, Instagram, and Youtube. For people who are tired of pay-walls and ads when all they want to do is download a picture of a puppy.
+React app for scraping download links from Social Media websites like Reddit, Instagram, and Youtube. 
 
-Reddit serves video and audio files separately so I've built a sister-website for combining the two files into one.
+For people who are tired of pay-walls and ads from similar websites when all they want to do is download a picture of a puppy.
+
+Note: Reddit serves video and audio files separately so I've built a sister-website for combining the two files into one. Just click the *Download Video with Audio* button on the Reddit tab to try it out.<br>It relies on using Blob files so you might have issues on iOS Safari.  
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
