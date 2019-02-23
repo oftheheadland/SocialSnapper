@@ -33,7 +33,7 @@ class Instagram extends Component {
       this.setState({ instagramLinks: [] });
 
       let url = "https://snapperapi.herokuapp.com/instagramAPI";
-      let instagramURL = "https://www.instagram.com/p/Bs8qUvrhYBj/";
+      let instagramURL = "https://www.instagram.com/p/BrS7hrWFRTh/";
 
       // sanitize user input; remove empty spaces
       let cleanInstagramURL = instagramURL.split(" ").join("");
