@@ -366,7 +366,7 @@ header > p {
   border-radius: 5px 5px 0 0;
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 661px) {
   .react-tabs__tab {
     width: 60%;
     margin-bottom: 5px;
@@ -539,7 +539,7 @@ header > p {
 .error-message {
   text-align: center;
   padding: 20px;
-  color: #e61818;
+  color: #af1d1d;
   font-weight: bold;
 }
 
@@ -558,4 +558,26 @@ hr {
   margin-left: 10px;
   margin-top: 8px;
   margin-bottom: 8px;
+}
+
+.twitch-flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: white;
+}
+
+.twitch-flex-container > div {
+  padding-top: 35px;
+  background-color: white;
+  width: 80%;
+  margin: 10px;
+  text-align: center;
+  font-size: 30px;
+}
+
+@media only screen and (max-width: 800px) {
+  .twitch-flex-container > div {
+    width: 98%;
+  }
 }

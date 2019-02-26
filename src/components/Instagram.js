@@ -115,8 +115,6 @@ class Instagram extends Component {
   render() {
     const instagramLinks = this.state.instagramLinks;
 
-    const instagramLoader = <Loading />;
-
     const instagramBlocks = instagramLinks.map((insta, i) => (
       <div key={i}>
         <div className="instagramCol">
@@ -195,7 +193,7 @@ class Instagram extends Component {
           ) : (
             ""
           )}
-          {this.state.instagramLoading ? instagramLoader : ""}
+          {this.state.instagramLoading ? <Loading /> : ""}
           <div className="insta-flex-container">{instagramBlocks}</div>
         </div>
       </>
