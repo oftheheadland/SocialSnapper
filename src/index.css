@@ -642,3 +642,7 @@ hr {
   transform: scale(1.2);
   cursor: pointer;
 }
+
+.url-tip {
+  margin: 20px;
+}
