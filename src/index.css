@@ -76,11 +76,11 @@ code {
   margin: auto;
   margin-top: 50px;
   margin-bottom: 100px;
-  width: 100%;
+  width: 80%;
 }
 @media only screen and (max-width: 1400px) {
   .insta-download-container {
-    width: 100%;
+    width: 90%;
   }
 }
 
@@ -615,6 +615,21 @@ hr {
   color: rgb(197, 0, 0);
   text-decoration: none;
   transition: transform 0.1s;
+}
+.reset-button-insta {
+  right: 11%;
+}
+
+@media only screen and (max-width: 1400px) {
+  .reset-button-insta {
+    right: 6%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .reset-button-insta {
+    right: 20px;
+  }
 }
 
 .reset-button:focus {

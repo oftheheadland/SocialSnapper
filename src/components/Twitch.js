@@ -212,7 +212,10 @@ class Twitch extends Component {
         <div className="insta-download-container">
           {this.state.twitchError ? (
             <div className="error-message">
-              <button className="reset-button" onClick={this.handleReset}>
+              <button
+                className="reset-button reset-button-insta"
+                onClick={this.handleReset}
+              >
                 <i className="fas fa-times" />
               </button>
               Error with your search. Please use a valid Twitch Clip URL.
@@ -224,7 +227,10 @@ class Twitch extends Component {
           <div className="twitch-flex-container">
             {this.state.twitchClipFound ? (
               <>
-                <button className="reset-button" onClick={this.handleReset}>
+                <button
+                  className="reset-button reset-button-insta"
+                  onClick={this.handleReset}
+                >
                   <i className="fas fa-times" />
                 </button>
                 {twitchContent}

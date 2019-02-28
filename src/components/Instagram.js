@@ -147,7 +147,10 @@ class Instagram extends Component {
     const instagramLinks = this.state.instagramLinks;
 
     const resetButton = (
-      <button className="reset-button" onClick={this.handleReset}>
+      <button
+        className="reset-button reset-button-insta"
+        onClick={this.handleReset}
+      >
         <i className="fas fa-times" />
       </button>
     );
