@@ -179,7 +179,7 @@ class Twitch extends Component {
           >
             Twitch.tv
           </a>{" "}
-          Clips.
+          Clips at their highest possible resolution.
         </p>
         <button onClick={this.handleDemo} className="snapper-button">
           Try it out!
