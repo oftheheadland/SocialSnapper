@@ -552,10 +552,9 @@ header > p {
 }
 
 .url-tip {
-  /* font-size: 14px; */
   color: black;
-  margin-top: 20px;
   word-break: break-word;
+  margin: 20px;
 }
 
 .error-message {
@@ -641,8 +640,4 @@ hr {
   text-decoration: none;
   transform: scale(1.2);
   cursor: pointer;
-}
-
-.url-tip {
-  margin: 20px;
 }
