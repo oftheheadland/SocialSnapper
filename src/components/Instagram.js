@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import "react-tabs/style/react-tabs.css";
+import FadeIn from "react-fade-in";
 
+import "react-tabs/style/react-tabs.css";
 import Loading from "./Loading";
 
 class Instagram extends Component {
@@ -11,11 +12,13 @@ class Instagram extends Component {
       instagramURL: "", // holds value of instagram search input
       instagramLoading: false, // when true displays loading animation
       instagramError: false, // when true displays error message
-      instagramDemo: true // when true, shows the "Try it out" button
+      instagramDemo: true, // when true, shows the "Try it out" button
+      instagramReady: false //holds whether demo should be shown or not
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleInstagram = this.handleInstagram.bind(this);
     this.handleDemo = this.handleDemo.bind(this);
+    this.handleReset = this.handleReset.bind(this);
   }
 
   handleChange(event) {
@@ -23,11 +26,19 @@ class Instagram extends Component {
     this.setState({ [name]: value });
   }
 
+  handleReset(event) {
+    event.preventDefault();
+    this.setState({ instagramDemo: true });
+    this.setState({ instagramReady: false });
+    this.setState({ instagramError: false });
+  }
+
   handleDemo(event) {
     event.preventDefault();
 
     if (!this.state.instagramLoading) {
       this.setState({ instagramDemo: false });
+      this.setState({ instagramReady: false });
       this.setState({ instagramLoading: true });
       this.setState({ instagramError: false });
       this.setState({ instagramLinks: [] });
@@ -62,6 +73,7 @@ class Instagram extends Component {
           if (!apiFailed) {
             that.setState({ instagramLinks: jsonData["links"] });
             that.setState({ instagramLoading: false });
+            that.setState({ instagramReady: true });
           }
         })
         .catch(error => console.error("Error:", error));
@@ -73,6 +85,7 @@ class Instagram extends Component {
 
     if (this.state.instagramURLinput && !this.state.instagramLoading) {
       this.setState({ instagramDemo: false });
+      this.setState({ instagramReady: false });
       this.setState({ instagramLoading: true });
       this.setState({ instagramError: false });
       this.setState({ instagramLinks: [] });
@@ -107,6 +120,7 @@ class Instagram extends Component {
           if (!apiFailed) {
             that.setState({ instagramLinks: jsonData["links"] });
             that.setState({ instagramLoading: false });
+            that.setState({ instagramReady: true });
           }
         })
         .catch(error => console.error("Error:", error));
@@ -132,8 +146,14 @@ class Instagram extends Component {
 
     const instagramLinks = this.state.instagramLinks;
 
+    const resetButton = (
+      <button className="reset-button" onClick={this.handleReset}>
+        <i className="fas fa-times" />
+      </button>
+    );
+
     const instagramBlocks = instagramLinks.map((insta, i) => (
-      <div key={i}>
+      <FadeIn key={i}>
         <div className="instagramCol">
           {insta.includes(".mp4") ? (
             <div className="video-spacer">
@@ -158,7 +178,7 @@ class Instagram extends Component {
             Download
           </a>
         </div>
-      </div>
+      </FadeIn>
     ));
     let instaDemo = (
       <div>
@@ -174,7 +194,7 @@ class Instagram extends Component {
           </a>
         </p>
         <p className="url-tip">
-          This tab is for downloading Instagram posts. Works on any type of post
+          Here you can download Instagram posts. You may enter any type of post
           including photos, videos, and albums.
         </p>
         <button onClick={this.handleDemo} className="snapper-button">
@@ -184,7 +204,7 @@ class Instagram extends Component {
     );
 
     return (
-      <>
+      <FadeIn>
         <form
           id="instagramForm"
           className="snapper-form"
@@ -203,17 +223,27 @@ class Instagram extends Component {
         </form>
 
         <div className="insta-download-container">
+          {this.state.instagramReady ? <>{resetButton}</> : ""}
+
           {this.state.instagramError ? (
-            <div className="error-message">
-              Error with your search. Please use an instagram post URL.
-            </div>
+            <FadeIn>
+              {resetButton}
+              <div className="error-message">
+                Error with your search. Please use an instagram post URL.
+              </div>
+            </FadeIn>
           ) : (
             ""
           )}
           {this.state.instagramLoading ? <Loading /> : ""}
-          <div className="insta-flex-container">{instagramBlocks}</div>
+
+          {this.state.instagramReady ? (
+            <div className="insta-flex-container">{instagramBlocks}</div>
+          ) : (
+            ""
+          )}
         </div>
-      </>
+      </FadeIn>
     );
   }
 }

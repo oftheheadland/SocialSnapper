@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import FadeIn from "react-fade-in";
 
 import "react-tabs/style/react-tabs.css";
 import Loading from "./Loading";
@@ -12,19 +13,25 @@ class Reddit extends Component {
       redditURLinput: "", //holds value of reddit search bar
       redditReady: false, // if value is true, the reddit search results are displayed
       redditLoading: false, // when true the loading animation is shown
-      encodedVideo: "", // holds value of bse64 encoded reddit video url
-      encodedAudio: "", // holds value of bse64 encoded reddit audio url
+      encodedVideo: "", // holds value of base64 encoded reddit video url
+      encodedAudio: "", // holds value of base64 encoded reddit audio url
       redditTitle: "", // holds value of Reddit post title
       redditThumbnail: "" // holds url of reddit post thumbnail. not currently used
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleReddit = this.handleReddit.bind(this);
     this.handleDemo = this.handleDemo.bind(this);
+    this.handleReset = this.handleReset.bind(this);
   }
 
   handleChange(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
+  }
+
+  handleReset(event) {
+    event.preventDefault();
+    this.setState({ redditReady: false });
   }
 
   // handles the "Try it out" button
@@ -104,7 +111,10 @@ class Reddit extends Component {
     const displayRedditLoading = this.state.redditLoading;
 
     var redditDownloads = (
-      <div>
+      <FadeIn>
+        <button className="reset-button" onClick={this.handleReset}>
+          <i className="fas fa-times" />
+        </button>
         <div className="reddit-flex-container">
           <div className="reddit-download-flex">
             <h3 style={{ marginBottom: "1.5rem" }}>{this.state.redditTitle}</h3>
@@ -168,16 +178,30 @@ class Reddit extends Component {
             </p>
           </div>
         </div>
-      </div>
+      </FadeIn>
     );
 
     if (displayRedditLoading) {
       redditDownloads = <Loading />;
     } else if (!this.state.redditTitle) {
       redditDownloads = (
-        <p className="error-message">
-          Error. Make sure this is a v.redd.it video.
-        </p>
+        <FadeIn>
+          <button className="reset-button" onClick={this.handleReset}>
+            <i className="fas fa-times" />
+          </button>
+          <p className="error-message">
+            Error. Make sure this is a v.redd.it video. <br /> Your URL should
+            look like this:{" "}
+            <a
+              href="https://www.reddit.com/r/aww/comments/arz9u2/happy_baby_donkey/"
+              style={{ color: "rgb(228, 55, 37)" }}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://www.reddit.com/r/aww/comments/arz9u2/happy_baby_donkey/
+            </a>
+          </p>
+        </FadeIn>
       );
     }
     let redditDemo = (
@@ -194,8 +218,8 @@ class Reddit extends Component {
           </a>
         </p>
         <p className="url-tip">
-          This tab is for downloading video posts - specifically v.reddit posts
-          - which are normally not available for download.
+          Here you can download video posts - specifically v.reddit posts -
+          which are normally not available for download.
         </p>
         <button onClick={this.handleDemo} className="snapper-button">
           Try it out!
@@ -204,7 +228,7 @@ class Reddit extends Component {
     );
 
     return (
-      <>
+      <FadeIn>
         <form className="snapper-form" onSubmit={this.handleReddit}>
           <input
             className="snapper-input"
@@ -220,7 +244,7 @@ class Reddit extends Component {
         <div className="reddit-download-container">
           {displayRedditResults ? redditDownloads : ""}
         </div>
-      </>
+      </FadeIn>
     );
   }
 }

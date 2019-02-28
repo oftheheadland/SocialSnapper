@@ -5,6 +5,7 @@ import Loading from "./Loading";
 import VideoTable from "./Youtube/VideoTable";
 import AudioTable from "./Youtube/AudioTable";
 import BothTable from "./Youtube/BothTable";
+import FadeIn from "react-fade-in/lib/FadeIn";
 
 class Youtube extends Component {
   constructor() {
@@ -20,6 +21,15 @@ class Youtube extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleYoutube = this.handleYoutube.bind(this);
     this.handleDemo = this.handleDemo.bind(this);
+    this.handleReset = this.handleReset.bind(this);
+  }
+
+  handleReset(event) {
+    event.preventDefault();
+    this.setState({ youtubeDemo: true });
+    this.setState({ youtubeReady: false });
+    this.setState({ youtubeWarning: false });
+    this.setState({ youtubeError: false });
   }
 
   handleChange(event) {
@@ -119,18 +129,23 @@ class Youtube extends Component {
   render() {
     const displayYoutubeResults = this.state.youtubeReady;
     const youtubeWarningMessage = (
-      <div style={{ textAlign: "center", padding: "20px" }}>
+      <p className="error-message">
+        <button className="reset-button" onClick={this.handleReset}>
+          <i className="fas fa-times" />
+        </button>
         Playlists are not currently supported.
-      </div>
+      </p>
     );
 
-    const youtubeErrorState = this.state.youtubeError;
     const youtubeErrorMessage = (
       <p className="error-message">
         {/* There was an error with your request. Try again or use a different
         video. Could be related to an issue with{" "}
         <a href="https://github.com/nficano/pytube">Pytube</a>. Waiting for a
         fix. */}
+        <button className="reset-button" onClick={this.handleReset}>
+          <i className="fas fa-times" />
+        </button>
         The content you have requested is copyrighted or is not a valid youtube
         URL. Please try a different video.
       </p>
@@ -273,7 +288,7 @@ class Youtube extends Component {
           </a>
         </p>
         <p className="url-tip">
-          This tab is for downloading Youtube videos and shows all available
+          Here you can download Youtube videos and choose from all available
           formats.
         </p>
         <button onClick={this.handleDemo} className="snapper-button">
@@ -283,7 +298,7 @@ class Youtube extends Component {
     );
 
     return (
-      <>
+      <FadeIn>
         <form
           id="youtubeForm"
           className="snapper-form"
@@ -301,26 +316,35 @@ class Youtube extends Component {
           <div>{this.state.youtubeDemo ? youtubeDemo : ""}</div>
         </form>
 
-        <div className="youtube-download-container">
-          {youtubeWarning ? youtubeWarningMessage : ""}
-          {displayYoutubeLoading ? <Loading /> : ""}
+        <div className="youtube-outer-shell" style={{ margin: "auto" }}>
+          <div className="youtube-download-container" style={{ width: "100%" }}>
+            {youtubeWarning ? <FadeIn>{youtubeWarningMessage}</FadeIn> : ""}
+            {displayYoutubeLoading ? <Loading /> : ""}
 
-          {youtubeErrorState ? youtubeErrorMessage : ""}
+            {this.state.youtubeError ? (
+              <FadeIn>{youtubeErrorMessage}</FadeIn>
+            ) : (
+              ""
+            )}
 
-          {displayYoutubeResults ? youtubeHeader : ""}
-          {displayYoutubeResults ? youtubeHighest : ""}
+            {displayYoutubeResults ? (
+              <FadeIn>
+                <button className="reset-button" onClick={this.handleReset}>
+                  <i className="fas fa-times" />
+                </button>
+                <div style={{ paddingTop: "30px" }}>{youtubeHeader}</div>
+                {youtubeHighest}
 
-          {displayYoutubeResults ? (
-            <div>
-              <BothTable bothRows={bothRows} />
-              <AudioTable audioRows={audioRows} />
-              <VideoTable videoRows={videoRows} />
-            </div>
-          ) : (
-            ""
-          )}
+                <BothTable bothRows={bothRows} />
+                <AudioTable audioRows={audioRows} />
+                <VideoTable videoRows={videoRows} />
+              </FadeIn>
+            ) : (
+              ""
+            )}
+          </div>
         </div>
-      </>
+      </FadeIn>
     );
   }
 }

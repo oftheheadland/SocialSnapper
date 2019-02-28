@@ -76,7 +76,7 @@ code {
   margin: auto;
   margin-top: 50px;
   margin-bottom: 100px;
-  width: 80%;
+  width: 100%;
 }
 @media only screen and (max-width: 1400px) {
   .insta-download-container {
@@ -97,23 +97,45 @@ code {
   margin: auto;
   margin-top: 50px;
   margin-bottom: 100px;
-  width: 80%;
+  /* width: 80%; */
 }
 
 @media only screen and (max-width: 1400px) {
   .youtube-download-container {
-    width: 90%;
+    /* width: 90%; */
   }
 }
 
 @media only screen and (max-width: 800px) {
   .youtube-download-container {
-    width: 95%;
+    /* width: 95%; */
   }
 }
 
 @media only screen and (max-width: 500px) {
   .youtube-download-container {
+    /* width: 100%; */
+  }
+}
+
+.youtube-outer-shell {
+  width: 80%;
+}
+
+@media only screen and (max-width: 1400px) {
+  .youtube-outer-shell {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .youtube-outer-shell {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .youtube-outer-shell {
     width: 100%;
   }
 }
@@ -539,8 +561,8 @@ header > p {
 .error-message {
   text-align: center;
   padding: 20px;
-  color: #af1d1d;
-  font-weight: bold;
+  color: #000000;
+  /* font-weight: bold; */
 }
 
 hr {
@@ -580,4 +602,28 @@ hr {
   .twitch-flex-container > div {
     width: 98%;
   }
+}
+
+.reset-button {
+  border: none;
+  background-color: transparent;
+  font-size: 30px;
+  top: 0px;
+  right: 10px;
+  position: absolute;
+  z-index: 99;
+  color: rgb(197, 0, 0);
+  text-decoration: none;
+  transition: transform 0.1s;
+}
+
+.reset-button:focus {
+  outline: 0;
+}
+
+.reset-button:hover {
+  color: rgb(233, 0, 0);
+  text-decoration: none;
+  transform: scale(1.2);
+  cursor: pointer;
 }

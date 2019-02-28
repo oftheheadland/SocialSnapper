@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "react-tabs/style/react-tabs.css";
 
 import Loading from "./Loading";
+import FadeIn from "react-fade-in/lib/FadeIn";
 
 class Twitch extends Component {
   constructor() {
@@ -18,6 +19,14 @@ class Twitch extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleTwitch = this.handleTwitch.bind(this);
     this.handleDemo = this.handleDemo.bind(this);
+    this.handleReset = this.handleReset.bind(this);
+  }
+
+  handleReset(event) {
+    event.preventDefault();
+    this.setState({ twitchDemo: true });
+    this.setState({ twitchClipFound: false });
+    this.setState({ twitchError: false });
   }
 
   handleChange(event) {
@@ -32,6 +41,7 @@ class Twitch extends Component {
       this.setState({ twitchDemo: false });
       this.setState({ twitchLoading: true });
       this.setState({ twitchError: false });
+      this.setState({ twitchClipFound: false });
 
       let url = "https://snapperapi.herokuapp.com/twitchAPI";
       let twitchURL = this.state.twitchURLinput;
@@ -125,12 +135,14 @@ class Twitch extends Component {
   }
 
   render() {
-    const twitchContent = (
-      <div>
+    const twitchContent = this.state.twitchLoading ? (
+      ""
+    ) : (
+      <FadeIn>
         <div className="instagramCol">
           <div>
             <p>{this.state.twitchClipTitle}</p>
-            <video key={this.state.twitchClipMP4} width="100%" controls>
+            <video key={this.state.twitchClipMP4} width="90%" controls>
               <source src={this.state.twitchClipMP4} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
@@ -144,7 +156,7 @@ class Twitch extends Component {
             Download
           </a>
         </div>
-      </div>
+      </FadeIn>
     );
 
     let twitchDemo = (
@@ -160,7 +172,18 @@ class Twitch extends Component {
             https://clips.twitch.tv/ObedientBenevolentBasenjiNinjaGrumpy
           </a>
         </p>
-        <p className="url-tip">This tab is for downloading Twitch.TV Clips.</p>
+        <p className="url-tip">
+          Here you can download{" "}
+          <a
+            href="https://twitch.tv"
+            style={{ color: "rgb(228, 55, 37)" }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Twitch.tv
+          </a>{" "}
+          Clips.
+        </p>
         <button onClick={this.handleDemo} className="snapper-button">
           Try it out!
         </button>
@@ -168,7 +191,7 @@ class Twitch extends Component {
     );
 
     return (
-      <>
+      <FadeIn>
         <form
           id="twitchForm"
           className="snapper-form"
@@ -189,6 +212,9 @@ class Twitch extends Component {
         <div className="insta-download-container">
           {this.state.twitchError ? (
             <div className="error-message">
+              <button className="reset-button" onClick={this.handleReset}>
+                <i className="fas fa-times" />
+              </button>
               Error with your search. Please use a valid Twitch Clip URL.
             </div>
           ) : (
@@ -196,10 +222,19 @@ class Twitch extends Component {
           )}
           {this.state.twitchLoading ? <Loading /> : ""}
           <div className="twitch-flex-container">
-            {this.state.twitchClipFound ? twitchContent : ""}
+            {this.state.twitchClipFound ? (
+              <>
+                <button className="reset-button" onClick={this.handleReset}>
+                  <i className="fas fa-times" />
+                </button>
+                {twitchContent}
+              </>
+            ) : (
+              ""
+            )}
           </div>
         </div>
-      </>
+      </FadeIn>
     );
   }
 }
