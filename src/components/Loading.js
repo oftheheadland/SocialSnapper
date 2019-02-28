@@ -1,15 +1,18 @@
-import React from 'react';
+import React from "react";
+import FadeIn from "react-fade-in/lib/FadeIn";
 
 function Loading() {
   return (
-    <div>
-      <div className="lds-ellipsis">
-        <div />
-        <div />
-        <div />
-        <div />
+    <FadeIn>
+      <div>
+        <div className="lds-ellipsis">
+          <div />
+          <div />
+          <div />
+          <div />
+        </div>
       </div>
-    </div>
+    </FadeIn>
   );
 }
 

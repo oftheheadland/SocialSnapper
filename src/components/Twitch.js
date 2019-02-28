@@ -71,9 +71,6 @@ class Twitch extends Component {
         })
         .then(function(jsonData) {
           if (!apiFailed) {
-            console.log(jsonData);
-            console.log(jsonData["url"]);
-            console.log(jsonData["title"]);
             that.setState({ twitchClipMP4: jsonData["url"] });
             that.setState({ twitchClipTitle: jsonData["title"] });
             that.setState({ twitchClipFound: true });
