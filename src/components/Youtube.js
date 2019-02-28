@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import "react-tabs/style/react-tabs.css";
 
 import Loading from "./Loading";
+import VideoTable from "./Youtube/VideoTable";
+import AudioTable from "./Youtube/AudioTable";
+import BothTable from "./Youtube/BothTable";
 
 class Youtube extends Component {
   constructor() {
@@ -32,6 +35,7 @@ class Youtube extends Component {
     this.setState({ youtubeData: "" });
     this.setState({ youtubeWarning: false });
     this.setState({ youtubeLoading: true });
+    this.setState({ youtubeReady: false });
     let url = "https://snapperapi.herokuapp.com/youtubeAPI";
     let youtubeVideoURL = "https://www.youtube.com/watch?v=a3lcGnMhvsA";
 
@@ -77,6 +81,7 @@ class Youtube extends Component {
         this.setState({ youtubeData: "" });
         this.setState({ youtubeWarning: false });
         this.setState({ youtubeLoading: true });
+        this.setState({ youtubeReady: false });
         let url = "https://snapperapi.herokuapp.com/youtubeAPI";
         let youtubeVideoURL = this.state.youtubeURLinput;
 
@@ -122,16 +127,16 @@ class Youtube extends Component {
     const youtubeErrorState = this.state.youtubeError;
     const youtubeErrorMessage = (
       <p className="error-message">
-        There was an error with your request. Try again or use a different
+        {/* There was an error with your request. Try again or use a different
         video. Could be related to an issue with{" "}
         <a href="https://github.com/nficano/pytube">Pytube</a>. Waiting for a
-        fix.
+        fix. */}
+        The content you have requested is copyrighted or is not a valid youtube
+        URL. Please try a different video.
       </p>
     );
 
     const displayYoutubeLoading = this.state.youtubeLoading;
-
-    const youtubeLoader = <Loading />;
 
     let youtubeWarning = this.state.youtubeWarning;
 
@@ -141,20 +146,9 @@ class Youtube extends Component {
 
     let youtubeHighest;
 
-    let audioHeader;
-    let audioTopRow;
     let audioRows;
-    let audioTable;
-
-    let videoHeader;
-    let videoTopRow;
     let videoRows;
-    let videoTable;
-
-    let bothHeader;
-    let bothTopRow;
     let bothRows;
-    let bothTable;
 
     if (youtubeData !== undefined) {
       const audioData = youtubeData["audio"];
@@ -206,22 +200,6 @@ class Youtube extends Component {
         </div>
       );
 
-      bothHeader = (
-        <div>
-          <h3 className="youtube-title">Download Video with Audio</h3>
-        </div>
-      );
-
-      bothTopRow = (
-        <tr>
-          <th>Quality</th>
-          <th>Type</th>
-          <th>Audio Codec</th>
-          <th>Size</th>
-          <th>Download</th>
-        </tr>
-      );
-
       bothRows = bothData.map((data, i) => (
         <tr key={i}>
           <td>{data.resolution}</td>
@@ -242,30 +220,6 @@ class Youtube extends Component {
         </tr>
       ));
 
-      bothTable = (
-        <div style={{ overflowX: "auto" }}>
-          <table className="youtube-table">
-            <thead>{bothTopRow}</thead>
-            <tbody>{bothRows}</tbody>
-          </table>
-        </div>
-      );
-
-      audioHeader = (
-        <div>
-          <h3 className="youtube-title">Download Audio Only</h3>
-        </div>
-      );
-
-      audioTopRow = (
-        <tr>
-          <th>Bit Rate</th>
-          <th>Audio Codec</th>
-          <th>Size</th>
-          <th>Download</th>
-        </tr>
-      );
-
       audioRows = audioData.map((data, i) => (
         <tr key={i}>
           <td>{data.abr}</td>
@@ -285,30 +239,6 @@ class Youtube extends Component {
         </tr>
       ));
 
-      audioTable = (
-        <div style={{ overflowX: "auto" }}>
-          <table className="youtube-table">
-            <thead>{audioTopRow}</thead>
-            <tbody>{audioRows}</tbody>
-          </table>
-        </div>
-      );
-
-      videoHeader = (
-        <div>
-          <h3 className="youtube-title">Download Video Only</h3>
-        </div>
-      );
-
-      videoTopRow = (
-        <tr>
-          <th>Quality</th>
-          <th>Type</th>
-          <th>Size</th>
-          <th>Download</th>
-        </tr>
-      );
-
       videoRows = videoData.map((data, i) => (
         <tr key={i}>
           <td>{data.resolution || "Unknown"}</td>
@@ -327,15 +257,6 @@ class Youtube extends Component {
           </td>
         </tr>
       ));
-
-      videoTable = (
-        <div style={{ overflowX: "auto" }}>
-          <table className="youtube-table">
-            <thead>{videoTopRow}</thead>
-            <tbody>{videoRows}</tbody>
-          </table>
-        </div>
-      );
     }
 
     let youtubeDemo = (
@@ -375,28 +296,29 @@ class Youtube extends Component {
             placeholder="Youtube Video URL"
             onChange={this.handleChange}
           />
-          <button className="snapper-button">Snap</button>
+          <button className="snapper-button">Search</button>
 
           <div>{this.state.youtubeDemo ? youtubeDemo : ""}</div>
         </form>
 
         <div className="youtube-download-container">
           {youtubeWarning ? youtubeWarningMessage : ""}
-          {displayYoutubeLoading ? youtubeLoader : ""}
+          {displayYoutubeLoading ? <Loading /> : ""}
 
           {youtubeErrorState ? youtubeErrorMessage : ""}
 
           {displayYoutubeResults ? youtubeHeader : ""}
           {displayYoutubeResults ? youtubeHighest : ""}
 
-          {displayYoutubeResults ? bothHeader : ""}
-          {displayYoutubeResults ? bothTable : ""}
-
-          {displayYoutubeResults ? audioHeader : ""}
-          {displayYoutubeResults ? audioTable : ""}
-
-          {displayYoutubeResults ? videoHeader : ""}
-          {displayYoutubeResults ? videoTable : ""}
+          {displayYoutubeResults ? (
+            <div>
+              <BothTable bothRows={bothRows} />
+              <AudioTable audioRows={audioRows} />
+              <VideoTable videoRows={videoRows} />
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       </>
     );

@@ -17,7 +17,7 @@ class MediaFetcher extends Component {
           <TabList>
             <Tab>Reddit</Tab>
             <Tab>Instagram</Tab>
-            <Tab>Youtube</Tab>
+            <Tab>YouTube</Tab>
             <Tab>Twitch</Tab>
           </TabList>
 

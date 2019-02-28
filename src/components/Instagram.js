@@ -112,7 +112,24 @@ class Instagram extends Component {
         .catch(error => console.error("Error:", error));
     }
   }
+
   render() {
+    // IE11 compatability because it somehow still has 10% market share
+    if (!String.prototype.includes) {
+      // eslint-disable-next-line
+      String.prototype.includes = function(search, start) {
+        if (typeof start !== "number") {
+          start = 0;
+        }
+
+        if (start + search.length > this.length) {
+          return false;
+        } else {
+          return this.indexOf(search, start) !== -1;
+        }
+      };
+    }
+
     const instagramLinks = this.state.instagramLinks;
 
     const instagramBlocks = instagramLinks.map((insta, i) => (
@@ -180,7 +197,7 @@ class Instagram extends Component {
             placeholder="Instagram Post URL"
             onChange={this.handleChange}
           />
-          <button className="snapper-button">Snap</button>
+          <button className="snapper-button">Search</button>
 
           <div>{this.state.instagramDemo ? instaDemo : ""}</div>
         </form>

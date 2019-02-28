@@ -122,7 +122,12 @@ class Reddit extends Component {
 
           <div className="reddit-download-flex">
             <div>
-              <p style={{ fontSize: "22px" }}>Download video with audio</p>
+              <p style={{ fontSize: "22px" }}>
+                Download video with audio <br />
+                <span style={{ fontSize: "14px" }}>
+                  Free - You will be redirected to a download page.
+                </span>
+              </p>
               <a
                 className="snapper-button"
                 target="_blank"
@@ -208,7 +213,7 @@ class Reddit extends Component {
             placeholder="Reddit Video Post URL"
             onChange={this.handleChange}
           />
-          <button className="snapper-button">Snap</button>
+          <button className="snapper-button">Search</button>
 
           <div>{displayRedditResults ? "" : redditDemo}</div>
         </form>

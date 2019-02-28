@@ -181,7 +181,7 @@ class Twitch extends Component {
             placeholder="Twitch Clip URL"
             onChange={this.handleChange}
           />
-          <button className="snapper-button">Snap</button>
+          <button className="snapper-button">Search</button>
 
           <div>{this.state.twitchDemo ? twitchDemo : ""}</div>
         </form>

@@ -255,7 +255,7 @@ header > p {
   }
 }
 
-@media only screen and (max-width: 405px) {
+@media only screen and (max-width: 460px) {
   .snapper-input {
     width: 60%;
   }
