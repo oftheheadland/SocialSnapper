@@ -87,6 +87,7 @@ class Youtube extends Component {
       if (this.state.youtubeURLinput.includes("playlist")) {
         this.setState({ youtubeWarning: true });
         this.setState({ youtubeData: "" });
+        this.setState({ youtubeReady: false });
       } else {
         this.setState({ youtubeData: "" });
         this.setState({ youtubeWarning: false });

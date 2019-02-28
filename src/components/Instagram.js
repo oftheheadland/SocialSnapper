@@ -144,7 +144,7 @@ class Instagram extends Component {
       };
     }
 
-    const instagramLinks = this.state.instagramLinks;
+    // const instagramLinks = this.state.instagramLinks;
 
     const resetButton = (
       <button
@@ -155,11 +155,12 @@ class Instagram extends Component {
       </button>
     );
 
-    const instagramBlocks = instagramLinks.map((insta, i) => (
+    const instagramBlocks = this.state.instagramLinks.map((insta, i) => (
       <FadeIn key={i}>
         <div className="instagramCol">
           {insta.includes(".mp4") ? (
-            <div className="video-spacer">
+            // <div className="video-spacer">
+            <div>
               <video key={insta} width="100%" controls>
                 <source src={insta} type="video/mp4" />
                 Your browser does not support the video tag.
