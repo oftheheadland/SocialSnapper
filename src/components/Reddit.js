@@ -135,7 +135,7 @@ class Reddit extends Component {
               <p style={{ fontSize: "22px" }}>
                 Download video with audio <br />
                 <span style={{ fontSize: "14px" }}>
-                  Free - You will be redirected to a download page.
+                  You will be redirected to a download page.
                 </span>
               </p>
               <a
@@ -165,17 +165,16 @@ class Reddit extends Component {
               </a>
             </div>
 
-            <p style={{ display: "none" }}>
-              Download audio only <br />
-              <a
-                className="snapper-button"
-                target="_blank"
-                rel="noopener noreferrer"
-                href={this.state.redditAudio}
-              >
-                Download
-              </a>
-            </p>
+            <hr />
+            <p style={{ fontSize: "22px" }}>Download audio only</p>
+            <a
+              className="snapper-button"
+              target="_blank"
+              rel="noopener noreferrer"
+              href={this.state.redditAudio}
+            >
+              Download
+            </a>
           </div>
         </div>
       </FadeIn>

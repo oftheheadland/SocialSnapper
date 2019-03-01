@@ -5,6 +5,7 @@
   "dependencies": {
     "react": "^16.7.0",
     "react-app-polyfill": "^0.2.1",
+    "react-cookie-consent": "^2.2.1",
     "react-dom": "^16.7.0",
     "react-fade-in": "^0.1.6",
     "react-router-dom": "^4.3.1",

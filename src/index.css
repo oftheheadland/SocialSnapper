@@ -185,7 +185,7 @@ code {
 
 @media only screen and (max-width: 500px) {
   .outer-container {
-    max-width: 100%;
+    max-width: 98%;
   }
 }
 
@@ -214,10 +214,11 @@ code {
   background-color: rgb(41, 37, 37);
   color: white;
   text-align: center;
+  height: 40px;
 }
 
 .footer p {
-  padding-top: 10px;
+  vertical-align: -webkit-baseline-middle;
 }
 
 .footer p a {
@@ -485,6 +486,20 @@ header > p {
   text-align: center;
   margin-bottom: 25px;
 }
+.youtube-table tr td:last-child {
+  width: 175px;
+}
+
+@media only screen and (max-width: 900px) {
+  .youtube-table tr td:last-child {
+    width: 125px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .youtube-table tr td:last-child {
+    width: 75px;
+  }
+}
 
 @media only screen and (max-width: 1200px) {
   .youtube-table {
@@ -640,4 +655,32 @@ hr {
   text-decoration: none;
   transform: scale(1.2);
   cursor: pointer;
+}
+
+.router-link {
+  color: #e43725 !important;
+  font-size: 18px;
+}
+
+.about-container {
+  max-width: 800px;
+  margin: auto;
+  min-height: 100vh;
+}
+@media only screen and (max-width: 1300px) {
+  .about-container {
+    max-width: 85%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .about-container {
+    max-width: 95%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .about-container {
+    max-width: 98%;
+  }
 }

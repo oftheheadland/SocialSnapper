@@ -198,8 +198,9 @@ class Instagram extends Component {
           </a>
         </p>
         <p className="url-tip">
-          Here you can download Instagram posts. You may enter any type of post
-          including photos, videos, and albums.
+          Here you can download Instagram Posts, Highlights, and Stories. You
+          may enter any type of post or story including photos, videos, and
+          albums.
         </p>
         <button onClick={this.handleDemo} className="snapper-button">
           Try it out!
