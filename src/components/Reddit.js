@@ -16,12 +16,25 @@ class Reddit extends Component {
       encodedAudio: "", // holds value of base64 encoded reddit audio url
       redditTitle: "", // holds value of Reddit post title
       redditThumbnail: "", // holds url of reddit post thumbnail. not currently used
-      showModal: false
+      showOptions: "none", // show or hide audio/video only options
+      optionsText: "More Options"
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleReddit = this.handleReddit.bind(this);
     this.handleDemo = this.handleDemo.bind(this);
     this.handleReset = this.handleReset.bind(this);
+    this.handleMoreOptions = this.handleMoreOptions.bind(this);
+  }
+
+  handleMoreOptions(event) {
+    event.preventDefault();
+    if (this.state.optionsText === "More Options") {
+      this.setState({ showOptions: "block" });
+      this.setState({ optionsText: "Less Options" });
+    } else {
+      this.setState({ showOptions: "none" });
+      this.setState({ optionsText: "More Options" });
+    }
   }
 
   handleChange(event) {
@@ -136,6 +149,36 @@ class Reddit extends Component {
                   this.state.encodedAudio
                 }
               />
+            </div>
+
+            <a
+              style={{ color: "#e43725" }}
+              href="/"
+              onClick={this.handleMoreOptions}
+            >
+              {this.state.optionsText}
+            </a>
+            <div style={{ display: this.state.showOptions }}>
+              <p style={{ fontSize: "22px" }}>Download video only </p>
+              <a
+                className="snapper-button"
+                target="_blank"
+                rel="noopener noreferrer"
+                href={this.state.redditVideo}
+              >
+                Download
+              </a>
+
+              <hr />
+              <p style={{ fontSize: "22px" }}>Download audio only</p>
+              <a
+                className="snapper-button"
+                target="_blank"
+                rel="noopener noreferrer"
+                href={this.state.redditAudio}
+              >
+                Download
+              </a>
             </div>
           </div>
 
