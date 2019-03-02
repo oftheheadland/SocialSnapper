@@ -51,12 +51,12 @@ code {
   margin: auto;
   margin-top: 50px;
   margin-bottom: 100px;
-  width: 80%;
+  width: 70%;
   /* padding: 30px; */
 }
 @media only screen and (max-width: 1400px) {
   .reddit-download-container {
-    width: 100%;
+    width: 80%;
     /* padding: 20px; */
   }
 }
@@ -218,7 +218,10 @@ code {
 }
 
 .footer p {
-  vertical-align: -webkit-baseline-middle;
+  vertical-align: middle;
+}
+.footer-text {
+  display: inline;
 }
 
 .footer p a {
@@ -369,8 +372,8 @@ header > p {
 }
 
 .footer > p {
-  padding-top: 6px;
-  padding-bottom: 6px;
+  /* padding-top: 6px; */
+  /* padding-bottom: 6px; */
   margin: 0 auto;
 }
 
@@ -583,10 +586,6 @@ hr {
   border-top: 1px solid #ff9b90;
 }
 
-.footer-text {
-  display: inline;
-}
-
 .kofi-button {
   border: 0px;
   height: 36px;
@@ -663,7 +662,7 @@ hr {
 }
 
 .about-container {
-  max-width: 800px;
+  max-width: 850px;
   margin: auto;
   min-height: 100vh;
 }
@@ -682,5 +681,36 @@ hr {
 @media only screen and (max-width: 500px) {
   .about-container {
     max-width: 98%;
+  }
+}
+
+.reddit-modal {
+  z-index: 999;
+  width: 500px;
+  height: 500px;
+}
+
+.ReactModal__Overlay {
+  z-index: 100;
+}
+
+.ReactModal__Content {
+  margin: auto;
+}
+
+.footer-div {
+  padding: 5px;
+  margin: auto;
+}
+
+iframe {
+  border: none;
+  width: 100%;
+  height: 500px;
+}
+
+@media only screen and (max-width: 500px) {
+  iframe {
+    height: 460px;
   }
 }

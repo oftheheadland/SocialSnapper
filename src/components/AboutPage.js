@@ -8,9 +8,15 @@ function AboutPage() {
         <h1>About</h1>
         <hr />
         <h3>How do I use it?</h3>
-        <p>Reddit</p>
+        <p>
+          Copy the link from your browser's address bar while viewing content
+          you would like to save. Then paste it into SocialSnapper under the
+          relevant tab.
+        </p>
+        <p>Find examples below.</p>
+        <h4>Reddit</h4>
         <p className="url-tip">
-          Your URL should look like this:{" "}
+          Reddit post with a v.redd.it video:{" "}
           <a
             href="https://www.reddit.com/r/aww/comments/arz9u2/happy_baby_donkey/"
             style={{ color: "rgb(228, 55, 37)" }}
@@ -21,7 +27,7 @@ function AboutPage() {
           </a>
         </p>
         <p className="url-tip">
-          Or this:{" "}
+          Shortened URL version:{" "}
           <a
             href="https://v.redd.it/ue83vad6ych21"
             style={{ color: "rgb(228, 55, 37)" }}
@@ -31,53 +37,95 @@ function AboutPage() {
             https://v.redd.it/ue83vad6ych21
           </a>
         </p>
+        <p className="url-tip">
+          Note: this will not work on just any Reddit video post. Reddit posts
+          come in all shapes and sizes including Gyfcat, Imgur, Streamable,
+          YouTube, and more.
+        </p>
+        <p className="url-tip">
+          Reddit converts some video submissions to its propietary format, which
+          this website helps you get around. It will not work on 3rd party
+          websites like the ones I have listed.
+        </p>
+        <p className="url-tip">
+          Luckily, most of those websites are easy to download content from, so
+          there is no need to fret. And if it's a YouTube video you can check
+          out the YouTube tab.
+        </p>
 
-        <p>Instagram</p>
-        <p>
-          <p className="url-tip">
-            Instagram Post or Album:{" "}
-            <a
-              href="https://www.instagram.com/p/Bs8qUvrhYBj/"
-              style={{ color: "rgb(228, 55, 37)" }}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              https://www.instagram.com/p/Bs8qUvrhYBj/
-            </a>
-          </p>
-          <p className="url-tip">
-            Instagram Highlights:{" "}
-            <a
-              href="https://www.instagram.com/stories/highlights/17871290047271382/"
-              style={{ color: "rgb(228, 55, 37)" }}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              https://www.instagram.com/stories/highlights/17871290047271382/
-            </a>
-          </p>
-          <p className="url-tip">
-            Instagram Stories:{" "}
-            <a
-              href="https://www.instagram.com/stories/instagram/"
-              style={{ color: "rgb(228, 55, 37)" }}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              https://www.instagram.com/stories/instagram/
-            </a>
-          </p>
-          <p className="url-tip">
-            Instagram Profile Picture:{" "}
-            <a
-              href="https://www.instagram.com/instagram/"
-              style={{ color: "rgb(228, 55, 37)" }}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              https://www.instagram.com/instagram/
-            </a>
-          </p>
+        <h4>Instagram</h4>
+
+        <p className="url-tip">
+          Instagram Post or Album:{" "}
+          <a
+            href="https://www.instagram.com/p/Bs8qUvrhYBj/"
+            style={{ color: "rgb(228, 55, 37)" }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://www.instagram.com/p/Bs8qUvrhYBj/
+          </a>
+        </p>
+        <p className="url-tip">
+          Instagram Highlights:{" "}
+          <a
+            href="https://www.instagram.com/stories/highlights/17871290047271382/"
+            style={{ color: "rgb(228, 55, 37)" }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://www.instagram.com/stories/highlights/17871290047271382/
+          </a>
+        </p>
+        <p className="url-tip">
+          Instagram Stories:{" "}
+          <a
+            href="https://www.instagram.com/stories/instagram/"
+            style={{ color: "rgb(228, 55, 37)" }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://www.instagram.com/stories/instagram/
+          </a>
+        </p>
+        <p className="url-tip">
+          Instagram Profile Picture:{" "}
+          <a
+            href="https://www.instagram.com/instagram/"
+            style={{ color: "rgb(228, 55, 37)" }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://www.instagram.com/instagram/
+          </a>
+        </p>
+
+        <h4>YouTube</h4>
+
+        <p className="url-tip">
+          Instagram Post or Album:{" "}
+          <a
+            href="https://www.instagram.com/p/Bs8qUvrhYBj/"
+            style={{ color: "rgb(228, 55, 37)" }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://www.instagram.com/p/Bs8qUvrhYBj/
+          </a>
+        </p>
+
+        <h4>Twitch</h4>
+
+        <p className="url-tip">
+          Instagram Post or Album:{" "}
+          <a
+            href="https://www.instagram.com/p/Bs8qUvrhYBj/"
+            style={{ color: "rgb(228, 55, 37)" }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://www.instagram.com/p/Bs8qUvrhYBj/
+          </a>
         </p>
         <h3>Why?</h3>
         <p>
@@ -124,6 +172,10 @@ function AboutPage() {
             React.js
           </a>
           .
+        </p>
+        <p>
+          Mention the github repo for the videoconverter website, attribute
+          ffmpeg
         </p>
       </div>
     </FadeIn>

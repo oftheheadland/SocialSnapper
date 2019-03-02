@@ -1,7 +1,7 @@
 import React from "react";
 import FadeIn from "react-fade-in";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 import MediaFetcher from "./MediaFetcher";
 import AboutPage from "./AboutPage";
 import ContactPage from "./ContactPage";
@@ -24,7 +24,7 @@ function Contact() {
 
 // const NotFound = () => <div className="outer-container">Not found</div>;
 
-const NotFoundRedirect = () => <Redirect to="/" />;
+// const NotFoundRedirect = () => <Redirect to="/404" />;
 
 function Content() {
   return (
@@ -55,7 +55,7 @@ function Content() {
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
           {/* <Route path="/404" component={NotFound} /> */}
-          <Route component={NotFoundRedirect} />
+          {/* <Route component={NotFoundRedirect} /> */}
         </div>
       </Router>
     </div>

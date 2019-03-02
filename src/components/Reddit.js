@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import FadeIn from "react-fade-in";
-
 import "react-tabs/style/react-tabs.css";
 import Loading from "./Loading";
 
@@ -16,7 +15,8 @@ class Reddit extends Component {
       encodedVideo: "", // holds value of base64 encoded reddit video url
       encodedAudio: "", // holds value of base64 encoded reddit audio url
       redditTitle: "", // holds value of Reddit post title
-      redditThumbnail: "" // holds url of reddit post thumbnail. not currently used
+      redditThumbnail: "", // holds url of reddit post thumbnail. not currently used
+      showModal: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleReddit = this.handleReddit.bind(this);
@@ -119,18 +119,27 @@ class Reddit extends Component {
           <div className="reddit-download-flex">
             <h3 style={{ marginBottom: "1.5rem" }}>{this.state.redditTitle}</h3>
             <div>
-              <video
+              {/* <video
                 style={{ width: "100%", maxHeight: "400px" }}
                 key={this.state.redditVideo}
                 controls
               >
                 <source src={this.state.redditVideo} type="video/mp4" />
                 Your browser does not support the video tag.
-              </video>
+              </video> */}
+              <iframe
+                title="file combiner iframe"
+                src={
+                  "https://combinefiles.netlify.com/?video=" +
+                  this.state.encodedVideo +
+                  "&audio=" +
+                  this.state.encodedAudio
+                }
+              />
             </div>
           </div>
 
-          <div className="reddit-download-flex">
+          <div className="reddit-download-flex" style={{ display: "none" }}>
             <div>
               <p style={{ fontSize: "22px" }}>
                 Download video with audio <br />
@@ -217,8 +226,8 @@ class Reddit extends Component {
           </a>
         </p>
         <p className="url-tip">
-          Here you can download video posts - specifically v.reddit posts -
-          which are normally not available for download.
+          Here you can download Reddit video posts (v.redd.it){" "}
+          <span style={{ fontWeight: "bold" }}>with sound!</span>
         </p>
         <button onClick={this.handleDemo} className="snapper-button">
           Try it out!
