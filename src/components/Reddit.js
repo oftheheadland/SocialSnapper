@@ -156,7 +156,7 @@ class Reddit extends Component {
               href="/"
               onClick={this.handleMoreOptions}
             >
-              {this.state.optionsText}
+              {this.state.optionsText} <i className="fas fa-caret-down" />
             </a>
             <div style={{ display: this.state.showOptions }}>
               <p style={{ fontSize: "22px" }}>Download video only </p>

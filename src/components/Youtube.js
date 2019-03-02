@@ -289,7 +289,7 @@ class Youtube extends Component {
           </a>
         </p>
         <p className="url-tip">
-          Here you can download Youtube videos in HD quality or choose from all
+          Here you can download Youtube videos in HD or choose from all
           available formats.
         </p>
         <button onClick={this.handleDemo} className="snapper-button">

@@ -44,8 +44,7 @@ function AboutPage() {
         </p>
         <p className="url-tip">
           Reddit converts some video submissions to its propietary format, which
-          this website helps you get around. It will not work on 3rd party
-          websites like the ones I have listed.
+          SocialSnapper helps you get around. It is only intended to be used on v.redd.it videos.
         </p>
         <p className="url-tip">
           Luckily, most of those websites are easy to download content from, so

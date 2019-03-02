@@ -158,8 +158,8 @@ class Instagram extends Component {
     const instagramBlocks = this.state.instagramLinks.map((insta, i) => (
       <FadeIn key={i}>
         <div className="instagramCol">
-          {insta.includes(".mp4") ? (
-            // <div className="video-spacer">
+          {insta.includes("mp4") ? (
+            // <div style={{ maxHeight: "375px" }}>
             <div>
               <video key={insta} width="100%" controls>
                 <source src={insta} type="video/mp4" />
