@@ -218,10 +218,13 @@ class Youtube extends Component {
 
       bothRows = bothData.map((data, i) => (
         <tr key={i}>
-          <td>{data.resolution}</td>
+          <td>
+            {data.resolution} {data.fps}fps
+          </td>
           <td>.{data.mime_type.replace("video/", "")}</td>
           <td>{data.audio_codec}</td>
           <td>{data.filesize}</td>
+
           <td>
             {" "}
             <a
@@ -257,7 +260,7 @@ class Youtube extends Component {
 
       videoRows = videoData.map((data, i) => (
         <tr key={i}>
-          <td>{data.resolution || "Unknown"}</td>
+          <td>{data.resolution || "Unknown"} {data.fps}fps</td>
           <td>.{data.mime_type.replace("video/", "")}</td>
           <td>{data.filesize}</td>
           <td>
