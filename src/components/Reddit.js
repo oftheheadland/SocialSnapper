@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import FadeIn from "react-fade-in";
 import "react-tabs/style/react-tabs.css";
 import Loading from "./Loading";
+import DownloadButton from "./DownloadButton";
 
 class Reddit extends Component {
   constructor() {
@@ -160,25 +161,11 @@ class Reddit extends Component {
             </a>
             <div style={{ display: this.state.showOptions }}>
               <p style={{ fontSize: "22px" }}>Download video only </p>
-              <a
-                className="snapper-button"
-                target="_blank"
-                rel="noopener noreferrer"
-                href={this.state.redditVideo}
-              >
-                Download
-              </a>
+              <DownloadButton href={this.state.redditVideo} />
 
               <hr />
               <p style={{ fontSize: "22px" }}>Download audio only</p>
-              <a
-                className="snapper-button"
-                target="_blank"
-                rel="noopener noreferrer"
-                href={this.state.redditAudio}
-              >
-                Download
-              </a>
+              <DownloadButton href={this.state.redditAudio} />
             </div>
           </div>
 
@@ -281,15 +268,24 @@ class Reddit extends Component {
     return (
       <FadeIn>
         <form className="snapper-form" onSubmit={this.handleReddit}>
-          <input
-            className="snapper-input"
-            type="text"
-            name="redditURLinput"
-            placeholder="Reddit Video Post URL"
-            onChange={this.handleChange}
-          />
-          <button className="snapper-button">Search</button>
-
+          <div
+            className="input-group"
+            style={{
+              height: "41px",
+              position: "relative",
+              margin: "auto",
+              display: "block"
+            }}
+          >
+            <input
+              className="snapper-input"
+              type="text"
+              name="redditURLinput"
+              placeholder="Reddit Video Post URL"
+              onChange={this.handleChange}
+            />
+            <button className="snapper-button search-button">Submit</button>
+          </div>
           <div>{displayRedditResults ? "" : redditDemo}</div>
         </form>
         <div className="reddit-download-container">

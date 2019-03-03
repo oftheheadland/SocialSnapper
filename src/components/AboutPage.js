@@ -13,10 +13,10 @@ function AboutPage() {
           you would like to save. Then paste it into SocialSnapper under the
           relevant tab.
         </p>
-        <p>Find examples below.</p>
+        <p>See examples below.</p>
         <h4>Reddit</h4>
         <p className="url-tip">
-          Reddit post with a v.redd.it video:{" "}
+          Reddit post containing a v.redd.it video:{" "}
           <a
             href="https://www.reddit.com/r/aww/comments/arz9u2/happy_baby_donkey/"
             style={{ color: "rgb(228, 55, 37)" }}
@@ -44,7 +44,8 @@ function AboutPage() {
         </p>
         <p className="url-tip">
           Reddit converts some video submissions to its propietary format, which
-          SocialSnapper helps you get around. It is only intended to be used on v.redd.it videos.
+          SocialSnapper helps you get around. It is only intended to be used on
+          v.redd.it videos.
         </p>
         <p className="url-tip">
           Luckily, most of those websites are easy to download content from, so
@@ -102,28 +103,28 @@ function AboutPage() {
         <h4>YouTube</h4>
 
         <p className="url-tip">
-          Instagram Post or Album:{" "}
+          YouTube Video:{" "}
           <a
-            href="https://www.instagram.com/p/Bs8qUvrhYBj/"
+            href="https://www.youtube.com/watch?v=a3lcGnMhvsA"
             style={{ color: "rgb(228, 55, 37)" }}
             target="_blank"
             rel="noopener noreferrer"
           >
-            https://www.instagram.com/p/Bs8qUvrhYBj/
+            https://www.youtube.com/watch?v=a3lcGnMhvsA
           </a>
         </p>
 
         <h4>Twitch</h4>
 
         <p className="url-tip">
-          Instagram Post or Album:{" "}
+          Twitch.tv Clip:{" "}
           <a
-            href="https://www.instagram.com/p/Bs8qUvrhYBj/"
+            href="https://clips.twitch.tv/ObedientBenevolentBasenjiNinjaGrumpy"
             style={{ color: "rgb(228, 55, 37)" }}
             target="_blank"
             rel="noopener noreferrer"
           >
-            https://www.instagram.com/p/Bs8qUvrhYBj/
+            https://clips.twitch.tv/ObedientBenevolentBasenjiNinjaGrumpy
           </a>
         </p>
         <h3>Why?</h3>
@@ -176,6 +177,14 @@ function AboutPage() {
           Mention the github repo for the videoconverter website, attribute
           ffmpeg
         </p>
+        <p>Favicon courtesy of https://thenounproject.com/</p>
+        <p>
+          To learn more about how the video conversion works please visit{" "}
+          <a href="https://github.com/oftheheadland/videoconverter">
+            https://github.com/oftheheadland/videoconverter
+          </a>
+        </p>
+        <p>The Reddit audio and video combination is actually done in an iframe of a separate website I've developed.</p>
       </div>
     </FadeIn>
   );

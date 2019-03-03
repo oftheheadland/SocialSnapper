@@ -160,7 +160,7 @@ class Youtube extends Component {
 
     let youtubeHeader;
 
-    let youtubeHighest;
+    // let youtubeHighest;
 
     let audioRows;
     let videoRows;
@@ -170,34 +170,34 @@ class Youtube extends Component {
       const audioData = youtubeData["audio"];
       const bothData = youtubeData["both"];
       const videoData = youtubeData["video"];
-      const highestData = youtubeData["highest"];
+      // const highestData = youtubeData["highest"];
       const generalData = youtubeData["general"];
 
-      if (!youtubeData["highest"][0]["tooLarge"]) {
-        youtubeHighest = (
-          <div style={{ padding: "30px" }}>
-            <p style={{ fontSize: "22px" }}>
-              Download Highest Quality <br /> ({highestData[0]["resolution"]}{" "}
-              {highestData[0]["bitrate"]})
-            </p>
-            <a
-              className="snapper-button"
-              target="_blank"
-              rel="noopener noreferrer"
-              href={
-                "https://combinefiles.netlify.com/?video=" +
-                btoa(highestData[0]["videoURL"]) +
-                "&audio=" +
-                btoa(highestData[0]["audioURL"])
-              }
-            >
-              Download
-            </a>
-          </div>
-        );
-      } else {
-        youtubeHighest = "";
-      }
+      // if (!youtubeData["highest"][0]["tooLarge"]) {
+      //   youtubeHighest = (
+      //     <div style={{ padding: "30px" }}>
+      //       <p style={{ fontSize: "22px" }}>
+      //         Download Highest Quality <br /> ({highestData[0]["resolution"]}{" "}
+      //         {highestData[0]["bitrate"]})
+      //       </p>
+      //       <a
+      //         className="snapper-button"
+      //         target="_blank"
+      //         rel="noopener noreferrer"
+      //         href={
+      //           "https://combinefiles.netlify.com/?video=" +
+      //           btoa(highestData[0]["videoURL"]) +
+      //           "&audio=" +
+      //           btoa(highestData[0]["audioURL"])
+      //         }
+      //       >
+      //         Download
+      //       </a>
+      //     </div>
+      //   );
+      // } else {
+      //   youtubeHighest = "";
+      // }
 
       youtubeHeader = (
         <div className="youtube-header">
@@ -334,7 +334,7 @@ class Youtube extends Component {
                   <i className="fas fa-times" />
                 </button>
                 <div style={{ paddingTop: "30px" }}>{youtubeHeader}</div>
-                {youtubeHighest}
+                {/* {youtubeHighest} */}
 
                 <BothTable bothRows={bothRows} />
                 <AudioTable audioRows={audioRows} />
