@@ -174,20 +174,16 @@ class Twitch extends Component {
           </a>
         </p>
         <p className="url-tip">
-          Here you can download{" "}
-          <a
-            href="https://twitch.tv"
-            style={{ color: "rgb(228, 55, 37)" }}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Twitch.tv
-          </a>{" "}
-          Clips at their highest possible resolution.
+          Here you can download Twitch.tv clips at their highest possible
+          resolution.
         </p>
         <button onClick={this.handleDemo} className="snapper-button">
-          Try it out!
+          View Example
         </button>
+        {/* <a href="" onClick={this.handleDemo}>
+          Click here
+        </a>{" "}
+        to see a demonstration. */}
       </div>
     );
 

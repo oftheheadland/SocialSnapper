@@ -20,7 +20,7 @@ function ContactPage() {
           .
         </p> */}
         <p>
-          <a href="mailto:andrew@oftheheadland.com" target="_top">
+          <a href="mailto:oftheheadland@gmail.com" target="_top">
             Email me
           </a>{" "}
           ideas, bugs, and feature requests.

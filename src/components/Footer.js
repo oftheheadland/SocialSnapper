@@ -10,6 +10,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             href="https://github.com/oftheheadland"
+            className="footer-link"
           >
             Oftheheadland
           </a>

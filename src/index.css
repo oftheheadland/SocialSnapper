@@ -795,3 +795,15 @@ a {
   display: inline-block;
   padding: 10px;
 }
+
+.footer-link {
+  color: white !important;
+}
+
+.about-div {
+  padding-bottom: 40px;
+}
+
+.about-div a {
+  color: #e43725 !important;
+}

@@ -273,8 +273,12 @@ class Youtube extends Component {
           available formats.
         </p>
         <button onClick={this.handleDemo} className="snapper-button">
-          Try it out!
+          View Example
         </button>
+        {/* <a href="" onClick={this.handleDemo}>
+          Click here
+        </a>{" "}
+        to see a demonstration. */}
       </div>
     );
 

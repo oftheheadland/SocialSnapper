@@ -258,12 +258,15 @@ class Reddit extends Component {
           </a>
         </p>
         <p className="url-tip">
-          Here you can download Reddit video posts (v.redd.it){" "}
-          <span style={{ fontWeight: "bold" }}>with sound!</span>
+          Here you can download Reddit video posts with audio.
         </p>
         <button onClick={this.handleDemo} className="snapper-button">
-          Try it out!
+          View Example
         </button>
+        {/* <a href="" onClick={this.handleDemo}>
+          Click here
+        </a>{" "}
+        to see a demonstration. */}
       </div>
     );
 
