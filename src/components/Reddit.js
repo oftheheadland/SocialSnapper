@@ -117,6 +117,8 @@ class Reddit extends Component {
           that.setState({ encodedAudio: btoa(jsonData["audio"]) });
         })
         .catch(error => console.error("Error:", error));
+    } else if (!this.state.redditLoading) {
+      alert("Please enter a URL");
     }
   }
 
@@ -232,7 +234,7 @@ class Reddit extends Component {
             look like this:{" "}
             <a
               href="https://www.reddit.com/r/aww/comments/arz9u2/happy_baby_donkey/"
-              style={{ color: "rgb(228, 55, 37)" }}
+              style={{ color: "rgb(228, 55, 37)", wordBreak: "break-all" }}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -268,15 +270,7 @@ class Reddit extends Component {
     return (
       <FadeIn>
         <form className="snapper-form" onSubmit={this.handleReddit}>
-          <div
-            className="input-group"
-            style={{
-              height: "41px",
-              position: "relative",
-              margin: "auto",
-              display: "block"
-            }}
-          >
+          <div className="input-group snapper-form-div">
             <input
               className="snapper-input"
               type="text"

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import "react-tabs/style/react-tabs.css";
+import FadeIn from "react-fade-in/lib/FadeIn";
 
 import Loading from "./Loading";
-import FadeIn from "react-fade-in/lib/FadeIn";
+import DownloadButton from "./DownloadButton";
 
 class Twitch extends Component {
   constructor() {
@@ -78,6 +79,8 @@ class Twitch extends Component {
           }
         })
         .catch(error => console.error("Error:", error));
+    } else if (!this.state.twitchLoading) {
+      alert("Please enter a URL");
     }
   }
 
@@ -144,14 +147,15 @@ class Twitch extends Component {
               Your browser does not support the video tag.
             </video>
           </div>
-          <a
+          <DownloadButton href={this.state.twitchClipMP4} />
+          {/* <a
             className="snapper-button"
             target="_blank"
             rel="noopener noreferrer"
             href={this.state.twitchClipMP4}
           >
             Download
-          </a>
+          </a> */}
         </div>
       </FadeIn>
     );
@@ -189,20 +193,17 @@ class Twitch extends Component {
 
     return (
       <FadeIn>
-        <form
-          id="twitchForm"
-          className="snapper-form"
-          onSubmit={this.handleTwitch}
-        >
-          <input
-            className="snapper-input"
-            type="text"
-            name="twitchURLinput"
-            placeholder="Twitch Clip URL"
-            onChange={this.handleChange}
-          />
-          <button className="snapper-button">Search</button>
-
+        <form className="snapper-form" onSubmit={this.handleTwitch}>
+          <div className="input-group snapper-form-div">
+            <input
+              className="snapper-input"
+              type="text"
+              name="twitchURLinput"
+              placeholder="Twitch Clip URL"
+              onChange={this.handleChange}
+            />
+            <button className="snapper-button search-button">Submit</button>
+          </div>
           <div>{this.state.twitchDemo ? twitchDemo : ""}</div>
         </form>
 
@@ -210,7 +211,7 @@ class Twitch extends Component {
           {this.state.twitchError ? (
             <div className="error-message">
               <button
-                className="reset-button reset-button-insta"
+                className="reset-button reset-button-twitch"
                 onClick={this.handleReset}
               >
                 <i className="fas fa-times" />
@@ -225,7 +226,7 @@ class Twitch extends Component {
             {this.state.twitchClipFound ? (
               <>
                 <button
-                  className="reset-button reset-button-insta"
+                  className="reset-button reset-button-twitch"
                   onClick={this.handleReset}
                 >
                   <i className="fas fa-times" />

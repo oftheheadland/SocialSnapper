@@ -4,15 +4,47 @@ import FadeIn from "react-fade-in";
 function ContactPage() {
   return (
     <FadeIn>
-      <div className="outer-container">
-        <p>Welcome to the contact page.</p>
-        <p>
-          Here there will be information about the creator and where you can
-          find me and my other works
-        </p>
+      <div className="about-container">
+        <h1>Contact Me</h1>
+        <hr />
 
-        <p>oftheheadland.com</p>
-        <p>github.com/oftheheadland</p>
+        {/* <p>
+          My{" "}
+          <a
+            href="https://oftheheadland.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            personal site
+          </a>
+          .
+        </p> */}
+        <p>
+          <a href="mailto:andrew@oftheheadland.com" target="_top">
+            Email me
+          </a>{" "}
+          ideas, bugs, and feature requests.
+        </p>
+        <p>
+          <a
+            href="http://github.com/oftheheadland"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>{" "}
+          where you can see my other projects.
+        </p>
+        <p>
+          <a
+            href="https://discord.gg/dVcxkSM"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Discord Server
+          </a>{" "}
+          where you can request features and changes to the developer directly.
+        </p>
         <a
           href="https://ko-fi.com/E1E3LTW5"
           rel="noopener noreferrer"

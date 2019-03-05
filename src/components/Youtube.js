@@ -125,6 +125,8 @@ class Youtube extends Component {
           })
           .catch(error => console.error("Error:", error));
       }
+    } else if (!this.state.youtubeLoading) {
+      alert("Please enter a URL");
     }
   }
   render() {
@@ -147,8 +149,8 @@ class Youtube extends Component {
         <button className="reset-button" onClick={this.handleReset}>
           <i className="fas fa-times" />
         </button>
-        The content you have requested is copyrighted or is not a valid youtube
-        URL. Please try a different video.
+        There was an problem with your query. Try again or use a different
+        video.
       </p>
     );
 
@@ -170,34 +172,7 @@ class Youtube extends Component {
       const audioData = youtubeData["audio"];
       const bothData = youtubeData["both"];
       const videoData = youtubeData["video"];
-      // const highestData = youtubeData["highest"];
       const generalData = youtubeData["general"];
-
-      // if (!youtubeData["highest"][0]["tooLarge"]) {
-      //   youtubeHighest = (
-      //     <div style={{ padding: "30px" }}>
-      //       <p style={{ fontSize: "22px" }}>
-      //         Download Highest Quality <br /> ({highestData[0]["resolution"]}{" "}
-      //         {highestData[0]["bitrate"]})
-      //       </p>
-      //       <a
-      //         className="snapper-button"
-      //         target="_blank"
-      //         rel="noopener noreferrer"
-      //         href={
-      //           "https://combinefiles.netlify.com/?video=" +
-      //           btoa(highestData[0]["videoURL"]) +
-      //           "&audio=" +
-      //           btoa(highestData[0]["audioURL"])
-      //         }
-      //       >
-      //         Download
-      //       </a>
-      //     </div>
-      //   );
-      // } else {
-      //   youtubeHighest = "";
-      // }
 
       youtubeHeader = (
         <div className="youtube-header">
@@ -305,19 +280,17 @@ class Youtube extends Component {
 
     return (
       <FadeIn>
-        <form
-          id="youtubeForm"
-          className="snapper-form"
-          onSubmit={this.handleYoutube}
-        >
-          <input
-            className="snapper-input"
-            type="text"
-            name="youtubeURLinput"
-            placeholder="Youtube Video URL"
-            onChange={this.handleChange}
-          />
-          <button className="snapper-button">Search</button>
+        <form className="snapper-form" onSubmit={this.handleYoutube}>
+          <div className="input-group snapper-form-div">
+            <input
+              className="snapper-input"
+              type="text"
+              name="youtubeURLinput"
+              placeholder="Youtube Video URL"
+              onChange={this.handleChange}
+            />
+            <button className="snapper-button search-button">Submit</button>
+          </div>
 
           <div>{this.state.youtubeDemo ? youtubeDemo : ""}</div>
         </form>
@@ -339,7 +312,6 @@ class Youtube extends Component {
                   <i className="fas fa-times" />
                 </button>
                 <div style={{ paddingTop: "30px" }}>{youtubeHeader}</div>
-                {/* {youtubeHighest} */}
 
                 <BothTable bothRows={bothRows} />
                 <AudioTable audioRows={audioRows} />

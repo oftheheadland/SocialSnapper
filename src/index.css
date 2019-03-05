@@ -6,6 +6,7 @@ body {
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #eeeeee;
 }
 
 code {
@@ -169,7 +170,7 @@ code {
 .outer-container {
   max-width: 75%;
   margin: auto;
-  min-height: 100vh;
+  min-height: 90vh;
 }
 @media only screen and (max-width: 1300px) {
   .outer-container {
@@ -301,6 +302,9 @@ header > p {
   background-color: #e43725;
   color: white;
   border-radius: 5px;
+  /* for animation */
+  overflow: hidden;
+  position: relative;
 }
 
 @media only screen and (max-width: 450px) {
@@ -322,11 +326,31 @@ header > p {
   color: white;
 }
 
-.snapper-button:active {
+/* .snapper-button:active {
   background-color: #d41f0b;
   text-decoration: none !important;
   transform: translateY(2px);
   color: white;
+} */
+
+.snapper-button:after {
+  content: "";
+  background: #ff9b90;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 1s;
+}
+
+.snapper-button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s;
 }
 
 .redditThumbnail {
@@ -419,7 +443,9 @@ header > p {
 .react-tabs__tab-list {
   margin-bottom: 0;
   text-align: center;
-  border-bottom: 1px solid #e43725;
+  border-bottom: 2px solid #e43725;
+  max-width: 800px;
+  margin: auto;
 }
 
 .react-tabs__tab :nth-child(1) {
@@ -579,22 +605,19 @@ header > p {
 
 .error-message {
   text-align: center;
-  padding: 20px;
+  padding: 30px;
   color: #000000;
   /* font-weight: bold; */
 }
 
 hr {
-  border-top: 1px solid #ff9b90;
+  border-top: 2px solid #e43725;
 }
 
 .kofi-button {
   border: 0px;
-  height: 36px;
+  height: 45px;
   margin: auto;
-  margin-left: 10px;
-  margin-top: 8px;
-  margin-bottom: 8px;
 }
 
 .twitch-flex-container {
@@ -660,13 +683,14 @@ hr {
 
 .router-link {
   color: #e43725 !important;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .about-container {
-  max-width: 850px;
+  max-width: 1050px;
   margin: auto;
   min-height: 100vh;
+  padding: 5px;
 }
 @media only screen and (max-width: 1300px) {
   .about-container {
@@ -738,4 +762,36 @@ iframe {
 
 .search-button:focus {
   outline: 0;
+}
+
+.reset-button-twitch {
+  right: 11%;
+}
+
+@media only screen and (max-width: 1400px) {
+  .reset-button-twitch {
+    right: 6%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .reset-button-twitch {
+    right: 20px;
+  }
+}
+
+.snapper-form-div {
+  height: 41px;
+  position: relative;
+  margin: auto;
+  display: block;
+}
+
+a {
+  color: #e43725;
+}
+
+.router-div {
+  display: inline-block;
+  padding: 10px;
 }

@@ -1,11 +1,20 @@
-import React from 'react';
+import React from "react";
 
 function Welcome() {
   return (
     <div className="welcome-container">
       <div className="welcome-div">
-        <p>Social media websites don't make it easy to download and save their content.</p>
-        <p> SocialSnapper allows you to view and save media from some of the most popular platforms.</p>
+        {/* <p>
+          Social media websites don't make it easy to download their content.
+        </p>
+        <p>
+          SocialSnapper allows you to save media from some of the most popular
+          platforms.
+        </p> */}
+        <p>
+          Select a tab and enter the URL of the content you would like to
+          download.
+        </p>
       </div>
     </div>
   );

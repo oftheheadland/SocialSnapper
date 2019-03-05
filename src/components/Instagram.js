@@ -124,6 +124,8 @@ class Instagram extends Component {
           }
         })
         .catch(error => console.error("Error:", error));
+    } else if (!this.state.youtubeLoading) {
+      alert("Please enter a URL");
     }
   }
 
@@ -198,9 +200,8 @@ class Instagram extends Component {
           </a>
         </p>
         <p className="url-tip">
-          Here you can download Instagram Posts, Highlights, and Stories. You
-          may enter any type of post or story including photos, videos, and
-          albums.
+          Here you can download Instagram Posts, Highlights, Stories, and
+          Profile Pictures.
         </p>
         <button onClick={this.handleDemo} className="snapper-button">
           Try it out!
@@ -210,19 +211,17 @@ class Instagram extends Component {
 
     return (
       <FadeIn>
-        <form
-          id="instagramForm"
-          className="snapper-form"
-          onSubmit={this.handleInstagram}
-        >
-          <input
-            className="snapper-input"
-            type="text"
-            name="instagramURLinput"
-            placeholder="Instagram Post URL"
-            onChange={this.handleChange}
-          />
-          <button className="snapper-button">Search</button>
+        <form className="snapper-form" onSubmit={this.handleInstagram}>
+          <div className="input-group snapper-form-div">
+            <input
+              className="snapper-input"
+              type="text"
+              name="instagramURLinput"
+              placeholder="Instagram Post URL"
+              onChange={this.handleChange}
+            />
+            <button className="snapper-button search-button">Submit</button>
+          </div>
 
           <div>{this.state.instagramDemo ? instaDemo : ""}</div>
         </form>
@@ -231,12 +230,12 @@ class Instagram extends Component {
           {this.state.instagramReady ? <>{resetButton}</> : ""}
 
           {this.state.instagramError ? (
-            <FadeIn>
+            <>
               {resetButton}
               <div className="error-message">
                 Error with your search. Please use an instagram post URL.
               </div>
-            </FadeIn>
+            </>
           ) : (
             ""
           )}
