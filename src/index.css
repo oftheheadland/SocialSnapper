@@ -32,7 +32,8 @@ code {
   width: 300px;
   margin: 10px;
   text-align: center;
-  font-size: 30px;
+  /* font-size: 30px; */
+  font-size: 0;
 }
 
 .video-spacer {
@@ -335,7 +336,7 @@ header > p {
 
 .snapper-button:after {
   content: "";
-  background: #ff9b90;
+  background: #ffffff65;
   display: block;
   position: absolute;
   padding-top: 300%;
@@ -343,7 +344,7 @@ header > p {
   margin-left: -20px !important;
   margin-top: -120%;
   opacity: 0;
-  transition: all 1s;
+  transition: all 1.5s;
 }
 
 .snapper-button:active:after {
@@ -537,6 +538,11 @@ header > p {
     width: 90%;
   }
 }
+@media only screen and (max-width: 600px) {
+  .youtube-table {
+    width: 98%;
+  }
+}
 
 .youtube-table td,
 .youtube-table th {
@@ -608,6 +614,7 @@ header > p {
   padding: 30px;
   color: #000000;
   /* font-weight: bold; */
+  word-break: break-word;
 }
 
 hr {
@@ -743,7 +750,7 @@ iframe {
 
 .search-button {
   font-size: 17.5px;
-  margin-left: -2px;
+  margin-left: 0px;
   border-radius: 0;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -757,7 +764,7 @@ iframe {
 }
 
 .snapper-input:focus {
-  outline: 0;
+  /* outline: 0; */
 }
 
 .search-button:focus {
@@ -784,7 +791,8 @@ iframe {
   height: 41px;
   position: relative;
   margin: auto;
-  display: block;
+  display: flex;
+  justify-content: center;
 }
 
 a {
@@ -807,3 +815,14 @@ a {
 .about-div a {
   color: #e43725 !important;
 }
+
+/* .input-group {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  width: 100%;
+} */

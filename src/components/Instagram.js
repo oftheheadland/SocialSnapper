@@ -237,7 +237,17 @@ class Instagram extends Component {
             <>
               {resetButton}
               <div className="error-message">
-                Error with your search. Please use an instagram post URL.
+                Error with your search. Please use an instagram post or story
+                URL.
+                <br /> Your URL should look like this:{" "}
+                <a
+                  href="https://www.instagram.com/p/Bs8qUvrhYBj/"
+                  style={{ color: "rgb(228, 55, 37)" }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  https://www.instagram.com/p/Bs8qUvrhYBj/
+                </a>
               </div>
             </>
           ) : (

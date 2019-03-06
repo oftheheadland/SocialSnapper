@@ -149,8 +149,16 @@ class Youtube extends Component {
         <button className="reset-button" onClick={this.handleReset}>
           <i className="fas fa-times" />
         </button>
-        There was an problem with your query. Try again or use a different
-        video.
+        Error with your search. Try again or use a different video. <br />
+        Your URL should look like this:{" "}
+        <a
+          href="https://www.youtube.com/watch?v=a3lcGnMhvsA"
+          style={{ color: "rgb(228, 55, 37)" }}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          https://www.youtube.com/watch?v=a3lcGnMhvsA
+        </a>
       </p>
     );
 

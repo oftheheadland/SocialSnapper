@@ -174,8 +174,7 @@ class Twitch extends Component {
           </a>
         </p>
         <p className="url-tip">
-          Here you can download Twitch.tv clips at their highest possible
-          resolution.
+          Here you can download Twitch.tv clips in HD quality.
         </p>
         <button onClick={this.handleDemo} className="snapper-button">
           View Example
@@ -212,7 +211,16 @@ class Twitch extends Component {
               >
                 <i className="fas fa-times" />
               </button>
-              Error with your search. Please use a valid Twitch Clip URL.
+              Error with your search. Please use a valid Twitch Clip URL. Your
+              URL should look like this:{" "}
+              <a
+                href="https://clips.twitch.tv/ObedientBenevolentBasenjiNinjaGrumpy"
+                style={{ color: "rgb(228, 55, 37)" }}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                https://clips.twitch.tv/ObedientBenevolentBasenjiNinjaGrumpy
+              </a>
             </div>
           ) : (
             ""
