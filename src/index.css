@@ -24,6 +24,7 @@ code {
   flex-wrap: wrap;
   justify-content: center;
   background-color: white;
+  padding-bottom: 50px;
 }
 
 .insta-flex-container > div {
