@@ -15,10 +15,18 @@ class MediaFetcher extends Component {
         <Welcome />
         <Tabs>
           <TabList>
-            <Tab>Reddit</Tab>
-            <Tab>Instagram</Tab>
-            <Tab>YouTube</Tab>
-            <Tab>Twitch</Tab>
+            <Tab>
+              <i className="fab fa-reddit-alien" /> Reddit
+            </Tab>
+            <Tab>
+              <i className="fab fa-instagram" /> Instagram
+            </Tab>
+            <Tab>
+              <i className="fab fa-youtube" /> YouTube
+            </Tab>
+            <Tab>
+              <i className="fab fa-twitch" /> Twitch
+            </Tab>
           </TabList>
 
           <TabPanel>

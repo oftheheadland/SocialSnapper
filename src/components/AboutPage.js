@@ -20,7 +20,9 @@ function AboutPage() {
           </p>
           <p>See examples below.</p>
           <div>
-            <h4>Reddit</h4>
+            <h4>
+              <i className="fab fa-reddit-alien" /> Reddit
+            </h4>
             <p className="url-tip">
               Example Reddit post containing a v.redd.it video:{" "}
               <a
@@ -65,7 +67,9 @@ function AboutPage() {
               This is only intended to be used on posts with v.redd.it videos.
             </p>
 
-            <h4>Instagram</h4>
+            <h4>
+              <i className="fab fa-instagram" /> Instagram
+            </h4>
             <p className="url-tip">
               Instagram Posts and Albums:{" "}
               <a
@@ -111,7 +115,9 @@ function AboutPage() {
               </a>
             </p>
 
-            <h4>YouTube</h4>
+            <h4>
+              <i className="fab fa-youtube" /> YouTube
+            </h4>
             <p className="url-tip">
               Any YouTube Video will work. Playlists are not currently supported
               but we have plans for it.
@@ -128,7 +134,9 @@ function AboutPage() {
               </a>
             </p>
 
-            <h4>Twitch</h4>
+            <h4>
+              <i className="fab fa-twitch" /> Twitch
+            </h4>
             <p className="url-tip">
               Any Twitch.tv Clip with the exception of banned or deleted clips.
               Videos and streams are not supported.

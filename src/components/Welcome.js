@@ -15,10 +15,7 @@ function Welcome() {
           SocialSnapper lets you download images and videos from social media
           websites.
         </p>
-        <p>
-          Select a tab and enter the URL of the content you would like to
-          download.
-        </p>
+        <p>Select a tab and enter the URL you would like to download.</p>
       </div>
     </div>
   );

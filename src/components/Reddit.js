@@ -155,7 +155,7 @@ class Reddit extends Component {
             </div>
 
             <a
-              style={{ color: "#e43725" }}
+              style={{ color: "#de311f" }}
               href="/"
               onClick={this.handleMoreOptions}
             >
@@ -261,7 +261,7 @@ class Reddit extends Component {
           Here you can download Reddit video posts with audio.
         </p>
         <button onClick={this.handleDemo} className="snapper-button">
-          View Example
+          View Example <i className="fas fa-angle-double-right" />
         </button>
         {/* <a href="" onClick={this.handleDemo}>
           Click here
@@ -281,7 +281,9 @@ class Reddit extends Component {
               placeholder="Reddit Video Post URL"
               onChange={this.handleChange}
             />
-            <button className="snapper-button search-button">Submit</button>
+            <button className="snapper-button search-button">
+              <i className="fas fa-search" />
+            </button>
           </div>
           <div>{displayRedditResults ? "" : redditDemo}</div>
         </form>

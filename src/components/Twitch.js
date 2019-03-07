@@ -177,7 +177,7 @@ class Twitch extends Component {
           Here you can download Twitch.tv clips in HD quality.
         </p>
         <button onClick={this.handleDemo} className="snapper-button">
-          View Example
+          View Example <i className="fas fa-angle-double-right"></i>
         </button>
         {/* <a href="" onClick={this.handleDemo}>
           Click here
@@ -197,7 +197,7 @@ class Twitch extends Component {
               placeholder="Twitch Clip URL"
               onChange={this.handleChange}
             />
-            <button className="snapper-button search-button">Submit</button>
+            <button className="snapper-button search-button"><i className="fas fa-search" /></button>
           </div>
           <div>{this.state.twitchDemo ? twitchDemo : ""}</div>
         </form>

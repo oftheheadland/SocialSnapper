@@ -10,7 +10,9 @@ function AudioTable(props) {
             <th>Bit Rate</th>
             <th>Audio Codec</th>
             <th>Size</th>
-            <th>Download</th>
+            <th>
+              <i className="fas fa-download large-icon" />
+            </th>
           </tr>
         </thead>
 

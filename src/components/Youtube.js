@@ -277,11 +277,11 @@ class Youtube extends Component {
           </a>
         </p>
         <p className="url-tip">
-          Here you can download Youtube videos in HD or choose from all
+          Here you can download Youtube videos in all
           available formats.
         </p>
         <button onClick={this.handleDemo} className="snapper-button">
-          View Example
+          View Example <i className="fas fa-angle-double-right" />
         </button>
         {/* <a href="" onClick={this.handleDemo}>
           Click here
@@ -301,7 +301,7 @@ class Youtube extends Component {
               placeholder="Youtube Video URL"
               onChange={this.handleChange}
             />
-            <button className="snapper-button search-button">Submit</button>
+            <button className="snapper-button search-button"><i className="fas fa-search" /></button>
           </div>
 
           <div>{this.state.youtubeDemo ? youtubeDemo : ""}</div>

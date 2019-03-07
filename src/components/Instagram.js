@@ -204,7 +204,7 @@ class Instagram extends Component {
           Profile Pictures.
         </p>
         <button onClick={this.handleDemo} className="snapper-button">
-          View Example
+          View Example <i className="fas fa-angle-double-right" />
         </button>
         {/* <a href="" onClick={this.handleDemo}>
           Click here
@@ -224,7 +224,9 @@ class Instagram extends Component {
               placeholder="Instagram Post URL"
               onChange={this.handleChange}
             />
-            <button className="snapper-button search-button">Submit</button>
+            <button className="snapper-button search-button">
+              <i className="fas fa-search" />
+            </button>
           </div>
 
           <div>{this.state.instagramDemo ? instaDemo : ""}</div>
