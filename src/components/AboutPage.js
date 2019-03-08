@@ -265,8 +265,8 @@ function AboutPage() {
               target="_blank"
             >
               videoconverter.js
-            </a>
-            . Shout out to them and{" "}
+            </a>{" "}
+            and{" "}
             <a
               href="https://www.ffmpeg.org/"
               rel="noopener noreferrer"
