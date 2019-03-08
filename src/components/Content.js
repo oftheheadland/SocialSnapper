@@ -22,7 +22,7 @@ class Content extends Component {
     return (
       <div>
         <div>
-          <div id="nav-links" style={{ margin: "auto", textAlign: "center" }}>
+          <div className="nav-links">
             <div className="router-div">
               <a
                 href="/"

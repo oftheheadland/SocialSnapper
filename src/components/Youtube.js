@@ -30,6 +30,7 @@ class Youtube extends Component {
     this.setState({ youtubeReady: false });
     this.setState({ youtubeWarning: false });
     this.setState({ youtubeError: false });
+    document.getElementById("youtubeURLinput").value = "";
   }
 
   handleChange(event) {
@@ -48,6 +49,7 @@ class Youtube extends Component {
     this.setState({ youtubeReady: false });
     let url = "https://snapperapi.herokuapp.com/youtubeAPI";
     let youtubeVideoURL = "https://www.youtube.com/watch?v=a3lcGnMhvsA";
+    document.getElementById("youtubeURLinput").value = youtubeVideoURL;
 
     // Build formData object.
     let formData = new FormData();
@@ -277,8 +279,7 @@ class Youtube extends Component {
           </a>
         </p>
         <p className="url-tip">
-          Here you can download Youtube videos in all
-          available formats.
+          Here you can download Youtube videos in all available formats.
         </p>
         <button onClick={this.handleDemo} className="snapper-button">
           View Example <i className="fas fa-angle-double-right" />
@@ -298,10 +299,13 @@ class Youtube extends Component {
               className="snapper-input"
               type="text"
               name="youtubeURLinput"
+              id="youtubeURLinput"
               placeholder="Youtube Video URL"
               onChange={this.handleChange}
             />
-            <button className="snapper-button search-button"><i className="fas fa-search" /></button>
+            <button className="snapper-button search-button">
+              <i className="fas fa-search" />
+            </button>
           </div>
 
           <div>{this.state.youtubeDemo ? youtubeDemo : ""}</div>

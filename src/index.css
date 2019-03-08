@@ -236,6 +236,7 @@ header {
   width: 100%;
   background-color: rgb(48, 45, 45);
   text-align: center;
+  margin-bottom: -1px;
 }
 
 header > p > img {
@@ -245,7 +246,7 @@ header > p > img {
 header > p {
   color: whitesmoke;
   font-size: 40px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
 }
 
 @media only screen and (max-width: 600px) {
@@ -324,7 +325,7 @@ header > p {
 
 .snapper-button:hover {
   text-decoration: none !important;
-  background-color: #d41f0b;
+  background-color: #ac1605;
   color: white;
 }
 
@@ -370,7 +371,7 @@ header > p {
 }
 
 .reddit-flex-container > div {
-  width: 50%;
+  width: 70%;
   min-width: 200px;
 }
 
@@ -641,7 +642,7 @@ hr {
   width: 80%;
   margin: 10px;
   text-align: center;
-  font-size: 30px;
+  font-size: 1.75rem;
 }
 
 @media only screen and (max-width: 800px) {
@@ -678,6 +679,12 @@ hr {
   }
 }
 
+@media only screen and (max-width: 400px) {
+  .reset-button-insta {
+    right: 10px;
+  }
+}
+
 .reset-button:focus {
   outline: 0;
 }
@@ -695,7 +702,7 @@ hr {
 }
 
 .about-container {
-  max-width: 1050px;
+  max-width: 1150px;
   margin: auto;
   min-height: 100vh;
   padding: 5px;
@@ -790,6 +797,12 @@ iframe {
   }
 }
 
+@media only screen and (max-width: 600px) {
+  .reset-button-twitch {
+    right: 10px;
+  }
+}
+
 .snapper-form-div {
   height: 41px;
   position: relative;
@@ -804,7 +817,7 @@ a {
 
 .router-div {
   display: inline-block;
-  padding: 10px;
+  padding: 0 17px 10px 17px;
 }
 
 .footer-link {
@@ -832,4 +845,17 @@ a {
 .fa-angle-double-right {
   font-size: 20px;
   vertical-align: middle;
+}
+
+.nav-links {
+  background-color: #302d2d;
+  margin: auto;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.demo-reset-button {
+  position: relative;
+  right: 0;
+  font-size: 22px;
 }

@@ -46,6 +46,7 @@ class Reddit extends Component {
   handleReset(event) {
     event.preventDefault();
     this.setState({ redditReady: false });
+    document.getElementById("redditURLinput").value = "";
   }
 
   // handles the "Try it out" button
@@ -58,6 +59,7 @@ class Reddit extends Component {
       let url = "https://snapperapi.herokuapp.com/redditAPI";
       let redditURL =
         "https://www.reddit.com/r/aww/comments/arz9u2/happy_baby_donkey/";
+      document.getElementById("redditURLinput").value = redditURL;
 
       let formData = new FormData(); // Build formData object.
       formData.append("redditURL", redditURL);
@@ -278,6 +280,7 @@ class Reddit extends Component {
               className="snapper-input"
               type="text"
               name="redditURLinput"
+              id="redditURLinput"
               placeholder="Reddit Video Post URL"
               onChange={this.handleChange}
             />

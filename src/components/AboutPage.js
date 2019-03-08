@@ -12,17 +12,34 @@ function AboutPage() {
             <i className="fas fa-caret-right" /> How do I use it?
           </h3>
           <p>
-            Copy the link from your browser's address bar of the content you
+            1. Copy the URL from your browser's address bar of the content you
             would like to save.
           </p>
+          <p>2. Paste the entire link into the input under the relevant tab.</p>
           <p>
-            Paste the entire link into SocialSnapper under the relevant tab.
+            3. Right click the Download button and select{" "}
+            <strong>Save Link As...</strong>
           </p>
-          <p>See examples below.</p>
+
+          <p>
+            4. Click the reset button ({" "}
+            {/* <button className="reset-button demo-reset-button">
+              <i className="fas fa-times" />
+            </button>{" "} */}
+            <i className="fas fa-times" style={{ color: "rgb(197, 0, 0)" }} /> ){" "}
+            to search again.
+          </p>
+
+          <p>See more information and examples below.</p>
+          <br />
           <div>
             <h4>
               <i className="fab fa-reddit-alien" /> Reddit
             </h4>
+            <p className="url-tip">
+              Works with any v.redd.it video. Just copy the link of the post
+              containing the video.
+            </p>
             <p className="url-tip">
               Example Reddit post containing a v.redd.it video:{" "}
               <a
@@ -35,7 +52,7 @@ function AboutPage() {
               </a>
             </p>
             <p className="url-tip">
-              Shortened URL versions also work:{" "}
+              Shortened URL versions also work. Example:{" "}
               <a
                 href="https://v.redd.it/ue83vad6ych21"
                 style={{ color: "rgb(228, 55, 37)" }}
@@ -70,6 +87,9 @@ function AboutPage() {
             <h4>
               <i className="fab fa-instagram" /> Instagram
             </h4>
+            <p className="url-tip">
+              Works on Posts, Stories, Highlights, and Profiles. Examples:
+            </p>
             <p className="url-tip">
               Instagram Posts and Albums:{" "}
               <a
@@ -119,8 +139,8 @@ function AboutPage() {
               <i className="fab fa-youtube" /> YouTube
             </h4>
             <p className="url-tip">
-              Any YouTube Video will work. Playlists are not currently supported
-              but we have plans for it.
+              Any YouTube Video will work. Playlists are not currently
+              supported.
             </p>
             <p className="url-tip">
               Example:{" "}
@@ -174,7 +194,7 @@ function AboutPage() {
             </p> */}
           <p>
             The goal of this project is to give that power back to users. Here
-            you can download images and videos that are under lock and key.
+            you can download images and videos that are difficult to save.
           </p>
           {/* <p>
               Similar websites exist and are, for the most part, pretty good.
@@ -182,8 +202,9 @@ function AboutPage() {
               paywalls, and watermarks.
             </p> */}
           <p>
-            SocialSnapper gathers multiple services into one place so you're not
-            constantly searching everytime you need to download a video.
+            SocialSnapper gathers multiple services into one place to avoid the
+            frustration of memorizing multiple websites that often paywalled and
+            full of ads.
           </p>
           {/* <p>
               SocialSnapper has none of those invasions of privacy. We are
@@ -207,26 +228,29 @@ function AboutPage() {
             and evolved into a useful tool.
           </p>
           <p>
-            This website is a React app and is supported by a Flask server and a
-            website specifically made to combine audio and video for the Reddit
-            section.
-          </p>
-
-          <p>
-            The Flask server acts as the brain of the application and is an API
-            for fetching download links to the content.
-          </p>
-          <p>
-            The Reddit file combiner is an iframe of a second website I
-            developed using{" "}
+            This website is bootstrapped with{" "}
             <a
-              href="https://github.com/bgrins/videoconverter.js"
+              href="https://github.com/facebook/create-react-app"
               rel="noopener noreferrer"
               target="_blank"
             >
-              videoconverter.js
-            </a>
-            .{" "}
+              Create React App
+            </a>{" "}
+            and is supported by a Python Flask server.
+          </p>
+
+          <p>
+            The Flask server acts as the brain of the application and fetches
+            the download links to the content.
+          </p>
+          <p>
+            Reddit serves videos as separate audio and video files.
+            SocialSnapper combines them in your browser for your convenience.
+          </p>
+          <p>
+            Youtube also serves audio and video separately for resolutions
+            higher than 720p. You are able to download the highest quality audio
+            and video files separately and combine them yourself.
           </p>
         </div>
         <div className="about-div">
@@ -234,7 +258,7 @@ function AboutPage() {
             <i className="fas fa-caret-right" /> Acknowledgments
           </h3>
           <p>
-            Video and audio conversion depends on{" "}
+            Combining the audio and video of Reddit videos depends on{" "}
             <a
               href="https://github.com/bgrins/videoconverter.js"
               rel="noopener noreferrer"
@@ -259,7 +283,18 @@ function AboutPage() {
               rel="noopener noreferrer"
               target="_blank"
             >
-              https://thenounproject.com/
+              thenounproject
+            </a>
+            .
+          </p>
+          <p>
+            The YouTube section relies on{" "}
+            <a
+              href="https://github.com/nficano/pytube "
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              pytube
             </a>
             .
           </p>

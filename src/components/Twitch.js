@@ -28,6 +28,7 @@ class Twitch extends Component {
     this.setState({ twitchDemo: true });
     this.setState({ twitchClipFound: false });
     this.setState({ twitchError: false });
+    document.getElementById("twitchURLInput").value = "";
   }
 
   handleChange(event) {
@@ -95,6 +96,7 @@ class Twitch extends Component {
       let url = "https://snapperapi.herokuapp.com/twitchAPI";
       let twitchURL =
         "https://clips.twitch.tv/ObedientBenevolentBasenjiNinjaGrumpy";
+      document.getElementById("twitchURLInput").value = twitchURL;
 
       // sanitize user input; remove empty spaces
       let cleanTwitchURL = twitchURL.split(" ").join("");
@@ -121,9 +123,6 @@ class Twitch extends Component {
         })
         .then(function(jsonData) {
           if (!apiFailed) {
-            console.log(jsonData);
-            console.log(jsonData["url"]);
-            console.log(jsonData["title"]);
             that.setState({ twitchClipMP4: jsonData["url"] });
             that.setState({ twitchClipTitle: jsonData["title"] });
             that.setState({ twitchClipFound: true });
@@ -177,7 +176,7 @@ class Twitch extends Component {
           Here you can download Twitch.tv clips in HD quality.
         </p>
         <button onClick={this.handleDemo} className="snapper-button">
-          View Example <i className="fas fa-angle-double-right"></i>
+          View Example <i className="fas fa-angle-double-right" />
         </button>
         {/* <a href="" onClick={this.handleDemo}>
           Click here
@@ -194,10 +193,13 @@ class Twitch extends Component {
               className="snapper-input"
               type="text"
               name="twitchURLinput"
+              id="twitchURLInput"
               placeholder="Twitch Clip URL"
               onChange={this.handleChange}
             />
-            <button className="snapper-button search-button"><i className="fas fa-search" /></button>
+            <button className="snapper-button search-button">
+              <i className="fas fa-search" />
+            </button>
           </div>
           <div>{this.state.twitchDemo ? twitchDemo : ""}</div>
         </form>

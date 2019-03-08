@@ -31,6 +31,7 @@ class Instagram extends Component {
     this.setState({ instagramDemo: true });
     this.setState({ instagramReady: false });
     this.setState({ instagramError: false });
+    document.getElementById("instagramURLinput").value = "";
   }
 
   handleDemo(event) {
@@ -45,6 +46,7 @@ class Instagram extends Component {
 
       let url = "https://snapperapi.herokuapp.com/instagramAPI";
       let instagramURL = "https://www.instagram.com/p/BrS7hrWFRTh/";
+      document.getElementById("instagramURLinput").value = instagramURL;
 
       // sanitize user input; remove empty spaces
       let cleanInstagramURL = instagramURL.split(" ").join("");
@@ -220,6 +222,7 @@ class Instagram extends Component {
             <input
               className="snapper-input"
               type="text"
+              id="instagramURLinput"
               name="instagramURLinput"
               placeholder="Instagram Post URL"
               onChange={this.handleChange}
