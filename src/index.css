@@ -859,3 +859,7 @@ a {
   right: 0;
   font-size: 22px;
 }
+
+.youtube-button {
+  vertical-align: middle;
+}
