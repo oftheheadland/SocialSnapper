@@ -83,7 +83,7 @@ class Twitch extends Component {
         })
         .catch(error => console.error("Error:", error));
     } else if (!this.state.twitchLoading) {
-      Popup.alert("Please enter a URL");
+      Popup.alert("Please enter a URL.");
     }
   }
 

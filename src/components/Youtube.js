@@ -132,7 +132,7 @@ class Youtube extends Component {
           .catch(error => console.error("Error:", error));
       }
     } else if (!this.state.youtubeLoading) {
-      Popup.alert("Please enter a URL");
+      Popup.alert("Please enter a URL.");
     }
   }
   render() {
