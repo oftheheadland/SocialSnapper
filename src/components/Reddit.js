@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import FadeIn from "react-fade-in";
 import "react-tabs/style/react-tabs.css";
+import Popup from "react-popup";
+
 import Loading from "./Loading";
 import DownloadButton from "./DownloadButton";
 
@@ -47,6 +49,7 @@ class Reddit extends Component {
     event.preventDefault();
     this.setState({ redditReady: false });
     document.getElementById("redditURLinput").value = "";
+    this.setState({ redditURLinput: "" });
   }
 
   // handles the "Try it out" button
@@ -60,6 +63,7 @@ class Reddit extends Component {
       let redditURL =
         "https://www.reddit.com/r/aww/comments/arz9u2/happy_baby_donkey/";
       document.getElementById("redditURLinput").value = redditURL;
+      this.setState({ redditURLinput: redditURL });
 
       let formData = new FormData(); // Build formData object.
       formData.append("redditURL", redditURL);
@@ -120,7 +124,7 @@ class Reddit extends Component {
         })
         .catch(error => console.error("Error:", error));
     } else if (!this.state.redditLoading) {
-      alert("Please enter a URL");
+      Popup.alert("Please enter a URL");
     }
   }
 
@@ -276,6 +280,7 @@ class Reddit extends Component {
       <FadeIn>
         <form className="snapper-form" onSubmit={this.handleReddit}>
           <div className="input-group snapper-form-div">
+            <Popup />
             <input
               className="snapper-input"
               type="text"

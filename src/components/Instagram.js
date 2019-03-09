@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import FadeIn from "react-fade-in";
-
+import Popup from "react-popup";
 import "react-tabs/style/react-tabs.css";
+
 import Loading from "./Loading";
 
 class Instagram extends Component {
@@ -9,7 +10,7 @@ class Instagram extends Component {
     super();
     this.state = {
       instagramLinks: [], // holds array of instagram image and video links
-      instagramURL: "", // holds value of instagram search input
+      instagramURLinput: "", // holds value of instagram search input
       instagramLoading: false, // when true displays loading animation
       instagramError: false, // when true displays error message
       instagramDemo: true, // when true, shows the "Try it out" button
@@ -32,6 +33,7 @@ class Instagram extends Component {
     this.setState({ instagramReady: false });
     this.setState({ instagramError: false });
     document.getElementById("instagramURLinput").value = "";
+    this.setState({ instagramURLinput: "" });
   }
 
   handleDemo(event) {
@@ -47,6 +49,7 @@ class Instagram extends Component {
       let url = "https://snapperapi.herokuapp.com/instagramAPI";
       let instagramURL = "https://www.instagram.com/p/BrS7hrWFRTh/";
       document.getElementById("instagramURLinput").value = instagramURL;
+      this.setState({ instagramURLinput: instagramURL });
 
       // sanitize user input; remove empty spaces
       let cleanInstagramURL = instagramURL.split(" ").join("");
@@ -126,8 +129,8 @@ class Instagram extends Component {
           }
         })
         .catch(error => console.error("Error:", error));
-    } else if (!this.state.youtubeLoading) {
-      alert("Please enter a URL");
+    } else if (!this.state.instagramLoading) {
+      Popup.alert("Please enter a URL");
     }
   }
 
@@ -219,6 +222,7 @@ class Instagram extends Component {
       <FadeIn>
         <form className="snapper-form" onSubmit={this.handleInstagram}>
           <div className="input-group snapper-form-div">
+            <Popup />
             <input
               className="snapper-input"
               type="text"

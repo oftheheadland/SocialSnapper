@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "react-tabs/style/react-tabs.css";
+import Popup from "react-popup";
 
 import Loading from "./Loading";
 import VideoTable from "./Youtube/VideoTable";
@@ -16,7 +17,8 @@ class Youtube extends Component {
       youtubeWarning: false, // shows message stating 'Playlists are not supported' when user searches playlists
       youtubeError: false, // shows error message for invalid searches
       youtubeLoading: false, // shows loading animation
-      youtubeDemo: true // shows 'Try it out' button
+      youtubeDemo: true, // shows 'Try it out' button
+      youtubeURLinput: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleYoutube = this.handleYoutube.bind(this);
@@ -31,6 +33,7 @@ class Youtube extends Component {
     this.setState({ youtubeWarning: false });
     this.setState({ youtubeError: false });
     document.getElementById("youtubeURLinput").value = "";
+    this.setState({ youtubeURLinput: "" });
   }
 
   handleChange(event) {
@@ -50,6 +53,7 @@ class Youtube extends Component {
     let url = "https://snapperapi.herokuapp.com/youtubeAPI";
     let youtubeVideoURL = "https://www.youtube.com/watch?v=a3lcGnMhvsA";
     document.getElementById("youtubeURLinput").value = youtubeVideoURL;
+    this.setState({ youtubeURLinput: youtubeVideoURL });
 
     // Build formData object.
     let formData = new FormData();
@@ -128,7 +132,7 @@ class Youtube extends Component {
           .catch(error => console.error("Error:", error));
       }
     } else if (!this.state.youtubeLoading) {
-      alert("Please enter a URL");
+      Popup.alert("Please enter a URL");
     }
   }
   render() {
@@ -295,6 +299,7 @@ class Youtube extends Component {
       <FadeIn>
         <form className="snapper-form" onSubmit={this.handleYoutube}>
           <div className="input-group snapper-form-div">
+            <Popup />
             <input
               className="snapper-input"
               type="text"

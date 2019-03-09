@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "react-tabs/style/react-tabs.css";
 import FadeIn from "react-fade-in/lib/FadeIn";
+import Popup from "react-popup";
 
 import Loading from "./Loading";
 import DownloadButton from "./DownloadButton";
@@ -12,7 +13,7 @@ class Twitch extends Component {
       twitchClipMP4: "", // holds clip mp4 link
       twitchClipTitle: "", // holds clip title
       twitchClipFound: false, // holds clip title
-      twitchURL: "", // holds value of the search input
+      twitchURLinput: "", // holds value of the search input
       twitchLoading: false, // when true displays loading animation
       twitchError: false, // when true displays error message
       twitchDemo: true // when true, shows the "Try it out" button
@@ -29,6 +30,7 @@ class Twitch extends Component {
     this.setState({ twitchClipFound: false });
     this.setState({ twitchError: false });
     document.getElementById("twitchURLInput").value = "";
+    this.setState({ twitchURLinput: "" });
   }
 
   handleChange(event) {
@@ -81,7 +83,7 @@ class Twitch extends Component {
         })
         .catch(error => console.error("Error:", error));
     } else if (!this.state.twitchLoading) {
-      alert("Please enter a URL");
+      Popup.alert("Please enter a URL");
     }
   }
 
@@ -97,6 +99,7 @@ class Twitch extends Component {
       let twitchURL =
         "https://clips.twitch.tv/ObedientBenevolentBasenjiNinjaGrumpy";
       document.getElementById("twitchURLInput").value = twitchURL;
+      this.setState({ twitchURLinput: twitchURL });
 
       // sanitize user input; remove empty spaces
       let cleanTwitchURL = twitchURL.split(" ").join("");
@@ -147,14 +150,6 @@ class Twitch extends Component {
             </video>
           </div>
           <DownloadButton href={this.state.twitchClipMP4} />
-          {/* <a
-            className="snapper-button"
-            target="_blank"
-            rel="noopener noreferrer"
-            href={this.state.twitchClipMP4}
-          >
-            Download
-          </a> */}
         </div>
       </FadeIn>
     );
@@ -178,10 +173,6 @@ class Twitch extends Component {
         <button onClick={this.handleDemo} className="snapper-button">
           View Example <i className="fas fa-angle-double-right" />
         </button>
-        {/* <a href="" onClick={this.handleDemo}>
-          Click here
-        </a>{" "}
-        to see a demonstration. */}
       </div>
     );
 
@@ -189,6 +180,7 @@ class Twitch extends Component {
       <FadeIn>
         <form className="snapper-form" onSubmit={this.handleTwitch}>
           <div className="input-group snapper-form-div">
+            <Popup />
             <input
               className="snapper-input"
               type="text"

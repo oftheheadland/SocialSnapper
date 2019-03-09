@@ -10,6 +10,7 @@
     "react-dom": "^16.7.0",
     "react-fade-in": "^0.1.6",
     "react-modal": "^3.8.1",
+    "react-popup": "^0.10.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.5",
     "react-tabs": "^3.0.0"
