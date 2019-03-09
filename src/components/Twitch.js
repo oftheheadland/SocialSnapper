@@ -160,7 +160,7 @@ class Twitch extends Component {
           Your URL should look like this:{" "}
           <a
             href="https://clips.twitch.tv/ObedientBenevolentBasenjiNinjaGrumpy"
-            style={{ color: "rgb(228, 55, 37)" }}
+            className="snapper-link"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -209,7 +209,7 @@ class Twitch extends Component {
               URL should look like this:{" "}
               <a
                 href="https://clips.twitch.tv/ObedientBenevolentBasenjiNinjaGrumpy"
-                style={{ color: "rgb(228, 55, 37)" }}
+                className="snapper-link"
                 target="_blank"
                 rel="noopener noreferrer"
               >

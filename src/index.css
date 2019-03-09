@@ -813,7 +813,7 @@ iframe {
 }
 
 a {
-  color: #de311f;
+  color: rgb(206, 19, 0);
 }
 
 .router-div {
@@ -827,10 +827,6 @@ a {
 
 .about-div {
   padding-bottom: 40px;
-}
-
-.about-div a {
-  color: #de311f !important;
 }
 
 .react-tabs__tab :nth-child(1) {
@@ -863,4 +859,12 @@ a {
 
 .youtube-button {
   vertical-align: middle;
+}
+
+.snapper-link {
+  color: rgb(206, 19, 0);
+}
+
+.snapper-link:hover {
+  color: rgb(206, 19, 0);
 }

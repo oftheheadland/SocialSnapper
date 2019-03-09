@@ -159,7 +159,7 @@ class Youtube extends Component {
         Your URL should look like this:{" "}
         <a
           href="https://www.youtube.com/watch?v=a3lcGnMhvsA"
-          style={{ color: "rgb(228, 55, 37)" }}
+          className="snapper-link"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -275,7 +275,7 @@ class Youtube extends Component {
           Your URL should look like this:{" "}
           <a
             href="https://www.youtube.com/watch?v=a3lcGnMhvsA"
-            style={{ color: "rgb(228, 55, 37)" }}
+            className="snapper-link"
             target="_blank"
             rel="noopener noreferrer"
           >

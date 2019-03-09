@@ -240,7 +240,8 @@ class Reddit extends Component {
             look like this:{" "}
             <a
               href="https://www.reddit.com/r/aww/comments/arz9u2/happy_baby_donkey/"
-              style={{ color: "rgb(228, 55, 37)", wordBreak: "break-all" }}
+              style={{ wordBreak: "break-all" }}
+              className="snapper-link"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -256,7 +257,7 @@ class Reddit extends Component {
           Your URL should look like this:{" "}
           <a
             href="https://www.reddit.com/r/aww/comments/arz9u2/happy_baby_donkey/"
-            style={{ color: "rgb(228, 55, 37)" }}
+            className="snapper-link"
             target="_blank"
             rel="noopener noreferrer"
           >

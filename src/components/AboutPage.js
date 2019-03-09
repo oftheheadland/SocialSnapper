@@ -44,7 +44,7 @@ function AboutPage() {
               Example Reddit post containing a v.redd.it video:{" "}
               <a
                 href="https://www.reddit.com/r/aww/comments/arz9u2/happy_baby_donkey/"
-                style={{ color: "rgb(228, 55, 37)" }}
+                className="snapper-link"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -55,7 +55,7 @@ function AboutPage() {
               Shortened URL versions also work. Example:{" "}
               <a
                 href="https://v.redd.it/ue83vad6ych21"
-                style={{ color: "rgb(228, 55, 37)" }}
+                className="snapper-link"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -94,7 +94,7 @@ function AboutPage() {
               Instagram Posts and Albums:{" "}
               <a
                 href="https://www.instagram.com/p/Bs8qUvrhYBj/"
-                style={{ color: "rgb(228, 55, 37)" }}
+                className="snapper-link"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -105,7 +105,7 @@ function AboutPage() {
               Instagram Highlights:{" "}
               <a
                 href="https://www.instagram.com/stories/highlights/17871290047271382/"
-                style={{ color: "rgb(228, 55, 37)" }}
+                className="snapper-link"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -116,7 +116,7 @@ function AboutPage() {
               Instagram Stories:{" "}
               <a
                 href="https://www.instagram.com/stories/instagram/"
-                style={{ color: "rgb(228, 55, 37)" }}
+                className="snapper-link"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -127,7 +127,7 @@ function AboutPage() {
               Instagram Profile Picture:{" "}
               <a
                 href="https://www.instagram.com/instagram/"
-                style={{ color: "rgb(228, 55, 37)" }}
+                className="snapper-link"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -146,7 +146,7 @@ function AboutPage() {
               Example:{" "}
               <a
                 href="https://www.youtube.com/watch?v=a3lcGnMhvsA"
-                style={{ color: "rgb(228, 55, 37)" }}
+                className="snapper-link"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -165,7 +165,7 @@ function AboutPage() {
               Example:{" "}
               <a
                 href="https://clips.twitch.tv/ObedientBenevolentBasenjiNinjaGrumpy"
-                style={{ color: "rgb(228, 55, 37)" }}
+                className="snapper-link"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -220,6 +220,7 @@ function AboutPage() {
             SocialSnapper began as an opportunity to learn{" "}
             <a
               href="https://reactjs.org/"
+              className="snapper-link"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -231,6 +232,7 @@ function AboutPage() {
             This website is bootstrapped with{" "}
             <a
               href="https://github.com/facebook/create-react-app"
+              className="snapper-link"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -261,6 +263,7 @@ function AboutPage() {
             Combining the audio and video of Reddit videos depends on{" "}
             <a
               href="https://github.com/bgrins/videoconverter.js"
+              className="snapper-link"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -269,6 +272,7 @@ function AboutPage() {
             and{" "}
             <a
               href="https://www.ffmpeg.org/"
+              className="snapper-link"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -280,6 +284,7 @@ function AboutPage() {
             Favicon courtesy of{" "}
             <a
               href="https://thenounproject.com/"
+              className="snapper-link"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -290,7 +295,8 @@ function AboutPage() {
           <p>
             The YouTube section relies on{" "}
             <a
-              href="https://github.com/nficano/pytube "
+              href="https://github.com/nficano/pytube"
+              className="snapper-link"
               rel="noopener noreferrer"
               target="_blank"
             >

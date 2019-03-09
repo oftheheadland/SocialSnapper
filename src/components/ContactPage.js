@@ -20,7 +20,11 @@ function ContactPage() {
           .
         </p> */}
         <p>
-          <a href="mailto:socialsnapper@gmail.com" target="_top">
+          <a
+            href="mailto:socialsnapper@gmail.com"
+            className="snapper-link"
+            target="_top"
+          >
             Email me
           </a>{" "}
           ideas, bugs, and feature requests.
@@ -28,6 +32,7 @@ function ContactPage() {
         <p>
           <a
             href="http://github.com/oftheheadland"
+            className="snapper-link"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -38,6 +43,7 @@ function ContactPage() {
         <p>
           <a
             href="https://discord.gg/dVcxkSM"
+            className="snapper-link"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -47,6 +53,7 @@ function ContactPage() {
         </p>
         <a
           href="https://ko-fi.com/E1E3LTW5"
+          className="snapper-link"
           rel="noopener noreferrer"
           target="_blank"
         >
