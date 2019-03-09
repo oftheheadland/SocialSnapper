@@ -697,7 +697,8 @@ hr {
 }
 
 .router-link {
-  color: #de311f !important;
+  /* color: #de311f !important; */
+  color: #eeeeee !important;
   font-size: 20px;
 }
 
@@ -863,4 +864,3 @@ a {
 .youtube-button {
   vertical-align: middle;
 }
-
