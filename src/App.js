@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "./components/Header";
 import Content from "./components/Content";
 import Footer from "./components/Footer";
+import "./bootstrap.min.css";
 import "./index.css";
 import "./popup.css";
 

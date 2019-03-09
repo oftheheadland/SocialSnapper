@@ -264,7 +264,7 @@ class Reddit extends Component {
           </a>
         </p>
         <p className="url-tip">
-          Here you can download Reddit video posts with audio.
+          Here you can download v.redd.it Reddit posts with audio.
         </p>
         <button onClick={this.handleDemo} className="snapper-button">
           View Example <i className="fas fa-angle-double-right" />
@@ -286,7 +286,7 @@ class Reddit extends Component {
               type="text"
               name="redditURLinput"
               id="redditURLinput"
-              placeholder="Reddit Video Post URL"
+              placeholder="Reddit v.redd.it Post URL"
               onChange={this.handleChange}
             />
             <button className="snapper-button search-button">
