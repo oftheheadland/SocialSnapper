@@ -8,20 +8,9 @@ function ContactPage() {
         <h1>Contact Me</h1>
         <hr />
 
-        {/* <p>
-          My{" "}
-          <a
-            href="https://oftheheadland.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            personal site
-          </a>
-          .
-        </p> */}
         <p>
           <a
-            href="mailto:socialsnapper@gmail.com"
+            href="mailto:socialsnapperdev@gmail.com"
             className="snapper-link"
             target="_top"
           >
