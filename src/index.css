@@ -172,7 +172,6 @@ code {
 .outer-container {
   max-width: 75%;
   margin: auto;
-  min-height: 90vh;
 }
 @media only screen and (max-width: 1300px) {
   .outer-container {
@@ -210,7 +209,7 @@ code {
 }
 
 .footer {
-  /* position: fixed; */
+  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -229,6 +228,16 @@ code {
 
 .footer p a {
   color: white;
+}
+
+.footer-div {
+  padding: 5px;
+  margin: auto;
+}
+
+/* same height as footer-div, prevents floating footer from overlapping content */
+.footer-margin {
+  height: 40px;
 }
 
 header {
@@ -705,7 +714,6 @@ hr {
 .about-container {
   max-width: 1150px;
   margin: auto;
-  min-height: 100vh;
   padding: 5px;
 }
 @media only screen and (max-width: 1300px) {
@@ -737,11 +745,6 @@ hr {
 }
 
 .ReactModal__Content {
-  margin: auto;
-}
-
-.footer-div {
-  padding: 5px;
   margin: auto;
 }
 
