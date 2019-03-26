@@ -15,10 +15,10 @@ function Footer() {
               className="footer-link"
             >
               Oftheheadland
-          </a>
+            </a>
           </p>
         </div>
-      </div >
+      </div>
     </>
   );
 }
