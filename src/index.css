@@ -430,6 +430,9 @@ header > p {
   font-size: 19px;
   border-radius: 5px 5px 0 0;
 }
+.react-tabs__tab:hover {
+  opacity: 0.9;
+}
 
 @media only screen and (max-width: 661px) {
   .react-tabs__tab {
