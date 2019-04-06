@@ -6,6 +6,7 @@ import Reddit from "./Reddit";
 import Instagram from "./Instagram";
 import Youtube from "./Youtube";
 import Twitch from "./Twitch";
+import Twitter from "./Twitter";
 import Welcome from "./Welcome";
 
 class MediaFetcher extends Component {
@@ -27,6 +28,9 @@ class MediaFetcher extends Component {
             <Tab>
               <i className="fab fa-twitch" /> Twitch
             </Tab>
+            <Tab>
+              <i className="fab fa-twitter" /> Twitter
+            </Tab>
           </TabList>
 
           <TabPanel>
@@ -43,6 +47,10 @@ class MediaFetcher extends Component {
 
           <TabPanel>
             <Twitch />
+          </TabPanel>
+
+          <TabPanel>
+            <Twitter />
           </TabPanel>
         </Tabs>
       </div>

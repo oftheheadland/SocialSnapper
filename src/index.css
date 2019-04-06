@@ -434,7 +434,7 @@ header > p {
   opacity: 0.9;
 }
 
-@media only screen and (max-width: 661px) {
+@media only screen and (max-width: 900px) {
   .react-tabs__tab {
     width: 60%;
     margin-bottom: 5px;
@@ -874,4 +874,14 @@ a {
 
 .snapper-link:hover {
   color: rgb(206, 19, 0);
+}
+
+.twitterCol {
+  text-align: center;
+  padding-bottom: 20px;
+  margin: auto;
+}
+
+.twitter-flex-container > div {
+  margin: auto;
 }
