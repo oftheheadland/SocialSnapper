@@ -271,6 +271,7 @@ class Youtube extends Component {
 
     let youtubeDemo = (
       <div>
+        <p className="url-tip">Message from the developer: Thank you for using SocialSnapper. YouTube has recently updated their website and made life difficult for people like me to help you view their videos. I am working on a fix. In the meantime please use an alternative website for YouTube videos. Everything else should work fine.</p>
         <p className="url-tip">
           Your URL should look like this:{" "}
           <a
