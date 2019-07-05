@@ -219,7 +219,7 @@ class Twitter extends Component {
               type="text"
               id="twitterURLinput"
               name="twitterURLinput"
-              placeholder="Instagram Post URL"
+              placeholder="Twitter Post URL"
               onChange={this.handleChange}
             />
             <button className="snapper-button search-button">
