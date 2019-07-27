@@ -101,6 +101,10 @@ class Instagram extends Component {
       // sanitize user input; remove empty spaces
       let cleanInstagramURL = instagramURL.split(" ").join("");
 
+      if (cleanInstagramURL.includes("/tv/")) {
+        cleanInstagramURL = cleanInstagramURL.replace("/tv/", "/p/");
+      }
+
       // Build formData object.
       let formData = new FormData();
       formData.append("instagramURL", cleanInstagramURL);
