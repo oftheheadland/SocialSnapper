@@ -188,10 +188,18 @@ class Youtube extends Component {
       const videoData = youtubeData["video"];
       const generalData = youtubeData["general"];
 
+      const youtubeID = this.state.youtubeURLinput.search(
+        /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i
+      );
+
       youtubeHeader = (
         <div className="youtube-header">
           <h3>{generalData[0]["title"]}</h3>
-          <a
+          <iframe
+            title="youtube-iframe"
+            src={"https://www.youtube.com/embed/" + { youtubeID }}
+          />
+          {/* <a
             href={generalData[0]["url"]}
             target="_blank"
             rel="noopener noreferrer"
@@ -201,7 +209,7 @@ class Youtube extends Component {
               className="youtube-thumbnail"
               src={generalData[0]["thumbnail"].replace("default", "hqdefault")}
             />
-          </a>
+          </a> */}
         </div>
       );
 
@@ -271,8 +279,15 @@ class Youtube extends Component {
 
     let youtubeDemo = (
       <div>
-        <p className="url-tip">Message from the developer: Thank you for using SocialSnapper. YouTube has recently updated their website and made life difficult for people like me to help you view their videos.</p> 
-        <p className="url-tip">I am working on a fix. In the meantime please use an alternative website for YouTube videos. Everything else should work fine.</p>
+        <p className="url-tip">
+          Message from the developer: Thank you for using SocialSnapper. YouTube
+          has recently updated their website and made life difficult for people
+          like me to help you view their videos.
+        </p>
+        <p className="url-tip">
+          I am working on a fix. In the meantime please use an alternative
+          website for YouTube videos. Everything else should work fine.
+        </p>
         <p className="url-tip">
           Your URL should look like this:{" "}
           <a
