@@ -22,9 +22,9 @@ class MediaFetcher extends Component {
             <Tab>
               <i className="fab fa-instagram" /> Instagram
             </Tab>
-            {/* <Tab>
+            <Tab>
               <i className="fab fa-youtube" /> YouTube
-            </Tab> */}
+            </Tab>
             <Tab>
               <i className="fab fa-twitch" /> Twitch
             </Tab>
@@ -41,9 +41,9 @@ class MediaFetcher extends Component {
             <Instagram />
           </TabPanel>
 
-          {/* <TabPanel>
+          <TabPanel>
             <Youtube />
-          </TabPanel> */}
+          </TabPanel>
 
           <TabPanel>
             <Twitch />
