@@ -3,6 +3,7 @@ import FadeIn from 'react-fade-in';
 import Popup from 'react-popup';
 import 'react-tabs/style/react-tabs.css';
 
+import SadMessage from './SadMessage';
 import Loading from './Loading';
 
 class Instagram extends Component {
@@ -167,7 +168,7 @@ class Instagram extends Component {
     ));
     let instaDemo = (
       <div>
-        <p className="url-tip">
+        {/* <p className="url-tip">
           Your URL should look like this:{' '}
           <a
             href="https://www.instagram.com/p/Bs8qUvrhYBj/"
@@ -177,7 +178,7 @@ class Instagram extends Component {
           >
             https://www.instagram.com/p/Bs8qUvrhYBj/
           </a>
-        </p>
+        </p> */}
         <p className="url-tip">
           Here you can download Instagram Posts, Highlights, Stories, and
           Profile Pictures.
@@ -193,7 +194,7 @@ class Instagram extends Component {
         <form className="snapper-form" onSubmit={this.handleInstagram}>
           <div className="input-group snapper-form-div">
             <Popup />
-            <input
+            {/* <input
               className="snapper-input"
               type="text"
               id="instagramURLinput"
@@ -203,7 +204,8 @@ class Instagram extends Component {
             />
             <button className="snapper-button search-button">
               <i className="fas fa-search" />
-            </button>
+            </button> */}
+            <SadMessage url="https://instagram.com" />
           </div>
 
           <div>{this.state.instagramDemo ? instaDemo : ''}</div>
