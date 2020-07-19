@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import "react-tabs/style/react-tabs.css";
+import React, { Component } from 'react';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
-import Reddit from "./Reddit";
-import Instagram from "./Instagram";
-import Youtube from "./Youtube";
-import Twitch from "./Twitch";
-import Twitter from "./Twitter";
-import Welcome from "./Welcome";
+import Reddit from './Reddit';
+import Instagram from './Instagram';
+import Youtube from './Youtube';
+// import Twitch from './Twitch';
+import Twitter from './Twitter';
+import Welcome from './Welcome';
 
 class MediaFetcher extends Component {
   render() {
@@ -25,9 +25,9 @@ class MediaFetcher extends Component {
             <Tab>
               <i className="fab fa-youtube" /> YouTube
             </Tab>
-            <Tab>
+            {/* <Tab>
               <i className="fab fa-twitch" /> Twitch
-            </Tab>
+            </Tab> */}
             <Tab>
               <i className="fab fa-twitter" /> Twitter
             </Tab>
@@ -45,9 +45,9 @@ class MediaFetcher extends Component {
             <Youtube />
           </TabPanel>
 
-          <TabPanel>
+          {/* <TabPanel>
             <Twitch />
-          </TabPanel>
+          </TabPanel> */}
 
           <TabPanel>
             <Twitter />

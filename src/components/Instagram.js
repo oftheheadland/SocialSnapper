@@ -1,20 +1,20 @@
-import React, { Component } from "react";
-import FadeIn from "react-fade-in";
-import Popup from "react-popup";
-import "react-tabs/style/react-tabs.css";
+import React, { Component } from 'react';
+import FadeIn from 'react-fade-in';
+import Popup from 'react-popup';
+import 'react-tabs/style/react-tabs.css';
 
-import Loading from "./Loading";
+import Loading from './Loading';
 
 class Instagram extends Component {
   constructor() {
     super();
     this.state = {
       instagramLinks: [], // holds array of instagram image and video links
-      instagramURLinput: "", // holds value of instagram search input
+      instagramURLinput: '', // holds value of instagram search input
       instagramLoading: false, // when true displays loading animation
       instagramError: false, // when true displays error message
       instagramDemo: true, // when true, shows the "Try it out" button
-      instagramReady: false //holds whether demo should be shown or not
+      instagramReady: false, //holds whether demo should be shown or not
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleInstagram = this.handleInstagram.bind(this);
@@ -32,8 +32,8 @@ class Instagram extends Component {
     this.setState({ instagramDemo: true });
     this.setState({ instagramReady: false });
     this.setState({ instagramError: false });
-    document.getElementById("instagramURLinput").value = "";
-    this.setState({ instagramURLinput: "" });
+    document.getElementById('instagramURLinput').value = '';
+    this.setState({ instagramURLinput: '' });
   }
 
   handleDemo(event) {
@@ -41,47 +41,20 @@ class Instagram extends Component {
 
     if (!this.state.instagramLoading) {
       this.setState({ instagramDemo: false });
-      this.setState({ instagramReady: false });
-      this.setState({ instagramLoading: true });
+      this.setState({ instagramReady: true });
+      this.setState({ instagramLoading: false });
       this.setState({ instagramError: false });
-      this.setState({ instagramLinks: [] });
-
-      let url = "https://snapperapi.herokuapp.com/instagramAPI";
-      let instagramURL = "https://www.instagram.com/p/BrS7hrWFRTh/";
-      document.getElementById("instagramURLinput").value = instagramURL;
-      this.setState({ instagramURLinput: instagramURL });
-
-      // sanitize user input; remove empty spaces
-      let cleanInstagramURL = instagramURL.split(" ").join("");
-
-      // Build formData object.
-      let formData = new FormData();
-      formData.append("instagramURL", cleanInstagramURL);
-
-      const that = this;
-      let apiFailed = false;
-      // fetch from api
-      fetch(url, {
-        method: "POST",
-        body: formData
-      })
-        .then(function(response) {
-          if (response.status !== 200) {
-            that.setState({ instagramError: true });
-            that.setState({ instagramLoading: false });
-            apiFailed = true;
-          } else {
-            return response.json();
-          }
-        })
-        .then(function(jsonData) {
-          if (!apiFailed) {
-            that.setState({ instagramLinks: jsonData["links"] });
-            that.setState({ instagramLoading: false });
-            that.setState({ instagramReady: true });
-          }
-        })
-        .catch(error => console.error("Error:", error));
+      this.setState({
+        instagramURLinput: 'https://www.instagram.com/p/Bs8qUvrhYBj/',
+      });
+      this.setState({
+        instagramLinks: [
+          'https://scontent-bos3-1.cdninstagram.com/v/t51.2885-15/e35/50324653_229452851340964_8861587818712193897_n.jpg?_nc_ht=scontent-bos3-1.cdninstagram.com&_nc_cat=104&_nc_ohc=15OTYoVNxUAAX-Ti9vN&oh=4537452aa7162590a38b5f983bf2d5aa&oe=5F3CC65B',
+          'https://scontent-bos3-1.cdninstagram.com/v/t51.2885-15/e35/49555951_141955066709002_8821930970154665631_n.jpg?_nc_ht=scontent-bos3-1.cdninstagram.com&_nc_cat=110&_nc_ohc=X_cdMbyie2AAX8qjpbl&oh=b12854d0fd7d335b427a06a0bf373102&oe=5F3CDA21',
+          'https://scontent-bos3-1.cdninstagram.com/v/t51.2885-15/e35/50032352_284698842221250_8243911729013016769_n.jpg?_nc_ht=scontent-bos3-1.cdninstagram.com&_nc_cat=106&_nc_ohc=sQb5GoxYxksAX9WmSoI&oh=d00a3111b587e4119397d148e2193416&oe=5F3AF2D8',
+          'https://scontent-bos3-1.cdninstagram.com/v/t51.2885-15/e35/46336967_248621159393381_4664381489986124221_n.jpg?_nc_ht=scontent-bos3-1.cdninstagram.com&_nc_cat=105&_nc_ohc=3xBKB_DveqAAX_V4NHi&oh=d0c7c48a23cde56a1c535bcbffd88b62&oe=5F3E5394',
+        ],
+      });
     }
   }
 
@@ -95,26 +68,26 @@ class Instagram extends Component {
       this.setState({ instagramError: false });
       this.setState({ instagramLinks: [] });
 
-      let url = "https://snapperapi.herokuapp.com/instagramAPI";
+      let url = 'https://snapperapi.herokuapp.com/instagramAPI';
       let instagramURL = this.state.instagramURLinput;
 
       // sanitize user input; remove empty spaces
-      let cleanInstagramURL = instagramURL.split(" ").join("");
+      let cleanInstagramURL = instagramURL.split(' ').join('');
 
-      if (cleanInstagramURL.includes("/tv/")) {
-        cleanInstagramURL = cleanInstagramURL.replace("/tv/", "/p/");
+      if (cleanInstagramURL.includes('/tv/')) {
+        cleanInstagramURL = cleanInstagramURL.replace('/tv/', '/p/');
       }
 
       // Build formData object.
       let formData = new FormData();
-      formData.append("instagramURL", cleanInstagramURL);
+      formData.append('instagramURL', cleanInstagramURL);
 
       const that = this;
       let apiFailed = false;
       // fetch from api
       fetch(url, {
-        method: "POST",
-        body: formData
+        method: 'POST',
+        body: formData,
       })
         .then(function(response) {
           if (response.status !== 200) {
@@ -127,14 +100,14 @@ class Instagram extends Component {
         })
         .then(function(jsonData) {
           if (!apiFailed) {
-            that.setState({ instagramLinks: jsonData["links"] });
+            that.setState({ instagramLinks: jsonData['links'] });
             that.setState({ instagramLoading: false });
             that.setState({ instagramReady: true });
           }
         })
-        .catch(error => console.error("Error:", error));
+        .catch((error) => console.error('Error:', error));
     } else if (!this.state.instagramLoading) {
-      Popup.alert("Please enter a URL.");
+      Popup.alert('Please enter a URL.');
     }
   }
 
@@ -143,7 +116,7 @@ class Instagram extends Component {
     if (!String.prototype.includes) {
       // eslint-disable-next-line
       String.prototype.includes = function(search, start) {
-        if (typeof start !== "number") {
+        if (typeof start !== 'number') {
           start = 0;
         }
 
@@ -154,8 +127,6 @@ class Instagram extends Component {
         }
       };
     }
-
-    // const instagramLinks = this.state.instagramLinks;
 
     const resetButton = (
       <button
@@ -169,8 +140,7 @@ class Instagram extends Component {
     const instagramBlocks = this.state.instagramLinks.map((insta, i) => (
       <FadeIn key={i}>
         <div className="instagramCol">
-          {insta.includes("mp4") ? (
-            // <div style={{ maxHeight: "375px" }}>
+          {insta.includes('mp4') ? (
             <div>
               <video key={insta} width="100%" controls>
                 <source src={insta} type="video/mp4" />
@@ -179,7 +149,7 @@ class Instagram extends Component {
             </div>
           ) : (
             <div>
-              <img alt="instagram pic" style={{ width: "100%" }} src={insta} />
+              <img alt="instagram pic" style={{ width: '100%' }} src={insta} />
             </div>
           )}
 
@@ -198,7 +168,7 @@ class Instagram extends Component {
     let instaDemo = (
       <div>
         <p className="url-tip">
-          Your URL should look like this:{" "}
+          Your URL should look like this:{' '}
           <a
             href="https://www.instagram.com/p/Bs8qUvrhYBj/"
             className="snapper-link"
@@ -215,10 +185,6 @@ class Instagram extends Component {
         <button onClick={this.handleDemo} className="snapper-button">
           View Example <i className="fas fa-angle-double-right" />
         </button>
-        {/* <a href="" onClick={this.handleDemo}>
-          Click here
-        </a>{" "}
-        to see a demonstration. */}
       </div>
     );
 
@@ -240,11 +206,11 @@ class Instagram extends Component {
             </button>
           </div>
 
-          <div>{this.state.instagramDemo ? instaDemo : ""}</div>
+          <div>{this.state.instagramDemo ? instaDemo : ''}</div>
         </form>
 
         <div className="insta-download-container">
-          {this.state.instagramReady ? <>{resetButton}</> : ""}
+          {this.state.instagramReady ? <>{resetButton}</> : ''}
 
           {this.state.instagramError ? (
             <>
@@ -252,7 +218,7 @@ class Instagram extends Component {
               <div className="error-message">
                 Error with your search. Please use an instagram post or story
                 URL.
-                <br /> Your URL should look like this:{" "}
+                <br /> Your URL should look like this:{' '}
                 <a
                   href="https://www.instagram.com/p/Bs8qUvrhYBj/"
                   className="snapper-link"
@@ -264,14 +230,25 @@ class Instagram extends Component {
               </div>
             </>
           ) : (
-            ""
+            ''
           )}
-          {this.state.instagramLoading ? <Loading /> : ""}
+          {this.state.instagramLoading ? <Loading /> : ''}
 
           {this.state.instagramReady ? (
-            <div className="insta-flex-container">{instagramBlocks}</div>
+            <>
+              <p className="demo-link">
+                <a
+                  href={this.state.instagramURLinput}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {this.state.instagramURLinput}
+                </a>
+              </p>
+              <div className="insta-flex-container">{instagramBlocks}</div>
+            </>
           ) : (
-            ""
+            ''
           )}
         </div>
       </FadeIn>
