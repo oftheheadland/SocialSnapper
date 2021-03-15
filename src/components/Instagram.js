@@ -50,10 +50,10 @@ class Instagram extends Component {
       });
       this.setState({
         instagramLinks: [
-          'https://scontent-bos3-1.cdninstagram.com/v/t51.2885-15/e35/50324653_229452851340964_8861587818712193897_n.jpg?_nc_ht=scontent-bos3-1.cdninstagram.com&_nc_cat=104&_nc_ohc=15OTYoVNxUAAX-Ti9vN&oh=4537452aa7162590a38b5f983bf2d5aa&oe=5F3CC65B',
-          'https://scontent-bos3-1.cdninstagram.com/v/t51.2885-15/e35/49555951_141955066709002_8821930970154665631_n.jpg?_nc_ht=scontent-bos3-1.cdninstagram.com&_nc_cat=110&_nc_ohc=X_cdMbyie2AAX8qjpbl&oh=b12854d0fd7d335b427a06a0bf373102&oe=5F3CDA21',
-          'https://scontent-bos3-1.cdninstagram.com/v/t51.2885-15/e35/50032352_284698842221250_8243911729013016769_n.jpg?_nc_ht=scontent-bos3-1.cdninstagram.com&_nc_cat=106&_nc_ohc=sQb5GoxYxksAX9WmSoI&oh=d00a3111b587e4119397d148e2193416&oe=5F3AF2D8',
-          'https://scontent-bos3-1.cdninstagram.com/v/t51.2885-15/e35/46336967_248621159393381_4664381489986124221_n.jpg?_nc_ht=scontent-bos3-1.cdninstagram.com&_nc_cat=105&_nc_ohc=3xBKB_DveqAAX_V4NHi&oh=d0c7c48a23cde56a1c535bcbffd88b62&oe=5F3E5394',
+          'https://i.imgur.com/pSnGmAn.jpg',
+          'https://i.imgur.com/2M2oDbs.jpg',
+          'https://i.imgur.com/NLwIUu7.jpg',
+          'https://i.imgur.com/lTtYdbE.jpg',
         ],
       });
     }
